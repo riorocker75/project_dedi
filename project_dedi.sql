@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2020 at 11:07 AM
+-- Generation Time: Jun 30, 2020 at 11:17 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -179,7 +179,7 @@ CREATE TABLE `tbl_operator` (
 --
 
 INSERT INTO `tbl_operator` (`operator_id`, `operator_kode`, `operator_nomor_pegawai`, `operator_nama`, `operator_kelamin`, `operator_tempat_lahir`, `operator_tanggal_lahir`, `operator_alamat`, `operator_kontak`, `operator_username`, `operator_password`) VALUES
-(1, 'OP-92028', '123456', 'Admin Tunggal', 'Laki - Laki', 'sdfsdf', '2020-06-23', 'sdfsdfsdf', '23423423', '', ''),
+(1, 'OP-92028', '123456', 'Admin Tunggal', 'Laki - Laki', 'sdfsdf', '2020-06-23', 'sdfsdfsdf', '23423423', 'operator', '$2y$10$W1UOlYAYhG2IqFpDml.UauXvvTQS03YcTTMDZTRJXAlYM8xryHD2y'),
 (3, 'OP-97636', '34234', 'sfsdfsd', 'Laki - Laki', 'sdfsdf', '2020-06-16', 'sdfsdf', '2345454', '', '');
 
 -- --------------------------------------------------------

@@ -23,7 +23,7 @@ Route::get('/', function () {
 ===========================
 */
 
-// Route::get('/login/tes' ,'Auth\UserController@tes');
+Route::get('/login/tes' ,'Auth\UserController@tes');
 
 
 
