@@ -31,12 +31,50 @@
             echo '</div>';
         }
         
-        
-
-
-
     }
 
 // function tes_alert(){
 //     return "ini pesan dari alret";
 // }
+
+// cek login status
+
+    function status_user($nama){
+        switch ($nama) {
+            case 1:
+               echo "Admin";
+                break;
+            case 2:
+               echo "Operator";
+                break;
+            case 3:
+               echo "Anggota";
+                break;
+            default:
+               echo "tidak ada";
+                break;
+        }
+    }
+
+     function status_anggota($status){
+        switch ($status) {
+            case 0:
+               echo "Belum Aktif";
+                break;
+            case 1:
+               echo "Operator Setuju";
+                break;
+            case 2:
+               echo "Admin Setuju";
+                break;
+            case 3:
+               echo "Admin Menolak";
+                break;
+            case 4:
+               echo "Operator Menolak";
+                break;    
+            default:
+               echo "tidak ada";
+                break;
+        }
+    }

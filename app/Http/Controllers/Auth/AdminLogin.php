@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
-use File;
 use Illuminate\Support\Str;
 
 use Illuminate\Support\Facades\Hash;
@@ -28,10 +28,13 @@ class AdminLogin extends Controller
         $password = $request->password;
         $data = Admin::where('admin_username',$username)->first();
             if($data){
+                 Session::flush();
+                
                 if(Hash::check($password,$data->admin_password)){
                     Session::put('adm_nama', $data->admin_nama);
                     Session::put('adm_username', $data->admin_username);
                     Session::put('adm_kontak', $data->admin_kontak);
+                    Session::put('level', 1);
                     Session::put('login-adm',TRUE);
                     return redirect('/dashboard/admin')->with('alert-success','Selamat Datang Kembali');
                 }else{

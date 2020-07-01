@@ -32,7 +32,7 @@ class AdminController extends Controller
 
 
     function __invoke(){
-    	return "ini lgin";
+    	return view('admin.admin');
     }
 
 

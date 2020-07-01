@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2020 at 11:17 AM
+-- Generation Time: Jul 01, 2020 at 09:50 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -69,6 +69,8 @@ INSERT INTO `tbl_admin` (`admin_id`, `admin_kode`, `admin_nama`, `admin_kelamin`
 CREATE TABLE `tbl_anggota` (
   `anggota_id` int(11) NOT NULL,
   `anggota_kode` text NOT NULL,
+  `anggota_username` text NOT NULL,
+  `anggota_password` text NOT NULL,
   `anggota_nik` varchar(100) NOT NULL,
   `anggota_nama` varchar(100) DEFAULT NULL,
   `anggota_kelamin` varchar(20) DEFAULT NULL,
@@ -77,15 +79,18 @@ CREATE TABLE `tbl_anggota` (
   `anggota_alamat_ktp` varchar(100) DEFAULT NULL,
   `anggota_alamat_sekarang` varchar(100) DEFAULT NULL,
   `anggota_kontak` varchar(15) DEFAULT NULL,
-  `anggota_pekerjaan` varchar(50) DEFAULT NULL
+  `anggota_pekerjaan` varchar(50) DEFAULT NULL,
+  `status` text NOT NULL COMMENT '0=tidak_aktif,1=operator_setuju,2=admin_setuju,3=admin_nolak,4=operator_nolak',
+  `foto` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_anggota`
 --
 
-INSERT INTO `tbl_anggota` (`anggota_id`, `anggota_kode`, `anggota_nik`, `anggota_nama`, `anggota_kelamin`, `anggota_tempat_lahir`, `anggota_tanggal_lahir`, `anggota_alamat_ktp`, `anggota_alamat_sekarang`, `anggota_kontak`, `anggota_pekerjaan`) VALUES
-(1, 'AG-827', '11642421561252156', 'Dahlan', 'Laki - Laki', 'Hagu Barat Laut', '1989-06-30', 'Hagu Barat Laut', 'Hagu Barat Laut', '082272242022', 'PNS DOSEN');
+INSERT INTO `tbl_anggota` (`anggota_id`, `anggota_kode`, `anggota_username`, `anggota_password`, `anggota_nik`, `anggota_nama`, `anggota_kelamin`, `anggota_tempat_lahir`, `anggota_tanggal_lahir`, `anggota_alamat_ktp`, `anggota_alamat_sekarang`, `anggota_kontak`, `anggota_pekerjaan`, `status`, `foto`) VALUES
+(1, 'AG-827', 'anggota', '$2y$10$sV9K2sSYB0x5Gc.9FXgTTuYUSwDh8xf13xgqPPtf6MRsI38DE7qte', '9900292828', 'Dahlan', 'Laki - Laki', 'Hagu Barat Laut', '1989-06-30', 'Hagu Barat Laut', 'Hagu Barat Laut', '082272242022', 'PNS DOSEN', '', ''),
+(3, 'AG-8130', 'sumail', '$2y$10$c1lU9MWQoJbHUV5CQ/RLouRWUl2UQWFoiZn1ONzMQI9zU7w8TTHvi', '120966637739', 'Sumail', 'laki-laki', NULL, NULL, 'Madina', NULL, '123123123123', NULL, '3', NULL);
 
 -- --------------------------------------------------------
 
@@ -334,7 +339,7 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_anggota`
 --
 ALTER TABLE `tbl_anggota`
-  MODIFY `anggota_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `anggota_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_entri_anggota`

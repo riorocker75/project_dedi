@@ -60,3 +60,20 @@ Route::get('/logout/operator' ,'Auth\OperatorLogin@logout');
 		Anggota
 ===========================
 */
+
+// login 
+Route::get('/login/anggota' ,'Auth\AnggotaLogin');
+
+Route::post('/AnggotaValidate', 'Auth\AnggotaLogin@loginCheck');
+Route::get('/logout/anggota' ,'Auth\AnggotaLogin@logout');
+
+// daftar 
+Route::get('/daftar/anggota' ,'Auth\AnggotaLogin@daftar');
+Route::post('/daftar/anggota-act' ,'Auth\AnggotaLogin@daftar_act');
+
+// cek validasi
+Route::post('/anggota/cek_nik', 'Auth\AnggotaLogin@cek_nik');
+Route::post('/anggota/cek_username', 'Auth\AnggotaLogin@cek_username');
+
+// mulai dashboard anggota
+Route::get('/dashboard/anggota', 'Anggota\AnggotaController');

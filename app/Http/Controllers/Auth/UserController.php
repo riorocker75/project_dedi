@@ -22,7 +22,7 @@ class UserController extends Controller
 {
    
     // function tes(){
-    // 	$nama = "operator";
+    // 	$nama = "anggota";
     // 	$cek=Hash::make($nama);
     // 	echo "operator" ."<br>";
     // 	return $cek;

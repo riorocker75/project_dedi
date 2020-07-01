@@ -18,5 +18,18 @@ use App\Model\Entri_Anggota;
 
 class EntriCtrl extends Controller
 {
-    //
+   public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            if(!Session::get('login-adm')){
+                return redirect('login/admin')->with('alert-danger','Dilarang Masuk Terlarang');
+            }
+            return $next($request);
+        });
+        
+    }
+
+
+    
+
 }
