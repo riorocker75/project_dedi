@@ -1,8 +1,6 @@
-@include ('admin/header')
-<!-- /.navbar -->
+@extends('layouts.main_app')
 
-<!-- Main Sidebar Container -->
-@include('admin/sidebar')
+@section('content')
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -14,7 +12,7 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="/admin/admin">Home</a></li>
+            <li class="breadcrumb-item"><a href="admin">Home</a></li>
             <li class="breadcrumb-item active">Data Kategori Simpanan</li>
           </ol>
         </div>
@@ -43,7 +41,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form action="/admin/kategori_simpanan_act" method="post" enctype="multipart/form-data">
+                      <form action="kategori_simpanan_act" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
                           <label> JENIS SIMPANAN</label>
@@ -74,7 +72,7 @@
                 </thead>
                 <tbody>
                 <?php $no=0 ?> 
-                  @foreach($kategori_simpanan as $kat)
+                  @foreach($kategori as $kat)
                   <?php $no++ ?>                 
                   <tr>
                     <td>{{ $no }}</td>
@@ -90,7 +88,7 @@
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
-                              <form action="/admin/kategori_simpanan_update" method="post" enctype="multipart/form-data"> 
+                              <form action="kategori_simpanan_update" method="post" enctype="multipart/form-data"> 
                                 {{ csrf_field() }}
                                 <table class="table table-bordered table-hover">
                                   <div class="form-group ">
@@ -118,7 +116,7 @@
                           </div>
                         </div>
                       </div>
-                      <a class="btn btn-danger btn-sm" href="/admin/kategori_simpanan_hapus/{{ $kat->kategori_id }}"><i class="fas fa-trash"></i> Delete</a>  
+                      <a class="btn btn-danger btn-sm" href="kategori_simpanan_hapus/{{ $kat->kategori_id }}"><i class="fas fa-trash"></i> Delete</a>  
                     </td>
                   </tr>
                 @endforeach
@@ -133,4 +131,5 @@
   </div>
 </section>
 </div>
-@include('admin/footer')
+
+@endsection

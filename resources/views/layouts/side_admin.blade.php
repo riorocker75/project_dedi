@@ -41,18 +41,21 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
+              <a href="operator" class="nav-link">
               <a href="{{url('/dashboard/admin/operator')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>DATA OPERATOR</p>
               </a>
             </li>
             <li class="nav-item">
+              <a href="anggota" class="nav-link">
               <a href="{{url('/dashboard/admin/anggota')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>DATA ANGGOTA</p>
               </a>
             </li>
             <li class="nav-item">
+              <a href="kategori_simpanan" class="nav-link">
               <a href="{{url('/dashboard//admin/kategori_simpanan')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>KATEGORI SIMPANAN</p>
