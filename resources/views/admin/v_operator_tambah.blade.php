@@ -1,8 +1,7 @@
-@include ('admin/header')
-<!-- /.navbar -->
+@extends('layouts.main_app')
 
-<!-- Main Sidebar Container -->
-@include('admin/sidebar')
+@section('content')
+
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -31,7 +30,7 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Tambah Data Operator</h3>
-              <a href="/admin/operator" class="btn btn-danger btn-sm float-right">Kembali</a>
+              <a href="operator" class="btn btn-danger btn-sm float-right">Kembali</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -39,9 +38,16 @@
                 <!-- general form elements disabled -->
                 <div class="card card-warning">
                   <div class="card-body">
-                    <form role="form" action="/admin/operator_act" method="post">
+                    <form role="form" action="operator_act" method="post">
                       {{ csrf_field() }}
                       <div class="row">
+                        <div class="col-sm-6">
+                          <!-- text input -->
+                          <div class="form-group">
+                            <label>KODE PEGAWAI</label>
+                            <input type="text" class="form-control" name="kode_pagawai" required="required" placeholder="Nomor ....">
+                          </div>
+                        </div>
                         <div class="col-sm-6">
                           <!-- text input -->
                           <div class="form-group">
@@ -124,4 +130,4 @@
     </div>
   </section>
 </div>
-@include('admin/footer')
+@endsection
