@@ -76,9 +76,9 @@
 @endif
 
 <!-- end sidebar -->
-<div class="content-wrapper">
 @yield('content')
-</div>
+{{-- <div class="content-wrapper">
+</div> --}}
 
 
   <!-- /.content-wrapper -->

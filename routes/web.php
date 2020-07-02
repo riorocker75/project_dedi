@@ -54,7 +54,6 @@ Route::get('/dashboard/admin/anggota_tabungan/{id}', 'Admin\AnggotaCtrl@anggota_
 
 
 
-
 /*
 =========================== 
 		Operator
