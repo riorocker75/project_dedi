@@ -51,6 +51,12 @@ Route::post('/dashboard/admin/operator_update', 'Admin\OperatorCtrl@operator_upd
 Route::get('/dashboard/admin/anggota', 'Admin\AnggotaCtrl@anggota');
 Route::get('/dashboard/admin/anggota_tabungan/{id}', 'Admin\AnggotaCtrl@anggota_tabungan');
 
+// kategori
+Route::get('/dashboard/admin/kategori_simpanan', 'Admin\KategoriCtrl@kategori_simpanan');
+Route::post('/dashboard/admin/kategori_simpanan_act', 'Admin\KategoriCtrl@kategori_simpanan_act');
+Route::get('/dashboard/admin/kategori_simpanan_hapus/{id}', 'Admin\KategoriCtrl@kategori_simpanan_hapus');
+Route::post('/dashboard/admin/kategori_simpanan_update', 'Admin\KategoriCtrl@kategori_simpanan_update');
+
 
 
 
