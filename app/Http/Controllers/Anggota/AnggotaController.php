@@ -64,7 +64,7 @@ class AnggotaController extends Controller
             'anggota_pekerjaan' =>$request->pekerjaan
         ]);
       
-        return redirect('anggota/data-pribadi/$id')->with('alert-success','Data telah diperbaharui');
+        return redirect('anggota/data-pribadi/'.$id.'')->with('alert-success','Data telah diperbaharui');
 
 
     }
