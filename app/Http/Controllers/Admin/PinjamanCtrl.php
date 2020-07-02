@@ -18,7 +18,7 @@ class PinjamanCtrl extends Controller
         
     }
 
-
+    
 
 
 }

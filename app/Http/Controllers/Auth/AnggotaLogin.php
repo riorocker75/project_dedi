@@ -34,6 +34,7 @@ class AnggotaLogin extends Controller
                 // cek status dulu
                 if($data->status == "3"){
                        if(Hash::check($password,$data->anggota_password)){
+                        Session::put('ang_id', $data->anggota_id);
                         Session::put('ang_nama', $data->anggota_nama);
                         Session::put('ang_username', $data->anggota_username);
                         Session::put('ang_kontak', $data->anggota_kontak);

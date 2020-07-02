@@ -34,6 +34,7 @@ class AdminController extends Controller
     function __invoke(){
     	return view('admin.admin');
     }
+    
 
 
 
