@@ -65,10 +65,18 @@ class AnggotaController extends Controller
         ]);
       
         return redirect('anggota/data-pribadi/'.$id.'')->with('alert-success','Data telah diperbaharui');
-
-
     }
 
+    // mulai pinjam
+    function data_pinjam(){}
+
+    function aju_pinjam(){
+        return view('anggota.aju_pinjam');
+    }
+
+    function aju_pincjam_act(Request $request){
+    
+    }
 
 
 }

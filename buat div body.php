@@ -14,6 +14,7 @@
     </div>
   </div>
  <!-- Main content -->
+ <div class="content-wrapper">
  <section class="content">
     <div class="container-fluid">
      
@@ -38,3 +39,4 @@
       </div>
     </div>
   </section>
+</div>
