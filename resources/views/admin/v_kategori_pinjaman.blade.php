@@ -1,8 +1,6 @@
-@include ('admin/header')
-<!-- /.navbar -->
+@extends('layouts.main_app')
 
-<!-- Main Sidebar Container -->
-@include('admin/sidebar')
+@section('content')
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -42,7 +40,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form action="/admin/kategori_pinjaman_act" method="post" enctype="multipart/form-data">
+                      <form action="kategori_pinjaman_act" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
                           <label> JENIS PINJAMAN</label>
@@ -70,7 +68,6 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-             
               <table class="table table-bordered table-striped">
                 <thead>
                   <tr>
@@ -84,7 +81,7 @@
                 </thead>
                 <tbody> 
                   <?php $no=0 ?>
-                  @foreach($kategori_pinjaman as $kat)
+                  @foreach($kategori as $kat)
                   <?php $no++ ?>                 
                   <tr>
                     <td>{{ $no }}</td>
@@ -102,7 +99,7 @@
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
-                              <form action="/admin/kategori_pinjaman_update" method="post" enctype="multipart/form-data"> 
+                              <form action="kategori_pinjaman_update" method="post" enctype="multipart/form-data"> 
                                 {{ csrf_field() }}
                                 <table class="table table-bordered table-hover">
                                   <div class="form-group ">
@@ -144,7 +141,7 @@
                           </div>
                         </div>
                       </div>
-                      <a class="btn btn-danger btn-sm" href="/admin/kategori_pinjaman_hapus/{{ $kat->kategori_id }}"><i class="fas fa-trash"></i> Delete</a>  
+                      <a class="btn btn-danger btn-sm" href="kategori_pinjaman_hapus/{{ $kat->kategori_id }}"><i class="fas fa-trash"></i> Delete</a>  
                     </td>
                   </tr>
                   @endforeach
@@ -159,4 +156,5 @@
     </div>
   </section>
 </div>
-@include('admin/footer')
+
+@endsection
