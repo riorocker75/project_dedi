@@ -1,8 +1,7 @@
-@include ('admin/header')
-<!-- /.navbar -->
+@extends('layouts.main_app')
 
-<!-- Main Sidebar Container -->
-@include('admin/sidebar')
+@section('content')
+
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -31,7 +30,7 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Edit Data Operator</h3>
-              <a href="/admin/operator" class="btn btn-danger btn-sm float-right">Kembali</a>
+              <a href="operator" class="btn btn-danger btn-sm float-right">Kembali</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -40,14 +39,22 @@
                 <div class="card card-warning">
                   <div class="card-body">
                     @foreach($operator as $o)
-                    <form role="form" action="/admin/operator_update" method="post">
+                    <form action="operator_update" method="post">
+                    {{-- <form action="operator_update/{{$o->operator_id}}" method="post"> --}}
                       {{ csrf_field() }}
                       <div class="row">
                         <div class="col-sm-6">
                           <!-- text input -->
                           <div class="form-group">
+                            <label>KODE PETUGAS</label>
+                            <input type="text" class="form-control" name="id" value="{{ $o->operator_id }}">
+                            <input type="text" class="form-control" name="kode_pegawai" value="{{ $o->operator_kode }}">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <!-- text input -->
+                          <div class="form-group">
                             <label>NOMOR PETUGAS</label>
-                            <input type="hidden" class="form-control" name="id" value="{{ $o->operator_id }}">
                             <input type="number" class="form-control" name="nomor_pegawai" value="{{ $o->operator_nomor_pegawai }}">
                           </div>
                         </div>
@@ -128,4 +135,4 @@
     </div>
   </section>
 </div>
-@include('admin/footer')
+@endsection

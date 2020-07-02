@@ -1,8 +1,6 @@
-@include ('admin/header')
-<!-- /.navbar -->
+@extends('layouts.main_app')
 
-<!-- Main Sidebar Container -->
-@include('admin/sidebar')
+@section('content')
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -30,9 +28,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Data Anggota Koperasi</h3>
-              
-              <a href="/admin/anggota_tambah" class="btn btn-info btn-sm float-right">Tambah</a>
+              <h3 class="card-title">Data Anggota Koperasi</h3>             
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -57,10 +53,9 @@
                     <td>{{ $a->anggota_nama }}</td>
                     <td>{{ $a->anggota_kelamin }}</td>
                     <td>{{ $a->anggota_kontak }}</td>
-                    <td>
-                      <a class="btn btn-info btn-sm" href="/admin/anggota_edit/{{ $a->anggota_id }}"><i class="fas fa-pencil-alt"></i> Edit</a>
+                    <td>                    
                      <a class="btn btn-danger btn-sm" href="/admin/anggota_hapus/{{ $a->anggota_id }}"><i class="fas fa-trash"></i> Delete</a>   
-                     <a class="btn btn-success btn-sm" href="/admin/anggota_tabungan/{{ $a->anggota_id }}"><i class="fas fa-trash"></i> Tabungan</a>                   
+                     <a class="btn btn-success btn-sm" href="anggota_tabungan/{{ $a->anggota_id }}"><i class="far fa-money-bill-alt"></i> Tabungan</a>                   
                    </td>
                  </tr>
                  @endforeach
@@ -75,4 +70,6 @@
    </div>
  </section>
 </div>
-@include('admin/footer')
+
+
+@endsection

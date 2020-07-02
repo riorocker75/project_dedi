@@ -1,9 +1,6 @@
-@include ('admin/header')
-<!-- /.navbar -->
+@extends('layouts.main_app')
 
-<!-- Main Sidebar Container -->
-@include('admin/sidebar')
-
+@section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <div class="content-header">
@@ -66,13 +63,13 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form action="/admin/anggota_tabungan_act" method="post" enctype="multipart/form-data">
+                      {{-- <form action="/admin/anggota_tabungan_act" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
                           <label> JENIS SIMPANAN</label>
                           <select class="form-control" name="jenis" required="required">
                             <option>--Pilih--</option>
-                            @foreach($xx as $sim)  
+                            @foreach($kategori as $sim)  
                             <option>{{ $sim->kategori_jenis }}</option>                           
                             @endforeach
                           </select>
@@ -83,7 +80,7 @@
                         </div>                          
                         <br/>
                         <input type="submit" value="Simpan" class="btn btn-primary">
-                      </form>
+                      </form> --}}
                     </div>
                   </div>
                 </div>
@@ -94,13 +91,13 @@
                   <thead>
                     <tr>
                       <th>NO</th>
-                      <th>Jenis Tabungan</th>
+                      <th>Jenis simpanan</th>
                       <th>Jumlah</th>                      
                     </tr>
                   </thead>
                   <tbody> 
                     <?php $no=0; ?>
-                    @foreach($tabungan as $tab)  
+                    @foreach($simpanan as $tab)  
                     <?php $no++ ?>               
                     <tr>
                       <td>{{ $no }}</td>
@@ -120,104 +117,5 @@
       </div><!-- /.container-fluid -->
     </section>
 
-
-
-  <!-- Main content -->
-<!--   <section class="content">
-    <div class="container-fluid">    
-      <div class="row">
-
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Edit Data anggota</h3>
-              <a href="/admin/anggota" class="btn btn-danger btn-sm float-right">Kembali</a>
-            </div>
-            <div class="card-body">
-              <div class="col-md-12">
-                <div class="card card-warning">
-                  <div class="card-body">
-                    @foreach($anggota as $o)
-                    <form role="form" action="/admin/anggota_update" method="post">
-                      {{ csrf_field() }}
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label>NOMOR PETUGAS</label>
-                            <input type="hidden" class="form-control" name="id" value="{{ $o->anggota_id }}">
-                            <input type="number" class="form-control" name="nik" value="{{ $o->anggota_nik }}">
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label>NAMA anggota</label>
-                            <input type="text" class="form-control" name="nama" value="{{ $o->anggota_nama }}">
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label>JENIS KELAMIN</label>
-                            <select class="form-control" name="kelamin" required="required">
-                              <option value="">--Pilih--</option>
-                              <option value="Laki - Laki">Laki - Laki</option>
-                              <option value="Perempuan">Perempuan</option>
-                            </select>                            
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label>TANGGAL LAHIR</label>
-                            <input type="date" name="tanggal_lahir" class="form-control" value="{{$o->anggota_tanggal_lahir}}">                        
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label>TEMPAT LAHIR</label>
-                            <textarea class="form-control" name="tempat_lahir" rows="2">{{$o->anggota_tempat_lahir}}</textarea>
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label>ALAMAT KTP</label>
-                            <textarea class="form-control" name="alamat_ktp" rows="2">{{$o->anggota_alamat_ktp}}</textarea>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label>KONTAK</label>
-                            <input type="number" class="form-control" name="kontak" value="{{ $o->anggota_kontak }}">
-                          </div>
-                        </div> 
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label>PEKERJAAN</label>
-                            <input type="text" class="form-control" name="pekerjaan" value="{{ $o->anggota_pekerjaan}}" required="required">
-                          </div>
-                        </div> 
-                        <div class="col-sm-6">
-                          <div class="form-group">
-                            <label>ALAMAT SEKARANG</label>
-                            <textarea class="form-control" name="alamat_sekarang" rows="2" >{{$o->anggota_alamat_sekarang}}</textarea>
-                          </div>
-                        </div>                       
-                      </div>                                                          
-                      <input type="submit" name="simpan" value="SIMPAN" class="btn btn-primary">                      
-                    </form>
-                    @endforeach
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section> -->
 </div>
-@include('admin/footer')
+@endsection

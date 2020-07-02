@@ -1,8 +1,6 @@
-@include ('admin/header')
-<!-- /.navbar -->
+@extends('layouts.main_app')
 
-<!-- Main Sidebar Container -->
-@include('admin/sidebar')
+@section('content')
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -31,7 +29,7 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Data Operator</h3>
-              <a href="/admin/operator_tambah" class="btn btn-info btn-sm float-right">Tambah Data</a>
+              <a href="operator_tambah" class="btn btn-info btn-sm float-right">Tambah Data</a>
 
             </div>
             <!-- /.card-header -->
@@ -59,8 +57,8 @@
                    <td>{{ $o->operator_kelamin }}</td>
                    <td>{{ $o->operator_kontak }}</td>
                    <td>
-                    <a class="btn btn-info btn-sm" href="/admin/operator_edit/{{ $o->operator_id }}"><i class="fas fa-pencil-alt"></i> Edit</a>
-                    <a class="btn btn-danger btn-sm" href="/admin/operator_hapus/{{ $o->operator_id }}"><i class="fas fa-trash"></i> Delete</a>
+                    <a class="btn btn-info btn-sm" href="operator_edit/{{ $o->operator_id }}"><i class="fas fa-pencil-alt"></i> Edit</a>
+                    <a class="btn btn-danger btn-sm" href="operator_hapus/{{ $o->operator_id }}"><i class="fas fa-trash"></i> Delete</a>
                   </td>
                 </tr>
                 @endforeach
@@ -75,4 +73,4 @@
   </div>
 </section>
 </div>
-@include('admin/footer')
+@endsection

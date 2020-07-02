@@ -41,13 +41,13 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="/admin/operator" class="nav-link">
+              <a href="admin/operator" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>DATA OPERATOR</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin/anggota" class="nav-link">
+              <a href="admin/anggota" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>DATA ANGGOTA</p>
               </a>
