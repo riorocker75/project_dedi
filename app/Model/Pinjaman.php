@@ -9,6 +9,7 @@ class Pinjaman extends Model
     protected $table="tbl_pinjaman";
     public $timestamps = false;
     protected $fillable =[
+        'anggota_id',
         'pinjaman_kode',
         'pinjaman_tgl',
         'pinjaman_nama',

@@ -106,6 +106,8 @@ Route::get('/anggota/data-pribadi/{id}', 'Anggota\AnggotaController@data_pribadi
 Route::post('/anggota/data-pribadi-update/{id}', 'Anggota\AnggotaController@data_pribadi_update');
 
 //ajukan pinjaman anggota
+Route::get('/anggota/data-pinjaman/{id}' , 'Anggota\AnggotaController@data_pinjam');
+
 Route::get('/anggota/ajukan-pinjaman' , 'Anggota\AnggotaController@aju_pinjam');
 Route::post('/anggota/ajukan-pact' , 'Anggota\AnggotaController@aju_pinjam_act');
 

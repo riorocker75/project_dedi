@@ -74,15 +74,51 @@ class AnggotaController extends Controller
     }
 
     // mulai pinjam
-    function data_pinjam(){}
+    function data_pinjam($id){
+        $data= Pinjaman::where('anggota_id', $id)->get();
+
+        return view('anggota.data_pinjam',[
+            'data_pinjam'=> $data
+        ]);
+    }
 
     function aju_pinjam(){
         $data_catpj=Cat_Pinjaman::all();
         return view('anggota.aju_pinjam' ,['cat_pinjam' => $data_catpj]);
     }
 
-    function aju_pincjam_act(Request $request){
+    function aju_pinjam_act(Request $request){
+        $id= Session::get('ang_id');
+        $nominal =$request->jlh_pinjam;
+        $angsur =$request->lama_angsur;
         $rand="PNJ-".rand('1000','9999');
+        $jas=Cat_Pinjaman::where('kategori_id',$angsur)->first();
+
+        // hitung logika skema
+        $bunga=$jas->kategori_besar_bunga/100;
+        
+        $cicilan=$nominal/$jas->kategori_lama_pinjaman;
+        $per_bunga=($nominal*$bunga) /$jas->kategori_lama_pinjaman;
+
+        $total_cicil=$cicilan+$per_bunga;
+
+        $date=date('Y-m-d');
+        $this->validate($request,[
+            'jlh_pinjam' => 'required|min:2',
+            'lama_angsur' => 'required',
+        ]);
+        Pinjaman::create([
+            'anggota_id' => Session::get('ang_id'),
+            'pinjaman_kode' =>$rand,
+            'pinjaman_tgl'=> $date,
+            'pinjaman_jumlah'=> $nominal,
+            'pinjaman_skema_angsuran' => $total_cicil,
+            'pinjaman_bunga' => $jas->kategori_besar_bunga,
+            'pinjaman_angsuran_lama' => $jas->kategori_lama_pinjaman,
+            'pinjaman_status' => 0 
+        ]);
+        return redirect('anggota/data-pinjaman/'.$id.'')->with('alert-success','Pinjaman sudah dikirim, Mohon menuggu verifikasi !!');
+
     }
 
     function cek_angsuran(Request $request){
@@ -96,7 +132,7 @@ class AnggotaController extends Controller
 
         $total_cicil=$cicilan+$per_bunga;
 
-        if($nominal >= $jas->kategori_besar_pinjaman){
+        if($nominal > $jas->kategori_besar_pinjaman){
             echo "Anda melewati limit, harap isi sesuai limit";
         }else{
             $hx=round($total_cicil,2);

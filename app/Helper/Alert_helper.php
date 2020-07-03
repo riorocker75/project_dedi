@@ -78,3 +78,26 @@
                 break;
         }
     }
+
+    function status_pinjaman($status){
+        switch($status){
+            case 0:
+                echo "Menunggu Persetujuan";
+                 break;
+             case 1:
+                echo "Operator Telah Setuju";
+                 break;
+             case 2:
+                echo "Operator Menolak";
+                 break;
+             case 3:
+                echo "Pinjaman Di terima";
+                 break;
+             case 4:
+                echo "Pinjaman Di tolak";
+                 break;    
+             default:
+                echo "tidak ada";
+                 break;
+        }
+    }

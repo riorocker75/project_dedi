@@ -77,7 +77,7 @@
                       <p id="skenario"></p>
                     </div>
                    
-
+                    <button type="submit" class="btn btn-primary float-right"> Ajukan Pinjaman &nbsp;&nbsp;<i class="fas fa-paper-plane"></i></button>
                   </div>
 
               </div>

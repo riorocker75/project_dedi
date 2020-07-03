@@ -38,8 +38,7 @@ $(document).ready(function () {
         // var hs = Number(nominal)+Number(angsur);
         // $('#skenario').text("Rp."+addCommas(hs));
         if(nominal.length > 0){ 
-            // var dataN = "val="+nominal;
-            // var dataA = "angsur="+angsur;
+
             $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -56,12 +55,4 @@ $(document).ready(function () {
   }).keyup();
 });
 
-// $(document).ready(function () {
-    
-//     $('#tes-inp' ).keyup(function() {
-//         var value = $( this ).val();
-//   $('#plx').val(value);
-    
-//   }).keyup();
-// });
 

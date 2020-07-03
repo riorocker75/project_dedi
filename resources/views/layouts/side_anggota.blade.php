@@ -46,6 +46,13 @@
           </li>
 
           <li class="nav-item">
+            <a href="{{url('/anggota/data-pinjaman/'.Session::get('ang_id').'')}}" class="nav-link">
+              <i class="nav-icon fas fa-credit-card"></i>
+              <p> Riwayat Peminjaman</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="#" class="nav-link">
              <i class="nav-icon fa fa-plus-circle" aria-hidden="true"></i>
               <p> Ajukan Simpanan</p>
