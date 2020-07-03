@@ -101,6 +101,7 @@
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 <script src="{{asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
 <script src="{{asset('lte/plugins/chart.js/Chart.min.js') }}"></script>
 <script src="{{asset('lte/plugins/sparklines/sparkline.js') }}"></script>
 <script src="{{asset('lte/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
@@ -115,6 +116,12 @@
 <script src="{{asset('lte/dist/js/pages/dashboard.js') }}"></script>
 <script src="{{asset('lte/dist/js/demo.js') }}"></script>
 <script src="{{asset('js/custom.js') }}"></script>
+
+<script src="{{asset('lte/plugins/datatables/jquery.dataTables.js') }}"></script>
+<script src="{{asset('lte/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
+<script src="{{asset('js/data_table.js') }}"></script>
+
+
 
 </body>
 </html>

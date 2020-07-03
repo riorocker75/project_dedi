@@ -32,6 +32,7 @@ class OperatorLogin extends Controller
                  Session::flush();
                 
                 if(Hash::check($password,$data->operator_password)){
+                    Session::put('op_id', $data->operator_id);
                     Session::put('op_nama', $data->operator_nama);
                     Session::put('op_username', $data->operator_username);
                     Session::put('op_nomor_pegawai', $data->operator_nomor_pegawai);

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Operator extends Model
 {
     protected $table= "tbl_operator";
+    protected $primaryKey= "operator_id";
     public $timestamps = false;
     protected $fillable =[
         'operator_kode',

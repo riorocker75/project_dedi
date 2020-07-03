@@ -41,3 +41,11 @@
     </div>
   </section>
 </div>
+
+
+<!-- buat eror -->
+@if($errors->has('lama_angsur'))
+<div class="text-danger">
+    {{ $errors->first('lama_angsur')}}
+</div>
+@endif

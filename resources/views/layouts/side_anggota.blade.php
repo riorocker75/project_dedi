@@ -47,7 +47,7 @@
 
           <li class="nav-item">
             <a href="{{url('/anggota/data-pinjaman/'.Session::get('ang_id').'')}}" class="nav-link">
-              <i class="nav-icon fas fa-credit-card"></i>
+              <i class="nav-icon fas fa-bookmark"></i>
               <p> Riwayat Peminjaman</p>
             </a>
           </li>

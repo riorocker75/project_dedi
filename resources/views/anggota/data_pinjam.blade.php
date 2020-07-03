@@ -38,7 +38,7 @@
               
                 @foreach ($data_pinjam as $cp)
                     
-                <table class="table table-bordered table-striped">
+                <table id="data1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th>Kode Pinjaman</th>
@@ -59,7 +59,6 @@
                         <td>
                         <a href=""> <i class="fa fa-eye" aria-hidden="true"></i></a>
                         </td>
-
 
                         </tr>
                     </tbody>   

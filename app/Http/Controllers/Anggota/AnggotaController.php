@@ -48,9 +48,8 @@ class AnggotaController extends Controller
 
   
     function data_pribadi_update(Request $request,$id){
-
         $request->validate([
-            'nik' => 'required|max:16',
+            'nik' => 'required|max:16|unique:tbl_anggota,anggota_nik,'.$id.',anggota_id',
             'nama' => 'required|max:30',
             'tempat_lahir' => 'required',
             'kontak' => 'required',
@@ -136,7 +135,7 @@ class AnggotaController extends Controller
             echo "Anda melewati limit, harap isi sesuai limit";
         }else{
             $hx=round($total_cicil,2);
-            return "Rp.".number_format($hx)."/bulan";
+            return "Rp.&nbsp;".number_format($hx)."/bulan";
         }
     }
 

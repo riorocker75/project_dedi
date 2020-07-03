@@ -76,6 +76,17 @@ Route::get('/login/operator' ,'Auth\OperatorLogin');
 Route::post('/OperatorValidate', 'Auth\OperatorLogin@loginCheck');
 Route::get('/logout/operator' ,'Auth\OperatorLogin@logout');
 
+// mulai dashboard operator
+Route::get('/dashboard/operator' ,'Operator\OperatorController');
+
+// data pribadi 
+Route::get('/operator/data-pribadi/{id}','Operator\OperatorController@data_pribadi');
+Route::post('/operator/data-pribadi-update/{id}','Operator\OperatorController@data_pribadi_update');
+
+
+Route::get('/operator/data-pinjaman','Operator\OperatorController@data_peminjam');
+
+
 
 /*
 =========================== 

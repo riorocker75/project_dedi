@@ -5,6 +5,22 @@ namespace App\Http\Controllers\Operator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+use File;
+use Illuminate\Support\Str;
+
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+
+use App\Model\Admin;
+use App\Model\User;
+use App\Model\Anggota;
+use App\Model\Operator;
+use App\Model\Pinjaman;
+use App\Model\Cat_Pinjaman;
+use App\Model\Simpanan;
+
+
 class OperatorController extends Controller
 {
 	public function __construct()
@@ -19,7 +35,47 @@ class OperatorController extends Controller
     }
 
   	 function __invoke(){
-    	return "ini lgin";
+    	return view('operator.operator');
+    }
+
+    // data pribadi
+    function data_pribadi($id){
+        $data=Operator::where('operator_id' ,$id)->get();
+        return view('operator.data_pribadi', ['pribadi' => $data]);
+    }
+
+  
+    function data_pribadi_update(Request $request,$id){
+        $request->validate([
+            'nama' => 'required|max:30',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'kontak' => 'required',
+            'username' => 'required|unique:tbl_operator,operator_username,'.$id.',operator_id'
+  
+        ]);
+
+        if($request->password != ""){
+            Operator::where('operator_id', $id)->update([
+                'operator_password' => bcrypt($request->password)
+            ]);
+        }
+        Operator::where('operator_id',$id)->update([
+            'operator_username' => $request->username,
+            'operator_nama' => $request->nama,
+            'operator_tanggal_lahir' => $request->tanggal_lahir,
+            'operator_tempat_lahir' => $request->tempat_lahir,
+            'operator_kontak' =>$request->kontak
+        ]);
+      
+        return redirect('operator/data-pribadi/'.$id.'')->with('alert-success','Data telah diperbaharui');
+    }
+    
+    function data_peminjam(){
+        $data_aju= Pinjaman::where('pinjaman_status','0')->get();
+        return view('operator.data_peminjam',[
+            'data_aju' => $data_aju
+        ]);
     }
 
 

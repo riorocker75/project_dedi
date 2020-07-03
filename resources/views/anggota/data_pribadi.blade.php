@@ -47,6 +47,11 @@
                           <input type="number" class="form-control" name="nik" value="{{ $pr->anggota_nik }}">
                         </div>
                       </div>
+                      @if($errors->has('nik'))
+                      <div class="text-danger">
+                          {{ $errors->first('nik')}}
+                      </div>
+                      @endif
                       <div class="col-sm-6">
                         <!-- text input -->
                         <div class="form-group">
@@ -54,6 +59,13 @@
                           <input type="text" class="form-control" name="nama" value="{{ $pr->anggota_nama }}">
                         </div>
                       </div>
+
+                      @if($errors->has('nama'))
+                      <div class="text-danger">
+                          {{ $errors->first('nama')}}
+                      </div>
+                      @endif
+
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>JENIS KELAMIN</label>
@@ -61,12 +73,18 @@
                                                      
                         </div>
                       </div>
+
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>TANGGAL LAHIR</label>
                           <input type="date" name="tanggal_lahir" class="form-control" value="<?php if($pr->anggota_tanggal_lahir == ""){echo date('Y-m-d');}else{echo $pr->anggota_tanggal_lahir;}?>">                        
                         </div>
                       </div>
+                      @if($errors->has('tanggal_lahir'))
+                      <div class="text-danger">
+                          {{ $errors->first('tanggal_lahir')}}
+                      </div>
+                      @endif
                     </div>
                     <div class="row">
                       <div class="col-sm-6">
@@ -76,12 +94,22 @@
                           <textarea class="form-control" name="tempat_lahir" rows="2">{{$pr->anggota_tempat_lahir}}</textarea>
                         </div>
                       </div>
+                      @if($errors->has('tempat_lahir'))
+                      <div class="text-danger">
+                          {{ $errors->first('tempat_lahir')}}
+                      </div>
+                      @endif
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>ALAMAT KTP</label>
                           <textarea class="form-control" name="alamat_ktp" rows="2">{{$pr->anggota_alamat_ktp}}</textarea>
                         </div>
                       </div>
+                      @if($errors->has('alamat_ktp'))
+                      <div class="text-danger">
+                          {{ $errors->first('alamat_ktp')}}
+                      </div>
+                      @endif
                     </div>
                     <div class="row">
                       <div class="col-sm-6">
@@ -90,18 +118,33 @@
                           <input type="number" class="form-control" name="kontak" value="{{ $pr->anggota_kontak }}">
                         </div>
                       </div> 
+                      @if($errors->has('kontak'))
+                      <div class="text-danger">
+                          {{ $errors->first('kontak')}}
+                      </div>
+                      @endif
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>PEKERJAAN</label>
                           <input type="text" class="form-control" name="pekerjaan" value="{{ $pr->anggota_pekerjaan}}" required="required">
                         </div>
-                      </div> 
+                      </div>
+                      @if($errors->has('pekerjaan'))
+                      <div class="text-danger">
+                          {{ $errors->first('pekerjaan')}}
+                      </div>
+                      @endif 
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>ALAMAT SEKARANG</label>
                           <textarea class="form-control" name="alamat_sekarang" rows="2" >{{$pr->anggota_alamat_sekarang}}</textarea>
                         </div>
-                      </div>                       
+                      </div> 
+                      @if($errors->has('alamat_sekarang'))
+                      <div class="text-danger">
+                          {{ $errors->first('alamat_sekarang')}}
+                      </div>
+                      @endif                      
                     </div>                                                          
                     <input type="submit" name="simpan" value="SIMPAN" class="btn btn-primary">                      
                   </form>
