@@ -34,7 +34,9 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  
+                  @foreach ($data_pinjam as $cp)
+
+                  #end
                 </div>
               </div>
             </section>
