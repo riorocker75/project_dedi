@@ -108,3 +108,5 @@ Route::post('/anggota/data-pribadi-update/{id}', 'Anggota\AnggotaController@data
 //ajukan pinjaman anggota
 Route::get('/anggota/ajukan-pinjaman' , 'Anggota\AnggotaController@aju_pinjam');
 Route::post('/anggota/ajukan-pact' , 'Anggota\AnggotaController@aju_pinjam_act');
+
+Route::post('/anggota/cek-angsur','Anggota\AnggotaController@cek_angsuran');

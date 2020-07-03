@@ -40,22 +40,43 @@
 
               <div class="row">
                   <div class="col-lg-7">
-                    <div class="form-group">
-
-                      <label>No. Pinjaman</label>
-                      <?php $rand="PNJ-".rand('1000','9999');?>
-                    <input type="text" class="form-control" name="no_pinjam" value="{{ $rand }}" disabled>
-                    </div>
 
                     <div class="form-group">
-                      <label>Tanggal Pinjam</label>
-                    <input type="date" class="form-control" name="tgl_pinjam" value="{{ date('Y-m-d') }}">
+                      <label>Nama Calon Peminjam</label>
+                    <input type="text" class="form-control" value={{Session::get('ang_nama')}} disabled>
                     </div>
+                   
+
+                    <div class="form-group">
+                      <label>Lama Angsuran</label>
+                      <select class="form-control" name="lama_angsur" required="required" id="angsur">
+                        <option value="">Pilih Sesuai Kesanggupan</option>
+                        @foreach ($cat_pinjam as $cp)
+                            <option value="{{$cp->kategori_id  }}">Jangka&nbsp;{{$cp->kategori_lama_pinjaman }}&nbsp;Bulan, Bunga {{$cp->kategori_besar_bunga}} % , Limit Pinjaman Rp.{{number_format($cp->kategori_besar_pinjaman)}} </option>
+                        @endforeach
+                      </select> 
+                    </div>
+                    @if($errors->has('lama_angsur'))
+                    <div class="text-danger">
+                        {{ $errors->first('lama_angsur')}}
+                    </div>
+                    @endif
 
                     <div class="form-group">
                       <label>Jumlah Pinjaman</label>
-                    <input type="number" class="form-control" name="jlh_pinjam" >
+                    <input type="number" class="form-control" name="jlh_pinjam" required="required" id="nominal">
                     </div>
+                    @if($errors->has('jlh_pinjam'))
+                    <div class="text-danger">
+                        {{ $errors->first('jlh_pinjam')}}
+                    </div>
+                    @endif
+
+                    <div class="form-group">
+                      <label>Skenario Angsuran perbulan</label>
+                      <p id="skenario"></p>
+                    </div>
+                   
 
                   </div>
 

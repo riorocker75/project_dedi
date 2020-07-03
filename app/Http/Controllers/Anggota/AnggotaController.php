@@ -13,6 +13,12 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 
 use App\Model\Admin;
+use App\Model\Pinjaman;
+use App\Model\Cat_Pinjaman;
+use App\Model\Cat_Simpanan;
+use App\Model\Tabungan;
+use App\Model\Simpanan;
+
 use App\Model\Anggota;
 use App\Model\Operator;
 
@@ -71,11 +77,31 @@ class AnggotaController extends Controller
     function data_pinjam(){}
 
     function aju_pinjam(){
-        return view('anggota.aju_pinjam');
+        $data_catpj=Cat_Pinjaman::all();
+        return view('anggota.aju_pinjam' ,['cat_pinjam' => $data_catpj]);
     }
 
     function aju_pincjam_act(Request $request){
-    
+        $rand="PNJ-".rand('1000','9999');
+    }
+
+    function cek_angsuran(Request $request){
+        $nominal = $request->nominal;
+        $angsur =$request->angsur;
+        $jas=Cat_Pinjaman::where('kategori_id',$angsur)->first();
+        $bunga=$jas->kategori_besar_bunga/100;
+        
+        $cicilan=$nominal/$jas->kategori_lama_pinjaman;
+        $per_bunga=($nominal*$bunga) /$jas->kategori_lama_pinjaman;
+
+        $total_cicil=$cicilan+$per_bunga;
+
+        if($nominal >= $jas->kategori_besar_pinjaman){
+            echo "Anda melewati limit, harap isi sesuai limit";
+        }else{
+            $hx=round($total_cicil,2);
+            return "Rp.".number_format($hx)."/bulan";
+        }
     }
 
 
