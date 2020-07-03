@@ -19,8 +19,11 @@ use App\Model\User;
 class AdminLogin extends Controller
 {
      function __invoke(){
-
-    	return view('login/index_admin');
+        if(!Session::get('login-adm')){
+            return view('login/index_admin');
+        }else{
+            return redirect('/dashboard/admin');
+        }
     }
 
     function loginCheck(Request $request){
@@ -31,6 +34,8 @@ class AdminLogin extends Controller
                  Session::flush();
                 
                 if(Hash::check($password,$data->admin_password)){
+                    Session::put('adm_id', $data->admin_id);
+
                     Session::put('adm_nama', $data->admin_nama);
                     Session::put('adm_username', $data->admin_username);
                     Session::put('adm_kontak', $data->admin_kontak);

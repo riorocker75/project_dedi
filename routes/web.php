@@ -85,6 +85,10 @@ Route::post('/operator/data-pribadi-update/{id}','Operator\OperatorController@da
 
 
 Route::get('/operator/data-pinjaman','Operator\OperatorController@data_peminjam');
+Route::get('/operator/review-pinjaman/{id}','Operator\OperatorController@review_peminjam');
+
+Route::post('/operator/review-act/{id}','Operator\OperatorController@review_pinjaman_act');
+
 
 
 
@@ -123,3 +127,5 @@ Route::get('/anggota/ajukan-pinjaman' , 'Anggota\AnggotaController@aju_pinjam');
 Route::post('/anggota/ajukan-pact' , 'Anggota\AnggotaController@aju_pinjam_act');
 
 Route::post('/anggota/cek-angsur','Anggota\AnggotaController@cek_angsuran');
+
+Route::get('/anggota/view-pinjaman/{id}', 'Anggota\AnggotaController@view_pinjaman');

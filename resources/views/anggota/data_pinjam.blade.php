@@ -57,7 +57,7 @@
                         <td>{{$cp->pinjaman_angsuran_lama}} bulan</td>
                         <td><label class="badge badge-primary">{{status_pinjaman($cp->pinjaman_status)}}</label></td>
                         <td>
-                        <a href=""> <i class="fa fa-eye" aria-hidden="true"></i></a>
+                        <a href="{{url('/anggota/view-pinjaman/'.$cp->id.'')}}"> <i class="fa fa-eye" aria-hidden="true"></i></a>
                         </td>
 
                         </tr>

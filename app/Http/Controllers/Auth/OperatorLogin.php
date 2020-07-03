@@ -20,8 +20,11 @@ use App\Model\Operator;
 class OperatorLogin extends Controller
 {
      function __invoke(){
-
-    	return view('login/index_operator');
+        if(!Session::get('login-op')){
+            return view('login/index_operator');
+        }else{
+            return redirect('/dashboard/operator');
+        }
     }
 
     function loginCheck(Request $request){

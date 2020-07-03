@@ -78,6 +78,47 @@ class OperatorController extends Controller
         ]);
     }
 
+    function review_peminjam($id){
+       $data=Pinjaman::where('id', $id)->get();
+       $pribadi =Pinjaman::where('id',$id)->first();
+       $anggota= Anggota::where('anggota_id', $pribadi->anggota_id)->get();
+        return view('operator.review_pinjaman',[
+            'data' =>$data,
+            'pribadi' => $anggota
+        ]);
+    }
+
+    function review_pinjaman_act(Request $request, $id){
+
+        $request->validate([
+            'ket' => 'required|min:10'
+        ]);
+        switch ($request->input('action')) {
+            case 'terima':
+                Pinjaman::where('id',$id)->update([
+                    'pinjaman_ket' =>$request->ket,
+                    'pinjaman_status' => 1
+                ]);
+            return redirect('/operator/data-pinjaman')->with('alert-success','Konfirmasi Diteruskan ke Admin');
+
+                break;
+            case 'tolak':
+                Pinjaman::where('id',$id)->update([
+                    'pinjaman_ket' =>$request->ket,
+                    'pinjaman_status' => 2
+                ]);
+            return redirect('/operator/data-pinjaman')->with('alert-warning','Penolakan Di infokan ke Anggota');
+
+                break;
+             default:
+             echo "terlarang";
+            break;   
+
+
+        }
+
+    }
+
 
 
 

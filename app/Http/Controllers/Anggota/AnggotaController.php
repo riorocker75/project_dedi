@@ -120,6 +120,20 @@ class AnggotaController extends Controller
 
     }
 
+    function view_pinjaman($id){
+        $data = Pinjaman::where('id',$id)->get();
+        return view('anggota.view_pinjaman',[
+            'data' =>$data
+        ]);
+    }
+
+
+
+
+
+
+
+
     function cek_angsuran(Request $request){
         $nominal = $request->nominal;
         $angsur =$request->angsur;
@@ -138,6 +152,8 @@ class AnggotaController extends Controller
             return "Rp.&nbsp;".number_format($hx)."/bulan";
         }
     }
+
+
 
 
 }

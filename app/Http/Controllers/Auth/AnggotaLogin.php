@@ -20,8 +20,11 @@ use App\Model\User;
 class AnggotaLogin extends Controller
 {
      function __invoke(){
-
-    	return view('login/index_anggota');
+        if(!Session::get('login-ang')){
+            return view('login/index_anggota');
+        }else{
+            return redirect('/dashboard/anggota');
+        }
     }
 
     function loginCheck(Request $request){
