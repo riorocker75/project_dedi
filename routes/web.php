@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','Front\FrontCtrl');
+Route::get('/simulasi','Front\FrontCtrl@simulasi');
+
 
 /*
 =========================== 

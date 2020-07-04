@@ -28,6 +28,8 @@ class FrontCtrl extends Controller
     public function __invoke(){
         return view('front.index');
     }
-
+    function simulasi(){
+        return view('front.simulasi');
+    }
 
 }

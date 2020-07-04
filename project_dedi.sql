@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2020 at 09:50 AM
+-- Generation Time: Jul 04, 2020 at 02:53 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -32,6 +32,13 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(6, '2020_07_02_065159_tbl_pinjaman', 1);
 
 -- --------------------------------------------------------
 
@@ -89,8 +96,8 @@ CREATE TABLE `tbl_anggota` (
 --
 
 INSERT INTO `tbl_anggota` (`anggota_id`, `anggota_kode`, `anggota_username`, `anggota_password`, `anggota_nik`, `anggota_nama`, `anggota_kelamin`, `anggota_tempat_lahir`, `anggota_tanggal_lahir`, `anggota_alamat_ktp`, `anggota_alamat_sekarang`, `anggota_kontak`, `anggota_pekerjaan`, `status`, `foto`) VALUES
-(1, 'AG-827', 'anggota', '$2y$10$sV9K2sSYB0x5Gc.9FXgTTuYUSwDh8xf13xgqPPtf6MRsI38DE7qte', '9900292828', 'Dahlan', 'Laki - Laki', 'Hagu Barat Laut', '1989-06-30', 'Hagu Barat Laut', 'Hagu Barat Laut', '082272242022', 'PNS DOSEN', '', ''),
-(3, 'AG-8130', 'sumail', '$2y$10$c1lU9MWQoJbHUV5CQ/RLouRWUl2UQWFoiZn1ONzMQI9zU7w8TTHvi', '120966637739', 'Sumail', 'laki-laki', NULL, NULL, 'Madina', NULL, '123123123123', NULL, '3', NULL);
+(1, 'AG-827', 'anggota', '$2y$10$sV9K2sSYB0x5Gc.9FXgTTuYUSwDh8xf13xgqPPtf6MRsI38DE7qte', '9900292828', 'Dahlan', 'Laki - Laki', 'Hagu Barat Laut', '1989-06-30', 'Hagu Barat Laut', 'Hagu Barat Laut', '082272242022', 'PNS DOSEN', '3', ''),
+(3, 'AG-8130', 'sumail', '$2y$10$c1lU9MWQoJbHUV5CQ/RLouRWUl2UQWFoiZn1ONzMQI9zU7w8TTHvi', '1209666377397', 'Sumail', 'laki-laki', 'Lhokseumawe', '1993-07-02', 'Madina', 'Paloh lada', '123123123123', 'Swasta', '3', NULL);
 
 -- --------------------------------------------------------
 
@@ -137,7 +144,8 @@ CREATE TABLE `tbl_kategori_pinjaman` (
 --
 
 INSERT INTO `tbl_kategori_pinjaman` (`kategori_id`, `kategori_jenis`, `kategori_besar_pinjaman`, `kategori_lama_pinjaman`, `kategori_besar_bunga`) VALUES
-(2, 'skala besar', '10000000', '24', '5');
+(2, 'skala besar', '10000000', '24', '5'),
+(3, 'skala menengah', '5000000', '12', '10');
 
 -- --------------------------------------------------------
 
@@ -184,8 +192,34 @@ CREATE TABLE `tbl_operator` (
 --
 
 INSERT INTO `tbl_operator` (`operator_id`, `operator_kode`, `operator_nomor_pegawai`, `operator_nama`, `operator_kelamin`, `operator_tempat_lahir`, `operator_tanggal_lahir`, `operator_alamat`, `operator_kontak`, `operator_username`, `operator_password`) VALUES
-(1, 'OP-92028', '123456', 'Admin Tunggal', 'Laki - Laki', 'sdfsdf', '2020-06-23', 'sdfsdfsdf', '23423423', 'operator', '$2y$10$W1UOlYAYhG2IqFpDml.UauXvvTQS03YcTTMDZTRJXAlYM8xryHD2y'),
-(3, 'OP-97636', '34234', 'sfsdfsd', 'Laki - Laki', 'sdfsdf', '2020-06-16', 'sdfsdf', '2345454', '', '');
+(1, 'OP-92028', '123456', 'Admin Tunggal', 'Laki - Laki', 'sdfsdf', '2020-06-23', 'sdfsdfsdf', '23423423', 'operator', '$2y$10$ApXi7DlOSo9Qk.vtZf8uQ.U89OWOk4NbHfelQYVJMsvjcfzLG72mS'),
+(3, 'OP-97636', '34234', 'sfsdfsd', 'Laki - Laki', 'sdfsdf', '2020-06-16', 'sdfsdf', '2345454', 'operator2', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_pinjaman`
+--
+
+CREATE TABLE `tbl_pinjaman` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `anggota_id` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pinjaman_kode` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pinjaman_tgl` datetime NOT NULL,
+  `pinjaman_jumlah` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pinjaman_skema_angsuran` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pinjaman_bunga` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pinjaman_angsuran_lama` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pinjaman_ket` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pinjaman_status` text COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '0=masih diajukan,1=disetujui operator,2=ditolak operator,3=disetujui admin,4=ditolak admin'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tbl_pinjaman`
+--
+
+INSERT INTO `tbl_pinjaman` (`id`, `anggota_id`, `pinjaman_kode`, `pinjaman_tgl`, `pinjaman_jumlah`, `pinjaman_skema_angsuran`, `pinjaman_bunga`, `pinjaman_angsuran_lama`, `pinjaman_ket`, `pinjaman_status`) VALUES
+(1, '3', 'PNJ-8155', '2020-07-03 00:00:00', '9000000', '393750', '5', '24', 'kalau sudah disetujui janagan mau makan-makan', '3');
 
 -- --------------------------------------------------------
 
@@ -302,6 +336,12 @@ ALTER TABLE `tbl_operator`
   ADD UNIQUE KEY `operator_nomor_pegawai` (`operator_nomor_pegawai`);
 
 --
+-- Indexes for table `tbl_pinjaman`
+--
+ALTER TABLE `tbl_pinjaman`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_simpanan`
 --
 ALTER TABLE `tbl_simpanan`
@@ -327,7 +367,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_admin`
@@ -357,7 +397,7 @@ ALTER TABLE `tbl_entri_simpanan`
 -- AUTO_INCREMENT for table `tbl_kategori_pinjaman`
 --
 ALTER TABLE `tbl_kategori_pinjaman`
-  MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_kategori_simpanan`
@@ -370,6 +410,12 @@ ALTER TABLE `tbl_kategori_simpanan`
 --
 ALTER TABLE `tbl_operator`
   MODIFY `operator_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbl_pinjaman`
+--
+ALTER TABLE `tbl_pinjaman`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_simpanan`
