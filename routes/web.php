@@ -64,6 +64,10 @@ Route::post('/dashboard/admin/kategori_pinjaman_act', 'Admin\KategoriCtrl@katego
 Route::get('/dashboard/admin/kategori_pinjaman_hapus/{id}', 'Admin\KategoriCtrl@kategori_pinjaman_hapus');
 Route::post('/dashboard/admin/kategori_pinjaman_update', 'Admin\KategoriCtrl@kategori_pinjaman_update');
 
+// permohonan peminjam
+Route::get('/admin/permohonan-pinjam','Admin\PinjamanCtrl@permohonan_pinjam');
+Route::get('/admin/cek-mohon/{id}','Admin\PinjamanCtrl@cek_mohon');
+Route::post('/admin/review-act/{id}','Admin\PinjamanCtrl@review_pinjaman_act');
 
 
 /*

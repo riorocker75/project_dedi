@@ -12,9 +12,9 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
-// use App\Model\Admin;
-// use App\Model\User;
-// use App\Model\operator;
+use App\Model\Admin;
+use App\Model\User;
+use App\Model\operator;
 
 
 class OperatorCtrl extends Controller

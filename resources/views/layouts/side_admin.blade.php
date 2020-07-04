@@ -69,25 +69,31 @@
 
         <li class="nav-item">
           <a href="/admin/tabungan" class="nav-link">
-            <i class="nav-icon fas fa-file"></i>
+            <i class="nav-icon fa fa-users"></i>
             <p> TABUNGAN</p>
           </a>
         </li>
         <li class="nav-item">
+          <a href="{{url('/')}}/admin/permohonan-pinjam" class="nav-link">
+          <i class="nav-icon fa fa-gavel" aria-hidden="true"></i>
+            <p> Permohonan Pinjaman</p>
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-file"></i>
+            <i class="nav-icon fa fa-leaf"></i>
             <p> TRANSAKSI</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-file"></i>
+            <i class="nav-icon fas fa-print"></i>
             <p> LAPORAN</p>
           </a>
         </li>
          <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-file"></i>
+            <i class="nav-icon fas fa-question"></i>
             <p> BANTUAN</p>
           </a>
         </li> 
