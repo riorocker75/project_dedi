@@ -12,7 +12,7 @@
      <link rel="stylesheet" href="{{asset('css/custom.css') }}">
 
 </head>
-<body>
+<body onload="window.print();">
   @foreach ($simulasi as $sm)
       
     <div class="content-wrapper">
@@ -48,7 +48,7 @@
                                     </tr>
                                     <tr>
                                         <td scope="row">Pokok Pinjam</td>
-                                    <td>{{$sm->pinjaman_jumlah}}</td>
+                                    <td>Rp. {{number_format($sm->pinjaman_jumlah)}}</td>
                                     </tr>
                                     <tr>
                                         <td scope="row">Tanggal Pinjam</td>
@@ -133,7 +133,7 @@
     
                             </td>
                            {{-- total pinjaman --}}
-                            <td>
+                            <td>Rp.
                                 <?php
                                 do {
                                     $ntahun1++;
@@ -148,7 +148,7 @@
                             <td>Rp. {{number_format($angsuran)}}</td>
     
                             {{-- saldo Pinjaman --}}
-                            <td>
+                            <td>Rp.
                                 <?php
                                 do {
                                     $ntahun++;
