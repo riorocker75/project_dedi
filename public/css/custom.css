@@ -72,3 +72,30 @@
   background: #111111;
   color: #fff;
 }
+
+.detail-pinjam-header{
+  padding:30px 20px;
+}
+
+.detail-1{
+  display:inline-flex;
+}
+.tabel-simulasi{
+    padding:8px;
+    border:2px solid #000
+}
+
+.tabel-simulasi th,td{
+  border:2px solid #000;
+  padding:5px 5px 5px 35px;
+  text-align: right;
+}
+
+.detail-2{
+  padding: 20px 30px;
+}
+
+.tabel-simulasi-2{
+ width:500px;
+ text-align:center
+}

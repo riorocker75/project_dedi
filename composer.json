@@ -41,7 +41,9 @@
             "database/factories"
         ],
         "files" :[
-            "app/Helper/Alert_helper.php"
+            "app/Helper/Alert_helper.php",
+            "app/Helper/Format_helper.php"
+
         ]
     },
     "autoload-dev": {

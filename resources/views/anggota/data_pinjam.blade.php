@@ -36,7 +36,7 @@
             </div>
             <div class="card-body">
               
-                @foreach ($data_pinjam as $cp)
+              
                     
                 <table id="data1" class="table table-bordered table-striped">
                     <thead>
@@ -50,6 +50,7 @@
                       </tr>
                     </thead>
                     <tbody> 
+                      @foreach ($data_pinjam as $cp)
                         <tr>
                         <td>{{$cp->pinjaman_kode}}</td>
                         <td>Rp.{{number_format($cp->pinjaman_jumlah)}}</td>
@@ -57,13 +58,16 @@
                         <td>{{$cp->pinjaman_angsuran_lama}} bulan</td>
                         <td><label class="badge badge-primary">{{status_pinjaman($cp->pinjaman_status)}}</label></td>
                         <td>
-                        <a href="{{url('/anggota/view-pinjaman/'.$cp->id.'')}}"> <i class="fa fa-eye" aria-hidden="true"></i></a>
-                        </td>
+                        <a href="{{url('/anggota/view-pinjaman/'.$cp->id.'')}}" style="padding:0 7px"> <i class="fa fa-eye"></i></a>
+                        <a href="{{url('/anggota/detail-pinjaman/'.$cp->id.'')}}" target="__blank"> <i class="fas fa-money-bill"></i></a>
+                       
+                      </td>
 
                         </tr>
+                @endforeach
+
                     </tbody>   
                 </table> 
-                @endforeach
 
             </div>
           </div>
