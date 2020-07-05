@@ -12,8 +12,8 @@
      <link rel="stylesheet" href="{{asset('css/custom.css') }}">
 
 </head>
-{{-- <body onload="window.print();"> --}}
-    <body>
+<body onload="window.print();">
+    {{-- <body> --}}
   @foreach ($simulasi as $sm)
       
     <div class="content-wrapper simulasi-page">
