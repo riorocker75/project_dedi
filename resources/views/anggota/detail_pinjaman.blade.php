@@ -12,28 +12,22 @@
      <link rel="stylesheet" href="{{asset('css/custom.css') }}">
 
 </head>
-<body onload="window.print();">
+{{-- <body onload="window.print();"> --}}
+    <body>
   @foreach ($simulasi as $sm)
       
-    <div class="content-wrapper">
+    <div class="content-wrapper simulasi-page">
 
-        <div class="content-header">
-            <div class="container-fluid">
-              <div class="row mb-2">
-                <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Tabel Angsuran Pinjaman </h1>
-                </div>
-               
-              </div>
-            </div>
-          </div>
+        
          <!-- Main content -->
          <section class="content">
+          
             <div class="container-fluid">
              
               <div class="row">
                 <section class="col-lg-12 connectedSortable">
-                  <div class="card">
+                    <div class="card">
+                        <h4 class="m-0 text-dark" style="text-align:center;text-transform: uppercase;font-weight:700;padding:20px 0">Tabel Angsuran Pinjaman </h4>
                     <div class="detail-pinjam-header">
                         <div class="detail-1 float-right">
                             <table class="tabel-simulasi ">
