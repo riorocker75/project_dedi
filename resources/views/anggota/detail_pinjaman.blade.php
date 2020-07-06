@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Detail Pinjaman</title>
      <link rel="stylesheet" href="{{asset('lte/dist/css/adminlte.min.css') }}">
-
+    
      <link rel="stylesheet" href="{{asset('css/custom.css') }}">
 
 </head>
