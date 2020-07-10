@@ -17,13 +17,14 @@ class TblPinjaman extends Migration
             $table->bigIncrements('id');
             $table->text('anggota_id');
             $table->text('pinjaman_kode');
+            $table->dateTime('pinjaman_aju');
             $table->dateTime('pinjaman_tgl');
             $table->text('pinjaman_jumlah');
             $table->text('pinjaman_skema_angsuran');
             $table->text('pinjaman_bunga');
             $table->text('pinjaman_angsuran_lama');
             $table->text('pinjaman_ket')->nullable();
-            $table->text('pinjaman_status')->comment('0=masih diajukan,1=disetujui operator,2=ditolak operator,3=disetujui admin,4=ditolak admin');
+            $table->text('pinjaman_status')->comment('0=masih diajukan,1=disetujui operator,2=ditolak operator');
 
         });
     }

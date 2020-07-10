@@ -36,7 +36,7 @@ class AnggotaLogin extends Controller
                  Session::flush();
 
                 // cek status dulu
-                if($data->status == "3"){
+                if($data->status == "1"){
                        if(Hash::check($password,$data->anggota_password)){
                         Session::put('ang_id', $data->anggota_id);
                         Session::put('ang_nama', $data->anggota_nama);
@@ -52,6 +52,8 @@ class AnggotaLogin extends Controller
                             return redirect('/login/anggota')->with('alert-danger','Password atau Email, Salah !');
                         }   
 
+                }elseif($data->status == "2"){
+                    return redirect('/login/anggota')->with('alert-danger','Akun Kamu ditolak mohon ajukan ulang dengan data yang sesuai persyaratan!');
                 }else{
                   return redirect('/login/anggota')->with('alert-danger','Akun Kamu belum di verifikasi mohon bersabar!');
                 }

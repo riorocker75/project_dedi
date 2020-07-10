@@ -39,11 +39,70 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="{{url('/operator/data-pinjaman/'.Session::get('ang_id').'')}}" class="nav-link">
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-bookmark"></i>
-              <p> Data Pengaju Peminjaman</p>
+              <p>
+                Data Pengaju
+                <i class="fas fa-angle-left right"></i>
+                {{-- <span class="badge badge-info right">6</span> --}}
+              </p>
             </a>
+            <ul class="nav nav-treeview" style="margin-left:20px;font-size:14px">
+              <li class="nav-item">
+                <a href="{{url('/operator/mohon-gabung')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pengaju Gabung Anggota</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('/operator/data-pinjaman')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pengaju Pembiayaan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('/dashboard/admin/anggota')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pengaju Simpanan</p>
+                </a>
+              </li>
+                                    
+            </ul>
+          </li>
+
+          
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-print"></i>
+              <p>
+                Data Laporan
+                <i class="fas fa-angle-left right"></i>
+                {{-- <span class="badge badge-info right">6</span> --}}
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="margin-left:20px;font-size:14px">
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Laporan --</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Laporan --</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Laporan --</p>
+                </a>
+              </li>
+                                    
+            </ul>
           </li>
 
          

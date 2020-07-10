@@ -65,17 +65,28 @@
                echo "Operator Setuju";
                 break;
             case 2:
-               echo "Admin Setuju";
-                break;
-            case 3:
-               echo "Admin Menolak";
-                break;
-            case 4:
                echo "Operator Menolak";
-                break;    
+                break;
             default:
                echo "tidak ada";
                 break;
+        }
+    }
+
+    function layak_pinjam($status){
+        switch($status){
+            case 0:
+                echo "Tahap Review";
+            break;
+            case 1:
+                echo "Layak Pembiayaan";
+            break;
+            case 2:
+                echo "Tidak Layak Pembiayaan";
+            break;
+            default:
+            echo "Tidak ada status";
+            break;
         }
     }
 
@@ -90,12 +101,6 @@
              case 2:
                 echo "Operator Menolak";
                  break;
-             case 3:
-                echo "Pinjaman Di terima";
-                 break;
-             case 4:
-                echo "Pinjaman Di tolak";
-                 break;    
              default:
                 echo "tidak ada";
                  break;

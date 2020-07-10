@@ -20,6 +20,7 @@ class TblAnggota extends Migration
             $table->text('anggota_password');
             $table->text('anggota_nik');
             $table->text('anggota_nama');
+            $table->text('anggota_agama')->nullable();
             $table->text('anggota_kelamin');
             $table->text('anggota_tempat_lahir')->nullable();
             $table->date('anggota_tanggal_lahir')->nullable();
@@ -30,6 +31,7 @@ class TblAnggota extends Migration
             $table->text('anggota_gaji');
             $table->text('lvl_pinjaman')->nullable();
             $table->text('foto')->nullable();
+            $table->text('status_pinjaman')->nullable()->comment('0=tahap review,1=layak,2=tidak layak');
             $table->text('status');
 
         });

@@ -28,7 +28,6 @@
 		 @endif
         </div>
 		
-
          <div class="input-group mb-3">
           <input type="number" class="form-control" placeholder="NIK" name="nik" maxlength="16" required="required">
           <div class="input-group-append">

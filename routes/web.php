@@ -93,13 +93,18 @@ Route::get('/dashboard/operator' ,'Operator\OperatorController');
 Route::get('/operator/data-pribadi/{id}','Operator\OperatorController@data_pribadi');
 Route::post('/operator/data-pribadi-update/{id}','Operator\OperatorController@data_pribadi_update');
 
+// masalah approve anggota baru
+Route::get('/operator/mohon-gabung','Operator\AnggotaGabung');
+Route::get('/operator/detail/anggota-mohon/{id}','Operator\AnggotaGabung@detail_pemohon');
+Route::post('/operator/gabung-act','Operator\AnggotaGabung@gabung_act');
 
+
+// masalah peminjaman
 Route::get('/operator/data-pinjaman','Operator\OperatorController@data_peminjam');
 Route::get('/operator/review-pinjaman/{id}','Operator\OperatorController@review_peminjam');
-
 Route::post('/operator/review-act/{id}','Operator\OperatorController@review_pinjaman_act');
 
-
+// masalah simpanan
 
 
 /*
