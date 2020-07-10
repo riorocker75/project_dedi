@@ -96,7 +96,7 @@ Route::post('/operator/data-pribadi-update/{id}','Operator\OperatorController@da
 // masalah approve anggota baru
 Route::get('/operator/mohon-gabung','Operator\AnggotaGabung');
 Route::get('/operator/detail/anggota-mohon/{id}','Operator\AnggotaGabung@detail_pemohon');
-Route::post('/operator/gabung-act','Operator\AnggotaGabung@gabung_act');
+Route::post('/operator/gabung-act/{id}','Operator\AnggotaGabung@gabung_act');
 
 
 // masalah peminjaman
@@ -105,6 +105,10 @@ Route::get('/operator/review-pinjaman/{id}','Operator\OperatorController@review_
 Route::post('/operator/review-act/{id}','Operator\OperatorController@review_pinjaman_act');
 
 // masalah simpanan
+Route::get('/operator/data-simpanan','Operator\AnggotaSimpanan');
+Route::get('/operator/detail/mohon-simpanan/{id}','Operator\AnggotaSimpanan@detail_pemohon');
+Route::post('/operator/mohon-simpanan/act{id}','Operator\AnggotaSimpanan@mohon_act');
+
 
 
 /*

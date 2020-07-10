@@ -33,6 +33,7 @@ class Anggota_seed extends Seeder
             'anggota_pekerjaan' => "1",
             'anggota_gaji' => "50000000",
             'status_pinjaman' =>1,
+            'status_simpanan' =>1,
             'status' => 1,
             'foto' => "" 
 
@@ -54,6 +55,7 @@ class Anggota_seed extends Seeder
             'anggota_pekerjaan' => "1",
             'anggota_gaji' => "70000000",
             'status_pinjaman' =>1,
+            'status_simpanan' =>1,
             'status' => 1,
             'foto' => "" 
         ]);
@@ -75,6 +77,7 @@ class Anggota_seed extends Seeder
             'anggota_pekerjaan' => "1",
             'anggota_gaji' => "4000000",
             'status_pinjaman' =>0,
+            'status_simpanan' =>0,
             'status' =>0,
             'foto' => "" 
         ]);

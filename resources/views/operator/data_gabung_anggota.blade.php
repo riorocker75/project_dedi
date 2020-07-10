@@ -5,12 +5,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Data Permohonan Gabung Menjadi Anggota</h1>
+              <h1 class="m-0 text-dark">Data Pengajuan Menjadi Anggota</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{ url('/dashboard/anggota')}}">Home</a></li>
-                <li class="breadcrumb-item active">Data Pemohon</li>
+                <li class="breadcrumb-item"><a href="{{ url('/dashboard/operator')}}">Home</a></li>
+                <li class="breadcrumb-item active">Data Pengajuan</li>
               </ol>
             </div>
           </div>
@@ -26,7 +26,7 @@
                 <div class="card-header">
                   <h3 class="card-title">
                    
-                   Data Pemohon
+                  List data pengajuan
                   </h3>
                   <div class="card-tools">
                    
@@ -34,7 +34,9 @@
                 </div>
                 <div class="card-body">
                     <?php $no=1;?>
+                    @if (count($data_mohon) > 0)
                     @foreach ($data_mohon as $dm)
+                            
                     <table id="data1" class="table table-bordered table-striped">
                         <thead>
                           <tr>
@@ -72,8 +74,12 @@
     
                             </tr>
                         </tbody>   
-                    </table> 
+                    </table>
+                   
                     @endforeach
+                    @else
+                        Belum ada anggota baru mendaftar ....
+                    @endif
                 </div>
               </div>
             </section>

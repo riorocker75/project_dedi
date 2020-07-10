@@ -35,8 +35,35 @@ class AnggotaGabung extends Controller
     ]);
    }
 
-   function gabung_act(Request $request){
-       
+   function gabung_act(Request $request,$id){
+       $request->validate([
+           'status_pinjam' => 'required'
+       ]);
+
+       switch ($request->input('action')) {
+        case 'terima':
+            Anggota::where('anggota_id',$id)->update([
+                'status_pinjaman' =>$request->status_pinjam,
+                'status' => 1
+            ]);
+        return redirect('/operator/mohon-gabung/')->with('alert-success','Anggota telah disetujui');
+
+            break;
+        case 'tolak':
+            Anggota::where('anggota_id',$id)->update([
+                'status_pinjaman' =>$request->status_pinjam,
+                'status' => 2
+            ]);
+        return redirect('/operator/mohon-gabung/')->with('alert-warning','Penolakan berhasil');
+
+            break;
+         default:
+         echo "terlarang";
+        break;   
+
+
+    }
+    // end switch
    }
 
 

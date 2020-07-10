@@ -99,7 +99,7 @@ class OperatorController extends Controller
                     'pinjaman_ket' =>$request->ket,
                     'pinjaman_status' => 1
                 ]);
-            return redirect('/operator/data-pinjaman')->with('alert-success','Konfirmasi Diteruskan ke Admin');
+            return redirect('/operator/data-pinjaman')->with('alert-success','Pinjaman berhasil disetujui');
 
                 break;
             case 'tolak':

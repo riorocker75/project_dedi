@@ -9,7 +9,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{ url('/dashboard/anggota')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('/dashboard/operator')}}">Home</a></li>
                 <li class="breadcrumb-item active">Data Pemohon</li>
               </ol>
             </div>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="card-body">
                     @foreach ($anggota as $ag)
-                <form action="{{url('/operator/gabung-act')}}" method="post">
+                <form action="{{url('/operator/gabung-act/'.$ag->anggota_id.'')}}" method="post">
                     @csrf
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
@@ -59,6 +59,10 @@
                                 <input type="text" class="form-control" value="{{$ag->anggota_kontak}}" disabled>
                             </div>
 
+                          
+                        </div> 
+                        
+                        <div class="col-lg-6 col-md-6 col-12">
                             @php
                             $kerja=App\Model\Pekerjaan::where('id', $ag->anggota_pekerjaan)->first();
                             @endphp
@@ -71,9 +75,28 @@
                                 <label for="">Gaji/bulan</label>
                                 <input type="text" class="form-control" value="Rp. {{number_format($ag->anggota_gaji)}}" disabled>
                             </div>
-                        </div>    
+                            <div class="form-group">
+                                <label for="">Status Kelayakan Pembiayaan</label>
+                                <select name="status_pinjam" class="form-control" required>
+                                    <option value="">--Pilih Status--</option>
+                                    <option value="1">Layak Pembiayaan</option>
+                                    <option value="2">Tidak Layak Pembiayaan</option>
+
+                                </select>
+                                @if($errors->has('status_pinjam'))
+                                <small class="text-muted text-danger">
+                                    {{ $errors->first('status_pinjam')}}
+                                </small>
+                                @endif 
+                            </div>
+
+                        </div>
                     </div>    
-                    
+                    <div class="float-right">
+                        <button class="btn btn-primary float-right" type="submit" name="action" value="terima">Setujui Bergabung</button>
+                        <button class="btn btn-default float-right" style="margin-right:10px" type="submit" name="action" value="tolak"> Tolak Bergabung</button>
+                        
+                    </div>
                 </form>
                 @endforeach
                 </div>

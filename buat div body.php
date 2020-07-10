@@ -44,7 +44,7 @@
 
 <!-- buat eror -->
 @if($errors->has('lama_angsur'))
-<div class="text-danger">
+<small class="text-muted text-danger">
     {{ $errors->first('lama_angsur')}}
-</div>
+    </small>
 @endif

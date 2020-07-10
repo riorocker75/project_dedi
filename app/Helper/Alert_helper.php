@@ -45,7 +45,7 @@
                echo "Admin";
                 break;
             case 2:
-               echo "Operator";
+               echo "Pengurus";
                 break;
             case 3:
                echo "Anggota";

@@ -10,7 +10,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{ url('/operator/data-pinjaman')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('/operator/data-pinjaman')}}">Data Pengaju</a></li>
                 <li class="breadcrumb-item active">Data Pribadi</li>
               </ol>
             </div>
@@ -120,7 +120,7 @@
                     </div>
 
                     
-                    <button class="btn btn-primary float-right" type="submit" name="action" value="terima">Konfirmasi ke Admin</button>
+                    <button class="btn btn-primary float-right" type="submit" name="action" value="terima">Setujui</button>
                     <button class="btn btn-default float-right" style="margin-right:10px" type="submit" name="action" value="tolak"> Tolak Pinjaman</button>
                     
                     </form>
