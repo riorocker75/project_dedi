@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Session;
 use App\Model\Admin;
 use App\Model\Anggota;
 use App\Model\Operator;
+use App\Model\Anggota_Gaji;
 
 use App\Model\User;
 
@@ -87,7 +88,9 @@ class AnggotaLogin extends Controller
             'password' => 'required|min:4',
             'kontak' => 'required|min:4',
             'kelamin' => 'required',
-            'alamat' => 'required|min:4'
+            'alamat' => 'required|min:4',
+            'kerja' =>'required',
+            'gaji' =>'required'
         ]);
 
        $data = new Anggota();
@@ -100,8 +103,14 @@ class AnggotaLogin extends Controller
        $data->anggota_alamat_ktp = $alamat_ktp;
        $data->anggota_tanggal_lahir = $tgl_lahir;
        $data->anggota_kontak = $kontak;
+       $data->anggota_gaji =$request->gaji;
+       $data->anggota_pekerjaan = $request->kerja;
+
        $data->status = 0;
        $data->save();
+
+    //    $lastInsertedId= $data->anggota_id;
+
         
         return redirect('login/anggota')->with('alert-success','Tunggu verifikasi !!');
 

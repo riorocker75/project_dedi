@@ -43,27 +43,33 @@
             <li class="nav-item">
               <a href="{{url('/dashboard/admin/operator')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>DATA OPERATOR</p>
+                <p>Data Operator</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="{{url('/dashboard/admin/anggota')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>DATA ANGGOTA</p>
+                <p>Data Anggota</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="{{url('/dashboard/admin/kategori_simpanan')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>KATEGORI SIMPANAN</p>
+                <p>Kategori Simpanan</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="{{url('/dashboard/admin/kategori_pinjaman')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>KATEGORI PINJAMAN</p>
+                <p>Kategori Pinjaman</p>
               </a>
-            </li>                         
+            </li> 
+            <li class="nav-item">
+              <a href="{{url('/admin/pekerjaan')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Pekerjaan</p>
+              </a>
+            </li>                        
           </ul>
         </li>
 

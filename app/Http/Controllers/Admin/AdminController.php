@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 use App\Model\Admin;
-use App\Model\User;
+use App\Model\Anggota;
+use App\Model\Operator;
 
 
 

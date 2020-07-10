@@ -109,7 +109,7 @@
                                 <div class="office-info">
                                     <ul>
                                         <li><strong>Alamat:</strong></li>
-                                        <li>Lhokseumawe, Bukit Indah</li>
+                                        <li>Jakarta, Fatmawati</li>
                                         <li><a href="#">Temukan Kami</a></li>
                                     </ul>
                                 </div>
@@ -117,7 +117,7 @@
                                 <div class="office-info">
                                     <ul>
                                         <li><strong>Alamat:</strong></li>
-                                        <li>Lhokseumawe, Bukit Indah</li>
+                                        <li>Jakarta, Fatmawati</li>
                                         <li><a href="#">Temukan Kami</a></li>
                                     </ul>
                                 </div>

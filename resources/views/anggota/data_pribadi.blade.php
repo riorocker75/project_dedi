@@ -77,14 +77,15 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>TANGGAL LAHIR</label>
-                          <input type="date" name="tanggal_lahir" class="form-control" value="<?php if($pr->anggota_tanggal_lahir == ""){echo date('Y-m-d');}else{echo $pr->anggota_tanggal_lahir;}?>">                        
+                          <input type="date" name="tanggal_lahir" class="form-control" value="<?php if($pr->anggota_tanggal_lahir == ""){echo date('Y-m-d');}else{echo date('Y-m-d', strtotime($pr->anggota_tanggal_lahir));}?>">                        
                         </div>
+                        @if($errors->has('tanggal_lahir'))
+                        <div class="text-danger">
+                            {{ $errors->first('tanggal_lahir')}}
+                        </div>
+                        @endif
                       </div>
-                      @if($errors->has('tanggal_lahir'))
-                      <div class="text-danger">
-                          {{ $errors->first('tanggal_lahir')}}
-                      </div>
-                      @endif
+                    
                     </div>
                     <div class="row">
                       <div class="col-sm-6">
@@ -126,14 +127,28 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>PEKERJAAN</label>
-                          <input type="text" class="form-control" name="pekerjaan" value="{{ $pr->anggota_pekerjaan}}" required="required">
+                          <select class="form-control" name="pekerjaan" required="required">
+                            @php
+                            $kerja = \App\Model\Pekerjaan::all();
+                            $kerjax= \App\Model\Pekerjaan::where('id',$pr->anggota_pekerjaan)->first();
+                           @endphp
+                          
+                          <option value="{{ $pr->anggota_pekerjaan}}" selected hidden>{{$kerjax->pekerjaan}}</option>
+                          @foreach ($kerja as $kj)
+                             <option value="{{$kj->id}}">{{$kj->pekerjaan}}</option>
+                           @endforeach
+                          </select> 
+                       
+                         @if($errors->has('pekerjaan'))
+                              <div class="text-danger">
+                                  {{ $errors->first('pekerjaan')}}
+                              </div>
+                          @endif
                         </div>
                       </div>
-                      @if($errors->has('pekerjaan'))
-                      <div class="text-danger">
-                          {{ $errors->first('pekerjaan')}}
-                      </div>
-                      @endif 
+
+                     
+                    
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>ALAMAT SEKARANG</label>
@@ -144,8 +159,24 @@
                       <div class="text-danger">
                           {{ $errors->first('alamat_sekarang')}}
                       </div>
-                      @endif                      
-                    </div>                                                          
+                      @endif   
+                      
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>Gaji/bulan</label>
+                          <input type="number" class="form-control" name="gaji" value="{{ $pr->anggota_gaji }}">
+                        </div>
+                        @if($errors->has('gaji'))
+                        <div class="text-danger">
+                            {{ $errors->first('gaji')}}
+                        </div>
+                        @endif  
+                      </div> 
+
+                    
+                    </div>  
+                    
+                    
                     <input type="submit" name="simpan" value="SIMPAN" class="btn btn-primary">                      
                   </form>
             </div>

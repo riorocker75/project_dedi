@@ -70,6 +70,12 @@ Route::get('/admin/cek-mohon/{id}','Admin\PinjamanCtrl@cek_mohon');
 Route::post('/admin/review-act/{id}','Admin\PinjamanCtrl@review_pinjaman_act');
 
 
+// data pekerjaan
+Route::get('/admin/pekerjaan', 'Admin\PekerjaanCtrl');
+Route::post('/admin/pekerjaan/tambah-act', 'Admin\PekerjaanCtrl@tambah_act');
+Route::get('/admin/pekerjaan/delete-act/{id}', 'Admin\PekerjaanCtrl@tambah_delete');
+
+
 /*
 =========================== 
 		Operator

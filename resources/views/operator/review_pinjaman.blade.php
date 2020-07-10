@@ -90,8 +90,18 @@
                                 </div>
 
                                 <div class="form-group">
+                                  @php
+                                  $kerjax= \App\Model\Pekerjaan::where('id',$pr->anggota_pekerjaan)->first();
+                                 @endphp
                                     <label>Pekerjaan</label>
-                                    <input type="text" class="form-control" value="{{ $pr->anggota_pekerjaan}}" disabled>
+                                    <input type="text" class="form-control" value="{{ $kerjax->pekerjaan}}" disabled>
+                                </div>
+
+                                
+                                <div class="form-group">
+                                
+                                    <label>Gaji/bulan</label>
+                                    <input type="text" class="form-control" value="Rp.{{ number_format($pr->anggota_gaji)}}" disabled>
                                 </div>
                              @endforeach
 

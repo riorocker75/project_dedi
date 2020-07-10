@@ -61,9 +61,9 @@
                           NIK: {{$anggota->anggota_nik}}
                         </td>
                         
-
+                        
                         <td>Rp.{{number_format($cp->pinjaman_jumlah)}}</td>
-                        <td>Rp.{{number_format($cp->pinjaman_skema_angsuran)}}/bulan</td>
+                        <td>Rp.{{number_format($cp->pinjaman_skema_angsuran)}}/minggu</td>
                         <td>{{$cp->pinjaman_angsuran_lama}} bulan</td>
                         <td><label class="badge badge-primary">{{status_pinjaman($cp->pinjaman_status)}}</label></td>
                         <td>

@@ -89,6 +89,42 @@
             @endif
         </div>
 
+        <div class="input-group mb-3">
+          <select class="form-control" name="kerja" required="required">
+            <option value="">Pilih Pekerjaan</option>
+           @php
+              $kerja = \App\Model\Pekerjaan::all();
+           @endphp
+           @foreach ($kerja as $kj)
+          <option value="{{$kj->id}}">{{$kj->pekerjaan}}</option>
+           @endforeach
+          </select> 
+          <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-venus-mars"></span>
+          </div>
+        </div>
+         @if($errors->has('kerja'))
+              <div class="text-danger">
+                  {{ $errors->first('kerja')}}
+              </div>
+          @endif
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="number" class="form-control" placeholder="Jumlah gaji/bulan" name="gaji" required="required">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fa fa-credit-card"></span>
+            </div>
+          </div>
+           @if($errors->has('gaji'))
+                <div class="text-danger">
+                    {{ $errors->first('gaji')}}
+                </div>
+            @endif
+        </div>
+
 
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Username" name="username" required="required">

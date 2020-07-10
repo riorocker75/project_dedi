@@ -32,27 +32,29 @@ $(document).ready(function () {
         return x1 + x2;
     }
     // end format
-    $('#nominal' ).keyup(function() {
-        var nominal = $( this ).val();
-        var angsur =$('#angsur').children("option:selected").val(); 
-        // var hs = Number(nominal)+Number(angsur);
-        // $('#skenario').text("Rp."+addCommas(hs));
-        if(nominal.length > 0){ 
 
-            $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-              type:"post",
-              url:"/anggota/cek-angsur",
-              data:{nominal:nominal,angsur:angsur},
-              success: function(data){          
-                $('#skenario').html(data);
-              }
-            });
-          }
     
-  }).keyup();
+  //   $('#nominal' ).keyup(function() {
+  //       var nominal = $( this ).val();
+  //       var angsur =$('#angsur').children("option:selected").val(); 
+  //       // var hs = Number(nominal)+Number(angsur);
+  //       // $('#skenario').text("Rp."+addCommas(hs));
+  //       if(nominal.length > 0){ 
+
+  //           $.ajax({
+  //           headers: {
+  //               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  //               },
+  //             type:"post",
+  //             url:"/anggota/cek-angsur",
+  //             data:{nominal:nominal,angsur:angsur},
+  //             success: function(data){          
+  //               $('#skenario').html(data);
+  //             }
+  //           });
+  //         }
+    
+  // }).keyup();
 });
 
 

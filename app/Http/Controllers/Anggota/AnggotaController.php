@@ -20,7 +20,10 @@ use App\Model\Tabungan;
 use App\Model\Simpanan;
 
 use App\Model\Anggota;
+use App\Model\Anggota_Gaji;
+
 use App\Model\Operator;
+
 
 use App\Model\User;
 class AnggotaController extends Controller
@@ -56,6 +59,8 @@ class AnggotaController extends Controller
             'pekerjaan' => 'required',
             'alamat_sekarang' => 'required',
             'alamat_ktp' => 'required',
+            'gaji' => 'required'
+
         ]);
 
         Anggota::where('anggota_id',$id)->update([
@@ -103,8 +108,8 @@ class AnggotaController extends Controller
 
         $date=date('Y-m-d');
         $this->validate($request,[
-            'jlh_pinjam' => 'required|min:2',
-            'lama_angsur' => 'required',
+            // 'jlh_pinjam' => 'required|min:2',
+            'lama_angsur' => 'required'
         ]);
         Pinjaman::create([
             'anggota_id' => Session::get('ang_id'),

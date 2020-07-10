@@ -43,20 +43,20 @@
                       <form action="kategori_pinjaman_act" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
-                          <label> JENIS PINJAMAN</label>
+                          <label> JENIS PEMBIAYAAN</label>
                           <input type="text" name="jenis" required="required" class="form-control">
                         </div>
                         <div class="form-group">
-                          <label> BESAR PINJAMAN</label>
+                          <label> BESAR PEMBIAYAAN</label>
                           <input type="number" name="besar" required="required" class="form-control">
                         </div>
                         <div class="form-group">
-                          <label> LAMA PINJAMAN</label>
+                          <label> LAMA PEMBIAYAAN</label>
                           <input type="number" name="lama" required="required" class="form-control">
                         </div> 
                         <div class="form-group">
                           <label> JUMLAH BUNGA</label>
-                          <input type="number" name="bunga" required="required" class="form-control">
+                          <input type="number" name="bunga" required="required" class="form-control" step=".01">
                         </div>                          
                         <br/>
                         <input type="submit" value="Simpan" class="btn btn-primary">
@@ -73,9 +73,9 @@
                   <tr>
                     <th>NO</th>
                     <th>JENIS</th>
-                    <th>BESAR PINJAMAN</th>                   
-                    <th>LAMA PINJAMAN</th>                   
-                    <th>BESAR BUNGA</th>                   
+                    <th>BESAR PEMBIAYAAN</th>                   
+                    <th>LAMA PEMBIAYAAN</th>                   
+                    <th>BESAR MARGIN</th>                   
                     <th>OPSI</th>                   
                   </tr>
                 </thead>
@@ -84,10 +84,11 @@
                   @foreach($kategori as $kat)
                   <?php $no++ ?>                 
                   <tr>
+                  
                     <td>{{ $no }}</td>
                     <td>{{ $kat->kategori_jenis }}</td>
                     <td>{{ number_format($kat->kategori_besar_pinjaman) }}</td>
-                    <td>{{ $kat->kategori_lama_pinjaman }} Bulan</td>
+                    <td>{{ $kat->kategori_lama_pinjaman }} Minggu</td>
                     <td>{{ $kat->kategori_besar_bunga }} %</td>                                       
                     <td>
                       <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#kat_edit{{$kat->kategori_id}}"><i class="fas fa-pencil-alt"></i> Edit</button>
@@ -128,7 +129,8 @@
                                     <tr>
                                       <th width="40%"> BESAR BUNGA</th>
                                       <th width="1%">:</th>
-                                      <td>                                        
+                                      <td>      
+                                                                     
                                         <input type="number" name="bunga" class="form-control" value="{{$kat->kategori_besar_bunga}}">
                                       </td>
                                     </tr>                                   

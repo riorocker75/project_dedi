@@ -54,12 +54,12 @@
                               </div>
 
                               <div class="form-group">
-                                <label>Angsuran per bulan</label>
+                                <label>Angsuran per minggu</label>
                                 <input type="text" class="form-control" value="Rp.{{ number_format($dpj->pinjaman_skema_angsuran)}}" disabled>
                               </div>
 
                               <div class="form-group">
-                              <label>Keuntungan selama {{$dpj->pinjaman_angsuran_lama}} bulan</label>
+                              <label>Keuntungan selama {{$dpj->pinjaman_angsuran_lama}} minggu</label>
                                 @php
                                     $nilai_angsur=$dpj->pinjaman_skema_angsuran;
                                     $nilai_untung=$nilai_angsur * $dpj->pinjaman_angsuran_lama;
@@ -90,9 +90,18 @@
                                 </div>
 
                                 <div class="form-group">
+                                  @php
+                                  $kerjax= \App\Model\Pekerjaan::where('id',$pr->anggota_pekerjaan)->first();
+                                 @endphp
                                     <label>Pekerjaan</label>
-                                    <input type="text" class="form-control" value="{{ $pr->anggota_pekerjaan}}" disabled>
+                                    <input type="text" class="form-control" value="{{ $kerjax->pekerjaan}}" disabled>
                                 </div>
+
+                                <div class="form-group">
+                                
+                                  <label>Gaji/bulan</label>
+                                  <input type="text" class="form-control" value="Rp.{{ number_format($pr->anggota_gaji)}}" disabled>
+                              </div>
                              @endforeach
 
                            

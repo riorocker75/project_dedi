@@ -48,11 +48,11 @@
                    
 
                     <div class="form-group">
-                      <label>Lama Angsuran</label>
+                      <label>Jumlah Pinjaman</label>
                       <select class="form-control" name="lama_angsur" required="required" id="angsur">
                         <option value="">Pilih Sesuai Kesanggupan</option>
                         @foreach ($cat_pinjam as $cp)
-                            <option value="{{$cp->kategori_id  }}">Jangka&nbsp;{{$cp->kategori_lama_pinjaman }}&nbsp;Bulan, Bunga {{$cp->kategori_besar_bunga}} % , Limit Pinjaman Rp.{{number_format($cp->kategori_besar_pinjaman)}} </option>
+                            <option value="{{$cp->kategori_id  }}">Jangka&nbsp;{{$cp->kategori_lama_pinjaman }}&nbsp;Minggu, Bunga {{$cp->kategori_besar_bunga}} % , Limit Pinjaman Rp.{{number_format($cp->kategori_besar_pinjaman)}} </option>
                         @endforeach
                       </select> 
                     </div>
@@ -62,7 +62,7 @@
                     </div>
                     @endif
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                       <label>Jumlah Pinjaman</label>
                     <input type="number" class="form-control" name="jlh_pinjam" required="required" id="nominal">
                     </div>
@@ -70,7 +70,7 @@
                     <div class="text-danger">
                         {{ $errors->first('jlh_pinjam')}}
                     </div>
-                    @endif
+                    @endif --}}
 
                     <div class="form-group">
                       <label>Skenario Angsuran perbulan</label>
