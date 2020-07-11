@@ -32,6 +32,8 @@ class Anggota_seed extends Seeder
             'anggota_kontak' => "082272242022",
             'anggota_pekerjaan' => "1",
             'anggota_gaji' => "50000000",
+            'tgl_gabung' =>"2020-06-20",
+
             'status_pinjaman' =>1,
             'status_simpanan' =>1,
             'status' => 1,
@@ -54,6 +56,7 @@ class Anggota_seed extends Seeder
             'anggota_kontak' => "082272242022",
             'anggota_pekerjaan' => "1",
             'anggota_gaji' => "70000000",
+            'tgl_gabung' =>"2020-06-20",
             'status_pinjaman' =>1,
             'status_simpanan' =>1,
             'status' => 1,
@@ -76,6 +79,8 @@ class Anggota_seed extends Seeder
             'anggota_kontak' => "082272342022",
             'anggota_pekerjaan' => "1",
             'anggota_gaji' => "4000000",
+            'tgl_gabung' =>"2020-06-20",
+
             'status_pinjaman' =>0,
             'status_simpanan' =>0,
             'status' =>0,

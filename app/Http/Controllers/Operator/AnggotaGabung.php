@@ -21,6 +21,18 @@ use App\Model\Simpanan;
 
 class AnggotaGabung extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            if(!Session::get('login-op')){
+                return redirect('login/operator')->with('alert-danger','Dilarang Masuk Terlarang');
+            }
+            return $next($request);
+        });
+        
+    }
+
+    
    function __invoke(){
        $data=Anggota::where('status',0)->get();
         return view('operator.data_gabung_anggota',[
@@ -44,6 +56,7 @@ class AnggotaGabung extends Controller
         case 'terima':
             Anggota::where('anggota_id',$id)->update([
                 'status_pinjaman' =>$request->status_pinjam,
+                'tgl_gabung' => date('Y-m-d'),
                 'status' => 1
             ]);
         return redirect('/operator/mohon-gabung/')->with('alert-success','Anggota telah disetujui');

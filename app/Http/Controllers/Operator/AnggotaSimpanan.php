@@ -21,8 +21,26 @@ use App\Model\Simpanan;
 
 class AnggotaSimpanan extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            if(!Session::get('login-op')){
+                return redirect('login/operator')->with('alert-danger','Dilarang Masuk Terlarang');
+            }
+            return $next($request);
+        });
+        
+    }
+
     function __invoke(){
         // $data=Anggota::where();
         return view('operator.data_aju_simpanan');
+    }
+
+    function tambah_mohon(){
+        $data=Anggota::where('status',1)->get();
+        return view('operator.data_simpanan_mohon',[
+            'anggota' => $data
+        ]);
     }
 }

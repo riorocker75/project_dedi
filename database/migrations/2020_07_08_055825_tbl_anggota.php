@@ -31,6 +31,7 @@ class TblAnggota extends Migration
             $table->text('anggota_gaji');
             $table->text('lvl_pinjaman')->nullable();
             $table->text('foto')->nullable();
+            $table->date('tgl_gabung')->nullable();
             $table->text('status_pinjaman')->nullable()->comment('0=tahap review,1=layak,2=tidak layak');
             $table->text('status_simpanan')->nullable()->comment('0=tahap review,1=layak,2=tidak layak');
            

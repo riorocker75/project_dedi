@@ -108,6 +108,7 @@ Route::post('/operator/review-act/{id}','Operator\OperatorController@review_pinj
 Route::get('/operator/data-simpanan','Operator\AnggotaSimpanan');
 Route::get('/operator/detail/mohon-simpanan/{id}','Operator\AnggotaSimpanan@detail_pemohon');
 Route::post('/operator/mohon-simpanan/act{id}','Operator\AnggotaSimpanan@mohon_act');
+Route::get('/operator/tambah/mohon-simpanan','Operator\AnggotaSimpanan@tambah_mohon');
 
 
 

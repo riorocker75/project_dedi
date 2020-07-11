@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="{{asset('lte/plugins/daterangepicker/daterangepicker.css') }}">
   <link rel="stylesheet" href="{{asset('lte/plugins/summernote/summernote-bs4.css') }}">
   <link rel="stylesheet" href="{{asset('css/custom.css') }}">
+  <link rel="stylesheet" href="{{asset('css/bootstrap-select.css') }}">
+
 
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -116,6 +118,8 @@
 <script src="{{asset('lte/dist/js/pages/dashboard.js') }}"></script>
 <script src="{{asset('lte/dist/js/demo.js') }}"></script>
 <script src="{{asset('js/custom.js') }}"></script>
+<script src="{{asset('js/bootstrap-select.js') }}"></script>
+
 
 <script src="{{asset('lte/plugins/datatables/jquery.dataTables.js') }}"></script>
 <script src="{{asset('lte/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
