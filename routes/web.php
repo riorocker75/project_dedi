@@ -144,8 +144,10 @@ Route::post('/anggota/data-pribadi-update/{id}', 'Anggota\AnggotaController@data
 Route::get('/anggota/data-pinjaman/{id}' , 'Anggota\AnggotaController@data_pinjam');
 Route::get('/anggota/ajukan-pinjaman' , 'Anggota\AnggotaController@aju_pinjam');
 Route::post('/anggota/ajukan-pact' , 'Anggota\AnggotaController@aju_pinjam_act');
-Route::post('/anggota/cek-angsur','Anggota\AnggotaController@cek_angsuran');
 Route::get('/anggota/view-pinjaman/{id}', 'Anggota\AnggotaController@view_pinjaman');
+
+Route::post('/anggota/cek-angsur','Anggota\AnggotaController@cek_angsuran');
+Route::post('/anggota/cek-angsur-fix','Anggota\AnggotaController@cek_angsuran_fix');
 
 // detail pinjaman
 Route::get('/anggota/detail-pinjaman/{id}', 'Anggota\Ang_PinjamanCtrl@simulasi_bayar');

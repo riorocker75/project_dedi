@@ -158,6 +158,69 @@ class AnggotaController extends Controller
         }
     }
 
+    function cek_angsuran_fix(Request $request){
+        $angsur =$request->angsur;
+        $id_ag=Session::get('ang_id');
+        $ag= Anggota::where('anggota_id',$id_ag)->first();
+        $jas=Cat_Pinjaman::where('kategori_id',$angsur)->first();
+
+        $bunga=$jas->kategori_besar_bunga/100;
+        $pj_pokok=number_format($jas->kategori_besar_pinjaman);
+
+        $jangka=$jas->kategori_lama_pinjaman;
+        $angsur_minggu= number_format($jas->kategori_angsuran);
+       
+        $total_kembali=$jas->kategori_angsuran*$jas->kategori_lama_pinjaman;
+        $num_tk=number_format($total_kembali);
+
+        $total_angsur=$total_kembali - $jas->kategori_besar_pinjaman;
+        $num_ang=number_format($total_angsur);
+        
+        if($jas->kategori_besar_pinjaman > $ag->anggota_gaji){
+            echo "Anda melewati limit, harap pilih sesuai dengan maks gaji";
+            echo "
+                <script>
+                $(document).ready(function () {
+                    $('#ajukan').css('display','none');
+                });
+                </script>
+            ";
+        }else{
+            echo "
+            <div class='form-group'>
+                <label>Pinjaman Pokok</label>
+                <input type='text' class='form-control' value='$pj_pokok' disabled>
+            </div>
+
+            <div class='form-group'>
+                <label>Jangka Waktu</label>
+                <input type='text' class='form-control' value='$jangka minggu' disabled>
+            </div>
+
+            <div class='form-group'>
+                <label>Nisbah Koperasi</label>
+                <input type='text' class='form-control' value='setara $jas->kategori_besar_bunga%' disabled>
+            </div>
+
+            <div class='form-group'>
+                <label>Angsuran per Minggu</label>
+                <input type='text' class='form-control' value='$angsur_minggu' disabled>
+            </div>
+
+            <div class='form-group'>
+                <label>Total Angsuran</label>
+                <input type='text' class='form-control' value='$num_ang' disabled>
+             </div>
+            <div class='form-group'>
+                <label>Total Pengembalian</label>
+                <input type='text' class='form-control' value='$num_tk' disabled>
+            </div>
+
+            
+            ";
+        }
+    }
+
 
 
 

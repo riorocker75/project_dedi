@@ -55,7 +55,34 @@ $(document).ready(function () {
   //         }
     
   // }).keyup();
+
 });
 
+
+
+
+  
+$(document).ready(function () {
+   
+   $('#angsur').change(function () {
+    var angsur =$('#angsur').children("option:selected").val(); 
+         if(angsur.length > 0){ 
+
+            $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+              type:"post",
+              url:"/anggota/cek-angsur-fix",
+              data:{angsur:angsur},
+              success: function(data){          
+                $('#skenario-fix').html(data);
+                
+              }
+            });
+          }
+   
+   });
+});
 
 

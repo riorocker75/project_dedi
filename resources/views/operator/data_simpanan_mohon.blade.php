@@ -49,6 +49,13 @@
                                 </small>
                               @endif
                             </div>
+
+                            {{-- <div class="form-group">
+                              <label for=""></label>
+                              <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                              <small id="helpId" class="text-muted">Help text</small>
+                            </div> --}}
+
                         </div>
                         <div class="col-lg-6 col-md-6 col-12"></div>
                       </div>

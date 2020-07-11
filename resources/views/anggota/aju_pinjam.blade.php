@@ -39,7 +39,7 @@
               {{ csrf_field() }}
 
               <div class="row">
-                  <div class="col-lg-7">
+                  <div class="col-lg-6 col-md-6 col-12">
 
                     <div class="form-group">
                       <label>Nama Calon Peminjam</label>
@@ -48,7 +48,7 @@
                    
 
                     <div class="form-group">
-                      <label>Jumlah Pinjaman</label>
+                      <label>Jenis Pinjaman</label>
                       <select class="form-control" name="lama_angsur" required="required" id="angsur">
                         <option value="">Pilih Sesuai Kesanggupan</option>
                         @foreach ($cat_pinjam as $cp)
@@ -62,25 +62,28 @@
                     </div>
                     @endif
 
-                    {{-- <div class="form-group">
-                      <label>Jumlah Pinjaman</label>
-                    <input type="number" class="form-control" name="jlh_pinjam" required="required" id="nominal">
+                      
+                    <div class="form-group">
+                      <label for="">Keterangan Usaha</label>
+                      <textarea class="form-control" name="ket_usaha" rows="3"></textarea>
+                     
                     </div>
-                    @if($errors->has('jlh_pinjam'))
-                    <div class="text-danger">
-                        {{ $errors->first('jlh_pinjam')}}
-                    </div>
-                    @endif --}}
 
                     <div class="form-group">
-                      <label>Skenario Angsuran perbulan</label>
-                      <p id="skenario"></p>
+                      <label for="">Alamat Usaha</label>
+                      <input type="text" class="form-control" name="alamat_usaha">
+                     
                     </div>
-                   
-                    <button type="submit" class="btn btn-primary float-right"> Ajukan Pinjaman &nbsp;&nbsp;<i class="fas fa-paper-plane"></i></button>
+
+                  </div>
+                  
+                  <div class="col-lg-6 col-md-6 col-12">
+                    <div id="skenario-fix"></div>
                   </div>
 
-              </div>
+                  
+                </div>
+                <button type="submit" class="btn btn-primary float-right" id="ajukan"> Ajukan Pinjaman &nbsp;&nbsp;<i class="fas fa-paper-plane"></i></button>
 
               </form>
             </div>

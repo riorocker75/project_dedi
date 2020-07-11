@@ -38,14 +38,14 @@
             <p>
               DATA MASTER
               <i class="fas fa-angle-left right"></i>
-              <span class="badge badge-info right">6</span>
+              {{-- <span class="badge badge-info right">6</span> --}}
             </p>
           </a>
           <ul class="nav nav-treeview" style="margin-left:20px;font-size:14px">
             <li class="nav-item">
               <a href="{{url('/dashboard/admin/operator')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Data Operator</p>
+                <p>Data Pengurus</p>
               </a>
             </li>
             <li class="nav-item">
