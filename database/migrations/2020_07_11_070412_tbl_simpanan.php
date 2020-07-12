@@ -15,12 +15,12 @@ class TblSimpanan extends Migration
     {
             if(!Schema::hasTable('tbl_simpanan')){ 
             Schema::create('tbl_simpanan', function (Blueprint $table) {
-                $table->bigIncrements('id');
+                $table->bigIncrements('simpanan_id');
                 $table->text('kode_rekening');
                 $table->text('anggota_id');
                 $table->text('total_simpanan');
                 $table->text('kategori_simpanan');
-
+                
             });
         }
     }

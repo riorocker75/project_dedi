@@ -51,8 +51,9 @@ class AnggotaController extends Controller
 
   
     function data_pribadi_update(Request $request,$id){
+        $nik=Session::get('ang_nik');
         $request->validate([
-            'nik' => 'required|max:16|unique:tbl_anggota,anggota_nik,'.$id.',anggota_id',
+            'nik' => 'required|max:16|unique:tbl_anggota,anggota_nik,'.$nik.',anggota_nik',
             'nama' => 'required|max:30',
             'tempat_lahir' => 'required',
             'kontak' => 'required',
@@ -71,7 +72,8 @@ class AnggotaController extends Controller
             'anggota_alamat_ktp' => $request->alamat_ktp,
             'anggota_alamat_sekarang' => $request->alamat_sekarang,
             'anggota_kontak' =>$request->kontak,
-            'anggota_pekerjaan' =>$request->pekerjaan
+            'anggota_pekerjaan' =>$request->pekerjaan,
+            'anggota_gaji' =>$request->gaji
         ]);
       
         return redirect('anggota/data-pribadi/'.$id.'')->with('alert-success','Data telah diperbaharui');
