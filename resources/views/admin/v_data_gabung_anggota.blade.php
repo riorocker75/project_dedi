@@ -9,7 +9,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{ url('/dashboard/operator')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('/dashboard/admin')}}">Home</a></li>
                 <li class="breadcrumb-item active">Data Pengajuan</li>
               </ol>
             </div>
@@ -68,9 +68,9 @@
                              @endphp
                              <td>{{$kerja->pekerjaan}}</td>
 
-                            <td><label class="badge badge-secondary">{{status_anggota($dm->status)}}</label></td>
+                            <td><label class="badge badge-primary">{{status_anggota($dm->status)}}</label></td>
                             <td>
-                            <a href="{{url('/operator/detail/anggota-mohon/'.$dm->anggota_id.'')}}"> <i class="fa fa-eye" aria-hidden="true" ></i></a>
+                            <a href="{{url('/admin/detail/anggota-mohon/'.$dm->anggota_id.'')}}"> <i class="fa fa-eye" aria-hidden="true" ></i></a>
                             </td>
     
                             </tr>

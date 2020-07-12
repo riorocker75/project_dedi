@@ -21,6 +21,18 @@ use App\Model\Operator;
 use App\Model\User;
 class Ang_PinjamanCtrl extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            if(!Session::get('login-ang')){
+                return redirect('login/anggota')->with('alert-danger','Dilarang Masuk Terlarang');
+            }
+            return $next($request);
+        });
+        
+    }
+
+
     function __invoke(){
 
     }

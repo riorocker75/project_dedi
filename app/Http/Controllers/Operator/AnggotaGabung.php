@@ -34,7 +34,7 @@ class AnggotaGabung extends Controller
 
     
    function __invoke(){
-       $data=Anggota::where('status',0)->get();
+       $data=Anggota::where('status',0)->orderBy('anggota_id','DESC')->get();
         return view('operator.data_gabung_anggota',[
             'data_mohon' =>$data
         ]);
