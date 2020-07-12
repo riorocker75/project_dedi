@@ -27,7 +27,7 @@
                 <div class="card-header">
                   <h3 class="card-title">
                    
-                   Cek {{round(99200)}} 
+                   Cek 
                   </h3>
                   <div class="card-tools">
                    

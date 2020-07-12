@@ -10,7 +10,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{ url('/operator/data-pinjaman')}}">Data Pengaju</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('/admin/data-pinjaman')}}">Data Pengaju</a></li>
                 <li class="breadcrumb-item active">Data Pribadi</li>
               </ol>
             </div>
@@ -22,6 +22,7 @@
         <div class="container-fluid">
          
           <div class="row">
+            @foreach ($data as $dpj)
             <section class="col-lg-12 connectedSortable">
               <div class="card">
                 <div class="card-header">
@@ -30,13 +31,11 @@
                    Lihat data
                   </h3>
                   <div class="card-tools">
-                   
+                    <label class="badge badge-success">{{status_pinjaman($dpj->pinjaman_status)}}</label>
                   </div>
                 </div>
                 <div class="card-body">
-                 @foreach ($data as $dpj)
-                    <form action="{{url('/operator/review-act/'.$dpj->id.'')}}" method="post">
-                        @csrf
+                   
                     <div class="row">
                         {{-- data pinjaman --}}
                         <div class="col-lg-6 col-md-12 col-12">
@@ -111,31 +110,23 @@
                                     <label>Gaji/bulan</label>
                                     <input type="text" class="form-control" value="Rp.{{ number_format($pr->anggota_gaji)}}" disabled>
                                 </div>
+
+                                <div class="form-group">
+                                
+                                    <label>Keterangan Operator</label>
+                                    <textarea rows="3"  class="form-control" disabled>{{ $dpj->pinjaman_ket}}</textarea>
+                                </div>
                              @endforeach
 
-                             <div class="form-group">
-                                <label>Keterangan Pinjaman</label>
-                                <textarea class="form-control" name="ket" rows="2" placeholder="Isi keterangan dengan kelengkapan persyaratan atau alasan menolak" required></textarea>
-                            </div>
-                             
-                                @if($errors->has('ket'))
-                                <div class="text-danger">
-                                    {{ $errors->first('ket')}}
-                                </div>
-                                @endif 
                         </div>
                         {{-- end data pribadi --}}
                     </div>
 
-                    
-                    <button class="btn btn-primary float-right" type="submit" name="action" value="terima">Setujui</button>
-                    <button class="btn btn-default float-right" style="margin-right:10px" type="submit" name="action" value="tolak"> Tolak Pinjaman</button>
-                    
-                    </form>
-                @endforeach
+                  
+                  </div>
                 </div>
-              </div>
-            </section>
+              </section>
+              @endforeach
           
           </div>
         </div>

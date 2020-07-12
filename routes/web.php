@@ -76,11 +76,16 @@ Route::post('/admin/pekerjaan/tambah-act', 'Admin\PekerjaanCtrl@tambah_act');
 Route::get('/admin/pekerjaan/delete-act/{id}', 'Admin\PekerjaanCtrl@tambah_delete');
 
 // data pengajuan
+//---anggota gabung
 Route::get('/admin/mohon-gabung','Admin\PengajuanCtrl@anggota_gabung');
 Route::get('/admin/detail/anggota-mohon/{id}','Admin\PengajuanCtrl@detail_gabung');
 
-
+//---pinjaman
 Route::get('/admin/data-pinjaman','Admin\PengajuanCtrl@data_peminjam');
+
+Route::get('/admin/review-pinjaman/{id}','Admin\PengajuanCtrl@data_peminjam_detail');
+
+//---pinjaman
 
 
 

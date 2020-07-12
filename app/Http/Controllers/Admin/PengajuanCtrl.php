@@ -53,7 +53,22 @@ class PengajuanCtrl extends Controller
     }
 
     // data pengajuan mohon pinjam
-    function date_peminjam(){
-        
+    function data_peminjam(){
+        $data_aju= Pinjaman::where('pinjaman_status','1')->get();
+        return view('admin.v_data_peminjam',[
+            'data_aju' => $data_aju
+        ]);
     }
+
+    function data_peminjam_detail($id){
+        $data=Pinjaman::where('id', $id)->get();
+        $pribadi =Pinjaman::where('id',$id)->first();
+        $anggota= Anggota::where('anggota_id', $pribadi->anggota_id)->get();
+         return view('admin.v_data_peminjam_detail',[
+             'data' =>$data,
+             'pribadi' => $anggota
+         ]);
+    }
+
+
 }
