@@ -18,7 +18,7 @@ class TblPinjaman extends Migration
                 $table->bigIncrements('id');
                 $table->text('anggota_id');
                 $table->text('pinjaman_kode');
-                $table->dateTime('pinjaman_aju');
+                $table->dateTime('pinjaman_aju')->nullable();
                 $table->dateTime('pinjaman_tgl');
                 $table->text('pinjaman_jumlah');
                 $table->text('pinjaman_skema_angsuran');

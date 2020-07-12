@@ -12,8 +12,8 @@
      <link rel="stylesheet" href="{{asset('css/custom.css') }}">
 
 </head>
-<body onload="window.print();">
-    {{-- <body> --}}
+{{-- <body onload="window.print();"> --}}
+    <body>
   @foreach ($simulasi as $sm)
       
     <div class="content-wrapper simulasi-page">
@@ -33,23 +33,29 @@
                             <table class="tabel-simulasi ">
                                 <tbody>
                                     <tr>
-                                        <td scope="row">Bunga Pinjaman</td>
+                                        <td scope="row">Bunga Pinjaman/Bulan&nbsp;&nbsp;&nbsp;</td>
                                         <td >{{$sm->pinjaman_bunga}}%</td>
                                     </tr>
                                     <tr>
                                         <td scope="row">Jangka Waktu Pinjam</td>
-                                        <td>{{$sm->pinjaman_angsuran_lama}} bulan</td>
+                                        <td>{{$sm->pinjaman_angsuran_lama}} Minggu</td>
                                     </tr>
                                     <tr>
                                         <td scope="row">Pokok Pinjam</td>
                                     <td>Rp. {{number_format($sm->pinjaman_jumlah)}}</td>
                                     </tr>
                                     <tr>
-                                        <td scope="row">Tanggal Pinjam</td>
-                                    <td>{{ format_tanggal(date('Y-m-d', strtotime($sm->pinjaman_tgl)))}}</td>
+                                        @if ($sm->status == 0)
+                                        <td scope="row">Tanggal Aju Pinjaman&nbsp;&nbsp;</td>
+                                        <td>{{ format_tanggal(date('Y-m-d', strtotime($sm->pinjaman_aju)))}}</td>
+                                        @elseif($sm->status == 1)
+                                        <td scope="row">Tanggal Pinjaman</td>
+                                        <td>{{ format_tanggal(date('Y-m-d', strtotime($sm->pinjaman_tgl)))}}</td>
+                                        @endif
+                                       
                                     </tr>
                                     <tr>
-                                        <td scope="row">Angsuran Perbulan</td>
+                                        <td scope="row">Angsuran Per-minggu</td>
                                         <td>Rp. {{number_format($sm->pinjaman_skema_angsuran)}}</td>
                                     </tr>
                                 </tbody>
@@ -65,15 +71,19 @@
                             <thead>
                                 <tr>
                                     <th>Pokok Pinjaman</th>
-                                    <th>Bunga</th>
+                                    <th>Total Bunga</th>
                                     <th>Total Pinjaman</th>
     
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                   $bulan_total=$sm->pinjaman_angsuran_lama / 4.345;
+                                    $total_bunga= round($bulan_total * $sm->pinjaman_bunga);
+                                @endphp
                                 <tr>
                                      <td>Rp. {{number_format($sm->pinjaman_jumlah)}}</td>
-                                    <td>{{ $sm->pinjaman_bunga}}%</td>
+                                    <td>{{ $total_bunga}}%</td>
                                     <td>Rp.<?php $ck=$sm->pinjaman_skema_angsuran * $sm->pinjaman_angsuran_lama; echo number_format($ck);?></td>
 
                                 </tr>
@@ -95,7 +105,7 @@
                             $bayar=$ck;
                             $angsuran =$sm->pinjaman_skema_angsuran;
                             $end = strtotime(date($sm->pinjaman_tgl));
-                            $start = $month = strtotime("+1 months", $end);
+                            $start = $month = strtotime("+1 week", $end);
     
                             
                         @endphp
@@ -105,10 +115,10 @@
                               <b> Tabel Angsuran</b>
                            </div>
                             <tr>
-                                <th>Bulan Ke</th>
-                                <th>Bulan</th>
+                                <th>Minggu Ke</th>
+                                <th>Minggu</th>
                                 <th>Total Pinjaman</th>
-                                <th>Angsuran Perbulan</th>
+                                <th>Angsuran PerMinggu</th>
                                 <th>Saldo Total Pinjaman</th>
     
                             </tr>
@@ -121,7 +131,7 @@
                             <td>
                                 @php
                                     echo date("Y-m-d", $month);
-                                 $month = strtotime("+1 month", $month);
+                                 $month = strtotime("+1 week", $month);
                                 @endphp
                                 
     

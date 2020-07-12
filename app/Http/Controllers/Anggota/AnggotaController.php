@@ -88,37 +88,43 @@ class AnggotaController extends Controller
 
     function aju_pinjam(){
         $data_catpj=Cat_Pinjaman::all();
-        return view('anggota.aju_pinjam' ,['cat_pinjam' => $data_catpj]);
+        
+        return view('anggota.aju_pinjam' ,[
+            'cat_pinjam' => $data_catpj,
+           
+        ]);
     }
 
     function aju_pinjam_act(Request $request){
+        $request->validate([
+            'ket_usaha' => 'required|min:10',
+            'alamat_usaha' => 'required|min:10',
+            'lama_angsur' => 'required'
+        ]);
         $id= Session::get('ang_id');
-        $nominal =$request->jlh_pinjam;
         $angsur =$request->lama_angsur;
         $rand="PNJ-".rand('1000','9999');
         $jas=Cat_Pinjaman::where('kategori_id',$angsur)->first();
-
-        // hitung logika skema
-        $bunga=$jas->kategori_besar_bunga/100;
         
-        $cicilan=$nominal/$jas->kategori_lama_pinjaman;
-        $per_bunga=($nominal*$bunga) /$jas->kategori_lama_pinjaman;
-
-        $total_cicil=$cicilan+$per_bunga;
+        $nominal =$jas->kategori_besar_pinjaman;
+        // hitung logika skema
 
         $date=date('Y-m-d');
-        $this->validate($request,[
-            // 'jlh_pinjam' => 'required|min:2',
-            'lama_angsur' => 'required'
-        ]);
+        // $this->validate($request,[
+          
+        //     'lama_angsur' => 'required'
+        // ]);
         Pinjaman::create([
             'anggota_id' => Session::get('ang_id'),
             'pinjaman_kode' =>$rand,
+            'pinjaman_aju'=> $date,
             'pinjaman_tgl'=> $date,
             'pinjaman_jumlah'=> $nominal,
-            'pinjaman_skema_angsuran' => $total_cicil,
+            'pinjaman_skema_angsuran' => $jas->kategori_angsuran,
             'pinjaman_bunga' => $jas->kategori_besar_bunga,
             'pinjaman_angsuran_lama' => $jas->kategori_lama_pinjaman,
+            'ket_usaha' => $request->ket_usaha,
+            'alamat_usaha' => $request->alamat_usaha,
             'pinjaman_status' => 0 
         ]);
         return redirect('anggota/data-pinjaman/'.$id.'')->with('alert-success','Pinjaman sudah dikirim, Mohon menuggu verifikasi !!');
@@ -175,6 +181,10 @@ class AnggotaController extends Controller
 
         $total_angsur=$total_kembali - $jas->kategori_besar_pinjaman;
         $num_ang=number_format($total_angsur);
+
+        $bulan_total=$jas->kategori_lama_pinjaman / 4.345;
+        $total_bunga= round($bulan_total * $jas->kategori_besar_bunga);
+
         
         if($jas->kategori_besar_pinjaman > $ag->anggota_gaji){
             echo "Anda melewati limit, harap pilih sesuai dengan maks gaji";
@@ -199,7 +209,7 @@ class AnggotaController extends Controller
 
             <div class='form-group'>
                 <label>Nisbah Koperasi</label>
-                <input type='text' class='form-control' value='setara $jas->kategori_besar_bunga%' disabled>
+                <input type='text' class='form-control' value='setara $jas->kategori_besar_bunga% perbulan atau $total_bunga% selama $jas->kategori_lama_pinjaman minggu' disabled>
             </div>
 
             <div class='form-group'>
@@ -217,6 +227,14 @@ class AnggotaController extends Controller
             </div>
 
             
+            ";
+
+            echo "
+                <script>
+                $(document).ready(function () {
+                    $('#ajukan').css('display','block');
+                });
+                </script>
             ";
         }
     }

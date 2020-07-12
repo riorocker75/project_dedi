@@ -55,7 +55,7 @@ class Anggota_seed extends Seeder
             'anggota_alamat_sekarang' => "Hagu Barat Laut",
             'anggota_kontak' => "082272242022",
             'anggota_pekerjaan' => "1",
-            'anggota_gaji' => "70000000",
+            'anggota_gaji' => "7000000",
             'tgl_gabung' =>"2020-06-20",
             'status_pinjaman' =>1,
             'status_simpanan' =>1,

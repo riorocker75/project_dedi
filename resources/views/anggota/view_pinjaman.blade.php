@@ -27,7 +27,7 @@
                 <div class="card-header">
                   <h3 class="card-title">
                    
-                   Cek 
+                   Cek {{round(99200)}} 
                   </h3>
                   <div class="card-tools">
                    
@@ -52,22 +52,32 @@
                               </div>
 
                               <div class="form-group">
-                                <label>Angsuran per bulan</label>
+                                <label>Angsuran per minggu</label>
                                 <input type="text" class="form-control" value="Rp.{{ number_format($dpj->pinjaman_skema_angsuran)}}" disabled>
                               </div>
 
-                              <div class="form-group">
-                                <label>Jangka Angsuran</label>
-                                <input type="text" class="form-control" value="{{$dpj->pinjaman_angsuran_lama}} bulan" disabled>
-                              </div>
-
-                              <div class="form-group">
-                                <label>Total Bunga</label>
-                                <input type="text" class="form-control" value="{{$dpj->pinjaman_bunga}} %" disabled>
-                              </div>
                         </div> 
                         
                         <div class="col-lg-6 col-md-12 col-12">
+                          
+                          <div class="form-group">
+                            <label>Jangka Angsuran</label>
+                            <input type="text" class="form-control" value="{{$dpj->pinjaman_angsuran_lama}} minggu" disabled>
+                          </div>
+
+                          @php
+                          $bulan_total=$dpj->pinjaman_angsuran_lama / 4.345;
+                           $total_bunga= round($bulan_total * $dpj->pinjaman_bunga);
+                          @endphp
+                          <div class="form-group">
+                            <label>Total Bunga</label>
+                            <input type="text" class="form-control" value="{{$total_bunga}} %" disabled>
+                          </div>
+                          <div class="form-group">
+                            <label>Total Pengembalian</label>
+                            <input type="text" class="form-control" value="Rp. <?php $ck=$dpj->pinjaman_skema_angsuran * $dpj->pinjaman_angsuran_lama; echo number_format($ck);?>" disabled>
+                          </div>
+
                             @if ($dpj->pinjaman_ket != "")
                             <div class="form-group">
                                 <label>Status</label>
@@ -87,7 +97,66 @@
                 </div>
               </div>
             </section>
+
+            
+            {{-- bagian pembayaran --}}
+           
           
+          <section class="col-lg-12 connectedSortable">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                 
+                  Riwayat Pembayaran Pinjaman <b>{{$dpj->pinjaman_kode}}</b> 
+                </h3>
+                <div class="card-tools">
+                 
+                </div>
+              </div>
+              @php
+              $no=1;
+                $data_bayar= App\Model\PinjamanTransaksi::where('pinjaman_kode', $dpj->pinjaman_kode)->get();
+              @endphp
+              <div class="card-body">
+                  
+                @if(count($data_bayar) > 0)
+                <table id="data1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Pembayaran ke</th>
+                      <th>Tanggal Bayar</th>
+                      <th>Nominal dibayarkan</th>                   
+                      <th>Kembalian Bayar</th> 
+                      <th>Sisa Cicilan</th>                   
+                      <th>Status </th>                   
+                    </tr>
+                  </thead>
+                  <tbody> 
+                    @foreach ($data_bayar as $db)
+                      <tr>
+                      <td>{{$no++}}</td>
+                      {{-- strtotime($db->tgl_transaksi) --}}
+                      <td>{{format_tanggal(date('Y-m-d',strtotime($db->tgl_transaksi)))}}</td>
+                      <td>Rp.{{number_format($db->nominal_bayar)}}</td>
+                      <td>Rp.{{number_format($db->kembalian_bayar)}}</td>
+                      <td>Rp.{{ number_format($db->sisa_bayar)}}</td>
+                      <td>{{$db->status_cicilan}}</td>
+                      </tr>
+                   @endforeach
+
+                  </tbody>   
+              </table> 
+                 
+                      
+
+                @else
+                  Belum ada Transaksi Pembayaran Pinjaman...
+                @endif
+              </div>
+            </div> 
+
+            </section>   
+          {{-- end bagian pembayaran --}}
           </div>
         </div>
       </section>

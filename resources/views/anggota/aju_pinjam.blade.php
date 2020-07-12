@@ -45,6 +45,14 @@
                       <label>Nama Calon Peminjam</label>
                     <input type="text" class="form-control" value={{Session::get('ang_nama')}} disabled>
                     </div>
+
+                    <div class="form-group">
+                      <label>Gaji perbulan</label>
+                      @php
+                          $anggota= App\Model\Anggota::where('anggota_id',Session::get('ang_id'))->first();
+                      @endphp
+                    <input type="text" class="form-control" value=Rp.{{number_format($anggota->anggota_gaji)}} disabled>
+                    </div>
                    
 
                     <div class="form-group">
@@ -57,22 +65,30 @@
                       </select> 
                     </div>
                     @if($errors->has('lama_angsur'))
-                    <div class="text-danger">
+                    <small class="text-muted text-danger">
                         {{ $errors->first('lama_angsur')}}
-                    </div>
+                    </small>
                     @endif
 
                       
                     <div class="form-group">
                       <label for="">Keterangan Usaha</label>
-                      <textarea class="form-control" name="ket_usaha" rows="3"></textarea>
-                     
+                      <textarea class="form-control" name="ket_usaha" rows="3" required="required"></textarea>
+                      @if($errors->has('ket_usaha'))
+                      <small class="text-muted text-danger">
+                          {{ $errors->first('ket_usaha')}}
+                          </small>
+                      @endif
                     </div>
 
                     <div class="form-group">
                       <label for="">Alamat Usaha</label>
-                      <input type="text" class="form-control" name="alamat_usaha">
-                     
+                      <input type="text" class="form-control" name="alamat_usaha" required="required">
+                      @if($errors->has('alamat_usaha'))
+                      <small class="text-muted text-danger">
+                          {{ $errors->first('alamat_usaha')}}
+                          </small>
+                      @endif
                     </div>
 
                   </div>

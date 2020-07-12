@@ -21,7 +21,7 @@ class TblSimpananTransaksi extends Migration
                 $table->text('operator_id')->nullable();
                 $table->text('jumlah_transaksi');
                 $table->dateTime('tgl_transaksi');
-                $table->text('jenis_transaksi');
+                $table->text('jenis_transaksi')->nullable();
             });
         }
     }
