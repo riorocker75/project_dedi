@@ -67,7 +67,8 @@ class KategoriCtrl extends Controller
 			'kategori_jenis' =>$request->jenis,
 			'kategori_besar_pinjaman' =>$request->besar,	
 			'kategori_lama_pinjaman' =>$request->lama,
-			'kategori_besar_bunga' =>$request->bunga
+			'kategori_besar_bunga' =>$request->bunga,
+			'kategori_angsuran' =>$request->angsuran
 		]);
 		return redirect('dashboard/admin/kategori_pinjaman');
 	}
@@ -82,7 +83,8 @@ class KategoriCtrl extends Controller
 			'kategori_jenis' =>$request->jenis,
 			'kategori_besar_pinjaman' =>$request->besar,	
 			'kategori_lama_pinjaman' =>$request->lama,
-			'kategori_besar_bunga' =>$request->bunga
+			'kategori_besar_bunga' =>$request->bunga,
+			'kategori_angsuran' =>$request->angsuran
 		]);
 		return redirect('dashboard/admin/kategori_pinjaman');
 	}
