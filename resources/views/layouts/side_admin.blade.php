@@ -120,13 +120,13 @@
           </a>
           <ul class="nav nav-treeview" style="margin-left:20px;font-size:14px">
             <li class="nav-item">
-              <a href="{{url('/dashboard/admin/transaksi-simpanan')}}" class="nav-link">
+              <a href="{{url('/admin/transaksi/simpanan')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Transaksi Simpanan</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{url('/dashboard/admin/transaksi-pinjaman')}}" class="nav-link">
+              <a href="{{url('/admin/transaksi/pinjaman')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Transaksi Pembiayaan</p>
               </a>
@@ -135,12 +135,12 @@
           </ul>
         </li>
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a href="/admin/tabungan" class="nav-link">
             <i class="nav-icon fa fa-users"></i>
             <p> TABUNGAN</p>
           </a>
-        </li>
+        </li> --}}
       
         <li class="nav-item">
           <a href="#" class="nav-link">

@@ -85,7 +85,24 @@ Route::get('/admin/data-pinjaman','Admin\PengajuanCtrl@data_peminjam');
 
 Route::get('/admin/review-pinjaman/{id}','Admin\PengajuanCtrl@data_peminjam_detail');
 
-//---pinjaman
+//---simpanan
+
+
+// Bagian Transaksi
+Route::get('/admin/transaksi/simpanan','Admin\TransaksiCtrl@transaksi_simpanan');
+Route::get('/admin/transaksi/pinjaman','Admin\TransaksiCtrl@transaksi_pinjaman');
+
+// simpanan umum
+Route::get('/admin/transaksi/simpanan-umum','Admin\TransaksiCtrl@transaksi_simpanan_umum');
+
+// simpanan berjangka
+Route::get('/admin/transaksi/simpanan-berjangka','Admin\TransaksiCtrl@transaksi_deposito');
+
+// simpanan umroh
+Route::get('/admin/transaksi/simpanan-umroh','Admin\TransaksiCtrl@transaksi_umroh');
+
+// simpanan pendidikan
+Route::get('/admin/transaksi/simpanan-pendidikan','Admin\TransaksiCtrl@transaksi_pendidikan');
 
 
 

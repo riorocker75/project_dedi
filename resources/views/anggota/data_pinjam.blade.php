@@ -41,8 +41,8 @@
                 <table id="data1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th>Kode Pinjaman</th>
-                        <th>Jumlah Pinjaman</th>
+                        <th>Kode Pembiayaan</th>
+                        <th>Jumlah Pembiayaan</th>
                         <th>Skema Angsuran</th>                   
                         <th>Lama Angsuran</th>                   
                         <th>Status </th>                   
@@ -54,8 +54,8 @@
                         <tr>
                         <td>{{$cp->pinjaman_kode}}</td>
                         <td>Rp.{{number_format($cp->pinjaman_jumlah)}}</td>
-                        <td>Rp.{{number_format($cp->pinjaman_skema_angsuran)}}/bulan</td>
-                        <td>{{$cp->pinjaman_angsuran_lama}} bulan</td>
+                        <td>Rp.{{number_format($cp->pinjaman_skema_angsuran)}}/minggu</td>
+                        <td>{{$cp->pinjaman_angsuran_lama}} minggu</td>
                         <td><label class="badge badge-primary">{{status_pinjaman($cp->pinjaman_status)}}</label></td>
                         <td>
                           <a href="{{url('/anggota/view-pinjaman/'.$cp->id.'')}}" style="padding:0 7px"> <i class="fa fa-eye"></i></a>

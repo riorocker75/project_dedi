@@ -40,7 +40,10 @@ class AnggotaController extends Controller
     }
 
     function __invoke(){
-    	return view('anggota.anggota');
+        // return view('anggota.anggota');
+        $id=Session::get('ang_id');
+        $data=Anggota::where('anggota_id' ,$id)->get();
+        return view('anggota.data_pribadi', ['pribadi' => $data]);
     }
 
     // perubahan data pribadi
