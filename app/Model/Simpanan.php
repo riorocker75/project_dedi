@@ -10,7 +10,10 @@ class Simpanan extends Model
     public $timestamps = false;
     protected $fillable =[
         'anggota_id',
-        'simpanan_id_kategori',
-        'simpanan_jumlah'
+        'no_rekening',
+        'simpanan_opsi_id',
+        'total_simpanan',
+        'tgl_buka_rek',
+        'status'
     ];
 }

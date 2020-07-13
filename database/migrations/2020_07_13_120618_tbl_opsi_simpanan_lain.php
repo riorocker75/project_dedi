@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TblSimpanan extends Migration
+class TblOpsiSimpananLain extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class TblSimpanan extends Migration
      */
     public function up()
     {
-            if(!Schema::hasTable('tbl_simpanan')){ 
-            Schema::create('tbl_simpanan', function (Blueprint $table) {
+        if (!Schema::hasTable('tbl_opsi_simpanan_lain')) {
+            Schema::create('tbl_opsi_simpanan_lain', function (Blueprint $table) {
                 $table->bigIncrements('id');
-                $table->text('no_rekening');
-                $table->text('anggota_id');
+                $table->text('jenis_simpanan');
+                $table->text('kode_simpanan');
+                $table->text('jangka_simpanan');
+                $table->text('angsuran_simpanan');
                 $table->text('total_simpanan');
-                $table->text('simpanan_opsi_id');
-                $table->text('tgl_buka_rek');
-                $table->text('tgl_tutup_rek')->nullable();
-                $table->text('status');
+                $table->text('bunga')->nullable();
                 
             });
         }
@@ -35,6 +34,6 @@ class TblSimpanan extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_simpanan');
+        Schema::dropIfExists('tbl_opsi_simpanan_lain');
     }
 }

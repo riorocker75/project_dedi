@@ -57,7 +57,7 @@
             <li class="nav-item">
               <a href="{{url('/dashboard/admin/kategori_simpanan')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Kategori Simpanan</p>
+                <p>Simpanan</p>
               </a>
             </li>
             <li class="nav-item">
@@ -80,7 +80,7 @@
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-bookmark"></i>
             <p>
-              Data Pengaju
+              DATA PENGAJU
               <i class="fas fa-angle-left right"></i>
               {{-- <span class="badge badge-info right">6</span> --}}
             </p>
@@ -108,6 +108,33 @@
           </ul>
         </li>
         {{-- data pengaju end --}}
+   
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-leaf"></i>
+            <p>
+              TRANSAKSI
+              <i class="fas fa-angle-left right"></i>
+              {{-- <span class="badge badge-info right">6</span> --}}
+            </p>
+          </a>
+          <ul class="nav nav-treeview" style="margin-left:20px;font-size:14px">
+            <li class="nav-item">
+              <a href="{{url('/dashboard/admin/transaksi-simpanan')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Transaksi Simpanan</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{url('/dashboard/admin/transaksi-pinjaman')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Transaksi Pembiayaan</p>
+              </a>
+            </li>
+                                 
+          </ul>
+        </li>
+
         <li class="nav-item">
           <a href="/admin/tabungan" class="nav-link">
             <i class="nav-icon fa fa-users"></i>
@@ -115,12 +142,6 @@
           </a>
         </li>
       
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fa fa-leaf"></i>
-            <p> TRANSAKSI</p>
-          </a>
-        </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-print"></i>
