@@ -70,5 +70,18 @@ class PengajuanCtrl extends Controller
          ]);
     }
 
+/*
+==========================
+    pengajuan simpanan
+==========================    
+*/
+
+function mohon_simpanan(){
+    return view('admin.simpanan.data_aju_simpanan');
+}
+
+
+
+// end pengajuan simpanan
 
 }

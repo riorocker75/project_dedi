@@ -97,6 +97,7 @@ Route::get('/admin/data-pinjaman','Admin\PengajuanCtrl@data_peminjam');
 Route::get('/admin/review-pinjaman/{id}','Admin\PengajuanCtrl@data_peminjam_detail');
 
 //---simpanan
+Route::get('/admin/pemohon/simpanan','Admin\PengajuanCtrl@mohon_simpanan');
 
 
 // Bagian Transaksi

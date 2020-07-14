@@ -99,7 +99,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{url('/admin/data-simpanan')}}" class="nav-link">
+              <a href="{{url('/admin/pemohon/simpanan')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Pengaju Simpanan</p>
               </a>
