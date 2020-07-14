@@ -5,12 +5,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Laman Aju Simpanan Umroh</h1>
+              <h1 class="m-0 text-dark">Laman Aju Simpanan Pendidikan</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="{{ url('/dashboard/anggota')}}">Home</a></li>
-                <li class="breadcrumb-item active">Laman Aju Simpanan Umroh</li>
+                <li class="breadcrumb-item active">Laman Aju Simpanan Pendidikan</li>
               </ol>
             </div>
           </div>
@@ -39,16 +39,18 @@
                     
                     <form action="" method="post">
                         @csrf
-                       <div class="form-group">
-                         <label for="">Nama</label>
-                       <input type="text" name="nama" id="" class="form-control" value="{{$dt->anggota_nama}}" disabled>
-                       </div> 
+                        <div class="form-group">
+                            <label for="">Nama dan Nik</label>
+                            <select name="" class="form-control">
+                                   <option value="">Dedi | 985687855</option> 
+                            </select>
+                          </div> 
 
-                       {{-- buat ajax cek di simpanan umroh detailnya  --}}
+                       {{-- buat ajax cek di simpanan pendidikan detailnya  --}}
                        <div class="form-group">
-                        <label for="">Jenis Simpanan Umroh</label>
+                        <label for="">Jenis Simpanan Pendidikan</label>
                         <select name="nominal" class="form-control">
-                            <option value="">Tenor 3 Tahun</option>
+                            <option value="">Pendidikan SLTA</option>
                             <option value="">--pilih tenor--</option>
 
                         </select>
@@ -62,19 +64,19 @@
                         </div> 
                          <div class="form-group">
                             <label for="">Setoran perbulan</label>
-                            <input type="text" id="" class="form-control" value="Rp.600.000" disabled>
+                            <input type="text" id="" class="form-control" value="Rp.180.000" disabled>
                            
                         </div> 
                         <div class="form-group">
-                            <label for="">Total Akhir</label>
-                            <input type="text" id="" class="form-control" value="Rp.21.600.000" disabled>
+                            <label for="">Total Simpanan AKhir</label>
+                            <input type="text" id="" class="form-control" value="Rp.7.439.040" disabled>
                            
                         </div> 
 
                        
                       {{-- end show data ajax --}}
 
-                      <button class="btn btn-primary float-right" type="submit">Ajukan Simpanan Umroh <i class="fa fa-paper-plane"></i></button>
+                      <button class="btn btn-primary float-right" type="submit">Setujui Simpanan Pendidikan <i class="fa fa-paper-plane"></i></button>
                     </form>
                 </div>
               </div>

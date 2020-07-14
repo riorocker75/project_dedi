@@ -33,8 +33,18 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  
-                    
+                <a href="{{url('/anggota/ajukan/simpanan-umum')}}" class="btn btn-default"> Ajukan Simpanan Sukarela <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                   <br> 
+                   <br> 
+                <a href="{{url('/anggota/ajukan/simpanan-deposit')}}" class="btn btn-default"> Ajukan Simpanan Berjangka <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                   <br> 
+                   <br>  
+                <a href="{{url('/anggota/ajukan/simpanan-umroh')}}" class="btn btn-default"> Ajukan Simpanan Umroh <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                   <br> 
+                   <br> 
+                   <a href="{{url('/anggota/ajukan/simpanan-pendidikan')}}" class="btn btn-default"> Ajukan Simpanan Pendidikan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                   <br> 
+                   <br>       
                 </div>
               </div>
             </section>

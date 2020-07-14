@@ -43,4 +43,23 @@ class AnggotaSimpanan extends Controller
             'anggota' => $data
         ]);
     }
+
+    function aju_sim_umum(){
+        return view('operator.simpanan.op_aju_simpanan_umum');
+    }
+
+    function aju_sim_deposit(){
+        return view('operator.simpanan.op_aju_simpanan_deposit');
+    }
+
+    function aju_sim_umroh(){
+        return view('operator.simpanan.op_aju_simpanan_umroh');
+
+    }
+    function aju_sim_pendidikan(){
+        return view('operator.simpanan.op_aju_simpanan_pendidikan');
+
+    }
+
+
 }

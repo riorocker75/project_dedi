@@ -34,16 +34,18 @@
                 </div>
                 <div class="card-body">
                     @php
-                        $dt = App\Model\Anggota::where('anggota_id',Session::get('ang_id'))->first();
+                        // $dt = App\Model\Anggota::where('anggota_id',Session::get('ang_id'))->first();
                         $ops=App\Model\Simpanan\OpsiSimpanan::where('id',1)->first();
                     @endphp  
                     
                     <form action="" method="post">
                         @csrf
-                       <div class="form-group">
-                         <label for="">Nama</label>
-                       <input type="text" name="nama" id="" class="form-control" value="{{$dt->anggota_nama}}" disabled>
-                       </div> 
+                        <div class="form-group">
+                            <label for="">Nama dan Nik</label>
+                            <select name="" class="form-control">
+                                   <option value="">Dedi | 985687855</option> 
+                            </select>
+                          </div> 
 
                        <div class="form-group">
                         <label for="">Simpanan Pokok</label>
@@ -60,7 +62,7 @@
                       <input type="number" name="sukarela" id="" class="form-control" >
                       </div> 
 
-                      <button class="btn btn-primary float-right" type="submit">Ajukan Simpanan Sukarela <i class="fa fa-paper-plane"></i></button>
+                      <button class="btn btn-primary float-right" type="submit">Setujui Simpanan Sukarela <i class="fa fa-paper-plane"></i></button>
                     </form>
                 </div>
               </div>

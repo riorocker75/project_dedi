@@ -151,7 +151,11 @@ Route::get('/operator/detail/mohon-simpanan/{id}','Operator\AnggotaSimpanan@deta
 Route::post('/operator/mohon-simpanan/act{id}','Operator\AnggotaSimpanan@mohon_act');
 Route::get('/operator/tambah/mohon-simpanan','Operator\AnggotaSimpanan@tambah_mohon');
 
-
+// approve pengaju simpanan
+Route::get('/operator/tambah/mohon/simpanan-umum', 'Operator\AnggotaSimpanan@aju_sim_umum');
+Route::get('/operator/tambah/mohon/simpanan-deposit', 'Operator\AnggotaSimpanan@aju_sim_deposit');
+Route::get('/operator/tambah/mohon/simpanan-umroh', 'Operator\AnggotaSimpanan@aju_sim_umroh');
+Route::get('/operator/tambah/mohon/simpanan-pendidikan', 'Operator\AnggotaSimpanan@aju_sim_pendidikan');
 
 /*
 =========================== 
@@ -194,9 +198,13 @@ Route::post('/anggota/cek-angsur-fix','Anggota\AnggotaController@cek_angsuran_fi
 Route::get('/anggota/detail-pinjaman/{id}', 'Anggota\Ang_PinjamanCtrl@simulasi_bayar');
 
 
-// bagian simpanan 
+// bagian ajukan simpanan
 Route::get('/anggota/aju-simpanan','Anggota\Ang_SimpananCtrl');
 
+Route::get('/anggota/ajukan/simpanan-umum','Anggota\Ang_SimpananCtrl@aju_simpanan_umum');
+Route::get('/anggota/ajukan/simpanan-deposit','Anggota\Ang_SimpananCtrl@aju_simpanan_deposit');
+Route::get('/anggota/ajukan/simpanan-umroh','Anggota\Ang_SimpananCtrl@aju_simpanan_umroh');
+Route::get('/anggota/ajukan/simpanan-pendidikan','Anggota\Ang_SimpananCtrl@aju_simpanan_pendidikan');
 
 // bagian transaksi
 Route::get('/anggota/riwayat/transaksi/','Anggota\Ang_Transaksi@histori_simpanan');

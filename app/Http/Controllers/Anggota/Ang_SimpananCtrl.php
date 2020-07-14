@@ -39,4 +39,19 @@ class Ang_SimpananCtrl extends Controller
     function __invoke(){
         return view('anggota.simpanan.aju_simpanan');
     }
+
+    function aju_simpanan_umum(){
+        return view('anggota.simpanan.aju_simpanan_umum');
+    }
+    function aju_simpanan_deposit(){
+        return view('anggota.simpanan.aju_simpanan_berjangka');
+    }
+    function aju_simpanan_umroh(){
+        return view('anggota.simpanan.aju_simpanan_umroh');
+    }
+    function aju_simpanan_pendidikan(){
+        return view('anggota.simpanan.aju_simpanan_pendidikan');
+    }
+
+
 }
