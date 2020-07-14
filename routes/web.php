@@ -196,3 +196,7 @@ Route::get('/anggota/detail-pinjaman/{id}', 'Anggota\Ang_PinjamanCtrl@simulasi_b
 
 // bagian simpanan 
 Route::get('/anggota/aju-simpanan','Anggota\Ang_SimpananCtrl');
+
+
+// bagian transaksi
+Route::get('/anggota/riwayat/transaksi/','Anggota\Ang_Transaksi@histori_simpanan');

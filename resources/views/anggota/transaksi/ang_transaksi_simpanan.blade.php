@@ -5,12 +5,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Data Transaksi Simpanan Sukarela</h1>
+              <h1 class="m-0 text-dark">Data Transaksi Simpanan </h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="{{ url('/dashboard/admin')}}">Home</a></li>
-                <li class="breadcrumb-item active">Data Transaksi Simpanan Sukarela</li>
+                <li class="breadcrumb-item active">Data Transaksi Simpanan </li>
               </ol>
             </div>
           </div>
@@ -26,7 +26,7 @@
                 <div class="card-header">
                   <h3 class="card-title">
                    
-                  Transaksi Simpanan Sukarela
+                  Transaksi Simpanan 
                   </h3>
                   <div class="card-tools">
                    
@@ -41,8 +41,6 @@
                         <th>Nomor Rekening</th>
                         <th>Jenis Transaksi</th>  
                         <th>Nominal Transaksi</th>                   
-                                        
-                                      
                         <th>Opsi</th>                   
                       </tr>
                     </thead>
@@ -75,34 +73,6 @@
                             <a href="" style="padding:0 7px"> <i class="fa fa-eye"></i></a>
                             </td>
                         </tr>
-
-                         {{-- data 3 --}}
-                         <tr>
-                            <td>TRSU-6698
-                              <br>
-                              <small class="tgl-text">14-07-2020</small>
-                            </td>
-                            <td>889332</td>
-                            <td>Simpanan Sukarela</td>
-                            <td>Rp.70.000</td>
-                            <td>
-                            <a href="" style="padding:0 7px"> <i class="fa fa-eye"></i></a>
-                            </td>
-                        </tr>
-
-                        {{-- data 4 --}}
-                        <tr>
-                          <td>TRSU-5567
-                            <br>
-                              <small class="tgl-text">14-07-2020</small>
-                          </td>
-                          <td>887899</td>
-                          <td>Simpanan Sukarela</td>
-                          <td>Rp.130.000</td>
-                          <td>
-                          <a href="" style="padding:0 7px"> <i class="fa fa-eye"></i></a>
-                          </td>
-                      </tr>
 
                     </tbody>   
                 </table> 

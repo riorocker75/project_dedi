@@ -56,6 +56,13 @@
           </li>
 
           <li class="nav-item">
+            <a href="{{url('/anggota/riwayat/transaksi/')}}" class="nav-link">
+              <i class="nav-icon fas fa-bookmark"></i>
+              <p> Riwayat Transaksi</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="{{url('/anggota/aju-simpanan')}}" class="nav-link">
              <i class="nav-icon fa fa-plus-circle" aria-hidden="true"></i>
               <p> Ajukan Simpanan</p>
