@@ -51,11 +51,22 @@ Route::post('/dashboard/admin/operator_update', 'Admin\OperatorCtrl@operator_upd
 Route::get('/dashboard/admin/anggota', 'Admin\AnggotaCtrl@anggota');
 Route::get('/dashboard/admin/anggota_tabungan/{id}', 'Admin\AnggotaCtrl@anggota_tabungan');
 
-// kategori simpanan
-Route::get('/dashboard/admin/kategori_simpanan', 'Admin\KategoriCtrl@kategori_simpanan');
-Route::post('/dashboard/admin/kategori_simpanan_act', 'Admin\KategoriCtrl@kategori_simpanan_act');
-Route::get('/dashboard/admin/kategori_simpanan_hapus/{id}', 'Admin\KategoriCtrl@kategori_simpanan_hapus');
-Route::post('/dashboard/admin/kategori_simpanan_update', 'Admin\KategoriCtrl@kategori_simpanan_update');
+// pengaturan simpanan
+Route::get('/dashboard/admin/atur_simpanan', 'Admin\SimpananCtrl');
+//--pengaturan simpanan umum
+Route::get('/admin/pengaturan/simpanan-umum', 'Admin\SimpananCtrl@atur_umum');
+Route::post('/admin/pengaturan/simpanan-umum/update', 'Admin\SimpananCtrl@atur_umum_update');
+
+//--pengaturan simpanan deposit
+Route::get('/admin/pengaturan/simpanan-deposit', 'Admin\SimpananCtrl@atur_deposit');
+
+//--pengaturan simpanan lain(umroh dan pendidikan)
+Route::get('/admin/pengaturan/simpanan-lain', 'Admin\SimpananCtrl@atur_lain');
+
+
+
+
+
 
 
 // kategori pinjaman
@@ -181,3 +192,7 @@ Route::post('/anggota/cek-angsur-fix','Anggota\AnggotaController@cek_angsuran_fi
 
 // detail pinjaman
 Route::get('/anggota/detail-pinjaman/{id}', 'Anggota\Ang_PinjamanCtrl@simulasi_bayar');
+
+
+// bagian simpanan 
+Route::get('/anggota/aju-simpanan','Anggota\Ang_SimpananCtrl');

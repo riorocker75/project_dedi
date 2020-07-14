@@ -19,7 +19,9 @@ class TblOpsiSimpanan extends Migration
                 $table->text('simpanan_pokok');
                 $table->text('simpanan_wajib');
                 $table->text('biaya_buku')->nullable();
+                $table->text('biaya_admin')->nullable();
                 $table->text('biaya_endapan')->nullable();
+                $table->text('sukarela_min')->nullable();
                 $table->text('bunga')->nullable();
             });
      }

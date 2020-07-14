@@ -33,7 +33,7 @@
                   </div>
                 </div>
                 <div class="card-body">
-                <a href="{{url('/admin/transaksi/simpanan-umum')}}" class="btn btn-default">Transaksi Simpanan Umum &nbsp;<i class="fa fa-arrow-right"></i></a>
+                <a href="{{url('/admin/transaksi/simpanan-umum')}}" class="btn btn-default">Transaksi Simpanan Sukarela &nbsp;<i class="fa fa-arrow-right"></i></a>
                     <br>
                     <br>
                 <a href="{{url('/admin/transaksi/simpanan-berjangka')}}" class="btn btn-default">Transaksi Simpanan Berjangka &nbsp;<i class="fa fa-arrow-right"></i></a>

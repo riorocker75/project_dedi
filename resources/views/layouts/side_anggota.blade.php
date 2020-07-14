@@ -33,6 +33,7 @@
             </a>            
           </li> --}}
          
+         
   
           <li class="nav-item">
           <a href="/anggota/data-pribadi/{{Session::get('ang_id')}}" class="nav-link">
@@ -55,11 +56,13 @@
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{url('/anggota/aju-simpanan')}}" class="nav-link">
              <i class="nav-icon fa fa-plus-circle" aria-hidden="true"></i>
               <p> Ajukan Simpanan</p>
             </a>
           </li>
+
+        
          
            <li class="nav-item">
             <a href="#" class="nav-link">

@@ -20,10 +20,11 @@ class TblSimpanan extends Migration
                 $table->text('anggota_id');
                 $table->text('total_simpanan');
                 $table->text('simpanan_opsi_id');
-                $table->text('tgl_buka_rek');
-                $table->text('tgl_tutup_rek')->nullable();
+                $table->text('jlh_pokok')->nullable();
+                $table->text('jlh_wajib')->nullable();
+                $table->dateTime('tgl_buka_rek');
+                $table->dateTime('tgl_tutup_rek')->nullable();
                 $table->text('status');
-                
             });
         }
     }

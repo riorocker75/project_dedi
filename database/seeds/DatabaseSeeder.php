@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
          $this->call(Anggota_seed::class);
          $this->call(Pekerjaan_seed::class);
          $this->call(Kategori_pinjaman_seed::class);
+         $this->call(OpsiSimpanan_seed::class);
 
     }
 }
