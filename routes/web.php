@@ -65,10 +65,6 @@ Route::get('/admin/pengaturan/simpanan-lain', 'Admin\SimpananCtrl@atur_lain');
 
 
 
-
-
-
-
 // kategori pinjaman
 Route::get('/dashboard/admin/kategori_pinjaman', 'Admin\KategoriCtrl@kategori_pinjaman');
 Route::post('/dashboard/admin/kategori_pinjaman_act', 'Admin\KategoriCtrl@kategori_pinjaman_act');
@@ -116,6 +112,10 @@ Route::get('/admin/transaksi/simpanan-umroh','Admin\TransaksiCtrl@transaksi_umro
 // simpanan pendidikan
 Route::get('/admin/transaksi/simpanan-pendidikan','Admin\TransaksiCtrl@transaksi_pendidikan');
 
+
+// laporan
+//-- laporan shu
+Route::get('/admin/laporan/shu','Admin\LaporanCtrl@laporan_shu');
 
 
 /*
