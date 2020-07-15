@@ -52,7 +52,37 @@ class PembayaranCtrl extends Controller
          ]);
     }
 
-    function bayar_pinjaman_act(Request $request, $id){
+    function bayar_pinjaman_act(Request $request){
+        $kode=$request->kode;
+        $anggota =$request->anggota;
+        $date=date('Y-m-d');
+        $request->validate([
+            'bayar' => 'required',
+            'ket_bayar' => 'required',
+            'kode' =>'required',
+            'kembalian' =>'required'
+        ]);
+        $nominal_fix=$request->bayar - $request->kembalian;
+        $sisa_bayar=$request->angsuran - $nominal_fix;
+        
+        // jika sudah lunas bayar
+        if($sisa_bayar == 0){
+            Pinjaman::where('pinjaman_kode', $kode)->update([
+                'status_bayar' => 2
+            ]);
+        }
+
+        PinjamanTransaksi::create([
+            'pinjaman_kode' =>$kode,
+            'anggota_id' =>$anggota,
+            'tgl_transaksi' =>$date,
+            'nominal_bayar' =>$request->bayar,
+            'kembalian_bayar' =>$request->kembalian,
+            'sisa_bayar' =>$sisa_bayar,
+            'ket_bayar' => $request->ket_bayar
+         ]);
+
+        return redirect('operator/pembayaran/pinjaman/detail/'.$kode.'')->with('alert-success','Pembayaran berhasil');
 
     }
 

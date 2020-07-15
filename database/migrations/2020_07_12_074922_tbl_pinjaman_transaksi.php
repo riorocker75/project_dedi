@@ -20,7 +20,7 @@ class TblPinjamanTransaksi extends Migration
                 $table->text('anggota_id');
                 $table->dateTime('tgl_transaksi');
                 $table->text('nominal_bayar');
-                $table->text('kembalian_bayar')->nullable();
+                $table->text('kembalian_bayar');
                 $table->text('sisa_bayar');
                 $table->text('ket_bayar');
                 $table->text('status')->nullable();

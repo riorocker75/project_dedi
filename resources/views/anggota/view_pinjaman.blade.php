@@ -77,7 +77,7 @@
                             <label>Total Pengembalian</label>
                             <input type="text" class="form-control" value="Rp. <?php $ck=$dpj->pinjaman_skema_angsuran * $dpj->pinjaman_angsuran_lama; echo number_format($ck);?>" disabled>
                           </div>
-
+                          <?php if($dpj->pinjaman_status != 1){ ?>
                             @if ($dpj->pinjaman_ket != "")
                             <div class="form-group">
                                 <label>Status</label>
@@ -91,6 +91,13 @@
                             @else
 
                             @endif
+                            <?php }else{?>
+                              <div class="form-group">
+                                <label>Status Pinjaman</label>
+                                <br>
+                                {{status_bayar_pinjaman($dpj->status_bayar)}}
+                              </div>
+                            <?php } ?> 
                         </div> 
                     </div> 
                     @endforeach
@@ -123,24 +130,22 @@
                 <table id="data1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                      <th>Pembayaran ke</th>
                       <th>Tanggal Bayar</th>
                       <th>Nominal dibayarkan</th>                   
                       <th>Kembalian Bayar</th> 
                       <th>Sisa Cicilan</th>                   
-                      <th>Status </th>                   
+                      <th>Keterangan</th>
                     </tr>
                   </thead>
                   <tbody> 
                     @foreach ($data_bayar as $db)
                       <tr>
-                      <td>{{$no++}}</td>
-                      {{-- strtotime($db->tgl_transaksi) --}}
-                      <td>{{format_tanggal(date('Y-m-d',strtotime($db->tgl_transaksi)))}}</td>
-                      <td>Rp.{{number_format($db->nominal_bayar)}}</td>
-                      <td>Rp.{{number_format($db->kembalian_bayar)}}</td>
-                      <td>Rp.{{ number_format($db->sisa_bayar)}}</td>
-                      <td>{{$db->status_cicilan}}</td>
+                        {{-- strtotime($db->tgl_transaksi) --}}
+                        <td>{{format_tanggal(date('Y-m-d',strtotime($db->tgl_transaksi)))}}</td>
+                        <td>Rp.{{number_format($db->nominal_bayar)}}</td>
+                        <td>Rp.{{number_format($db->kembalian_bayar)}}</td>
+                        <td>Rp.{{ number_format($db->sisa_bayar)}}</td>
+                        <td>{{$db->ket_bayar}}</td>
                       </tr>
                    @endforeach
 

@@ -162,7 +162,7 @@ Route::get('/operator/tambah/mohon/simpanan-pendidikan', 'Operator\AnggotaSimpan
 // bagian pembayaran
 Route::get('/operator/pembayaran/pinjaman','Operator\PembayaranCtrl@bayar_pinjaman');
 Route::get('/operator/pembayaran/pinjaman/detail/{id}','Operator\PembayaranCtrl@detail_bayar_pinjaman');
-Route::post('/operator/pembayaran/pinjaman/bayar/{id}','Operator\PembayaranCtrl@bayar_pinjaman_act');
+Route::post('/operator/pembayaran/pinjaman/bayar','Operator\PembayaranCtrl@bayar_pinjaman_act');
 
 
 

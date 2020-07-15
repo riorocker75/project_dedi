@@ -48,3 +48,7 @@
     {{ $errors->first('lama_angsur')}}
     </small>
 @endif
+
+<!-- buat rupiah show -->
+<input type="number" class="form-control" name="" id="format_rupiah" >
+<div class="show_rupiah"></div>

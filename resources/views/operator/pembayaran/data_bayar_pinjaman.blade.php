@@ -57,7 +57,7 @@
                                <br>
                             <small>Rp.&nbsp;{{number_format($dt->pinjaman_skema_angsuran)}}/minggu</small>   
                             </td>
-                            <td><label class="badge badge-warning">{{status_bayar_pinjaman($dt->status_bayar)}}</label></td>
+                            <td>{{status_bayar_pinjaman($dt->status_bayar)}}</td>
                             
                            <td>
                                 <a href="{{url('/operator/pembayaran/pinjaman/detail/'.$dt->pinjaman_kode.'')}}" style="padding:0 7px"> <i class="fa fa-eye"></i></a>

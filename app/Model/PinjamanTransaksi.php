@@ -13,6 +13,7 @@ class PinjamanTransaksi extends Model
        'anggota_id',
        'tgl_transaksi',
        'nominal_bayar',
+       'kembalian_bayar',
        'sisa_bayar',
        'ket_bayar'
    ];

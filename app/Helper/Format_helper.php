@@ -23,13 +23,13 @@ function format_tanggal($tanggal){
 function status_bayar_pinjaman($status){
     switch($status){
         case 0:
-            echo "Tahap Ajukan";
+            echo "<label class='badge badge-primary'>Tahap Ajukan</label>";
         break;
         case 1:
-            echo "Masa Angsuran";
+            echo "<label class='badge badge-warning'>Masa Angsuran</label>";
         break;
         case 2:
-            echo"lunas";
+            echo"<label class='badge badge-success'>Lunas</label>";
         break;
         default:
         echo "none ";

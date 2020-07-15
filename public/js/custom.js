@@ -85,4 +85,22 @@ $(document).ready(function () {
    });
 });
 
+$(document).ready(function () {
+
+  $("#format_rupiah").on('keyup', function(){
+   
+    var x =$(this).val();
+    var n = parseInt($(this).val().replace(/\D/g,''),10);
+    if(x != ""){
+      // $(this).val(n.toLocaleString());
+      $(".show_rupiah").html("Rp.&nbsp;"+n.toLocaleString());
+    }else{
+      $(this).val();
+    }
+   
+  });
+ 
+});
+
+
 
