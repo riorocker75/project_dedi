@@ -36,3 +36,20 @@ function status_bayar_pinjaman($status){
         break;
     }
 }
+
+function cek_status_anggota($status){
+    switch($status){
+        case 0:
+        echo "<label class='badge badge-warning'>Sedang Tahap Review</label>";
+        break;
+        case 1:
+        echo "<label class='badge badge-success'>Telah Aktif</label>";
+        break;
+        case 2:
+        echo "<label class='badge badge-default'>Akun Ditolak</label>";
+        break;
+        default:
+        echo "none ";
+        break;
+    }
+}

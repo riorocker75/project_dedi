@@ -35,11 +35,12 @@
               <table class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>NO</th>
+                    <th>No</th>
                     <th>NIK</th>
-                    <th>NAMA</th>
-                    <th>KELAMIN</th>
-                    <th>KONTAK</th>
+                    <th>Nama</th>
+                    <th>Kelamin</th>
+                    <th>Kontak</th>
+                    <th>Status</th>
                     <th>Opsi</th>
                   </tr>
                 </thead>
@@ -53,9 +54,12 @@
                     <td>{{ $a->anggota_nama }}</td>
                     <td>{{ $a->anggota_kelamin }}</td>
                     <td>{{ $a->anggota_kontak }}</td>
+                    <td>{{cek_status_anggota($a->status)}}</td>
                     <td>                    
+                    <a class="btn btn-secondary btn-sm" href=""><i class="fas fa-eye"></i> Lihat</a>   
+
                      <a class="btn btn-danger btn-sm" href="/admin/anggota_hapus/{{ $a->anggota_id }}"><i class="fas fa-trash"></i> Delete</a>   
-                     <a class="btn btn-success btn-sm" href="anggota_tabungan/{{ $a->anggota_id }}"><i class="far fa-money-bill-alt"></i> Tabungan</a>                   
+                     <!-- <a class="btn btn-success btn-sm" href="anggota_tabungan/{{ $a->anggota_id }}"><i class="far fa-money-bill-alt"></i> Tabungan</a>                    -->
                    </td>
                  </tr>
                  @endforeach
