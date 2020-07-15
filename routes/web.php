@@ -158,6 +158,14 @@ Route::get('/operator/tambah/mohon/simpanan-deposit', 'Operator\AnggotaSimpanan@
 Route::get('/operator/tambah/mohon/simpanan-umroh', 'Operator\AnggotaSimpanan@aju_sim_umroh');
 Route::get('/operator/tambah/mohon/simpanan-pendidikan', 'Operator\AnggotaSimpanan@aju_sim_pendidikan');
 
+
+// bagian pembayaran
+Route::get('/operator/pembayaran/pinjaman','Operator\PembayaranCtrl@bayar_pinjaman');
+Route::get('/operator/pembayaran/pinjaman/detail/{id}','Operator\PembayaranCtrl@detail_bayar_pinjaman');
+Route::post('/operator/pembayaran/pinjaman/bayar/{id}','Operator\PembayaranCtrl@bayar_pinjaman_act');
+
+
+
 /*
 =========================== 
 		Anggota
@@ -209,3 +217,4 @@ Route::get('/anggota/ajukan/simpanan-pendidikan','Anggota\Ang_SimpananCtrl@aju_s
 
 // bagian transaksi
 Route::get('/anggota/riwayat/transaksi/','Anggota\Ang_Transaksi@histori_simpanan');
+

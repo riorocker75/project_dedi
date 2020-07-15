@@ -22,7 +22,7 @@ class TblPinjamanTransaksi extends Migration
                 $table->text('nominal_bayar');
                 $table->text('kembalian_bayar')->nullable();
                 $table->text('sisa_bayar');
-                $table->text('status_cicilan')->nullable();
+                $table->text('ket_bayar');
                 $table->text('status')->nullable();
                
             });   

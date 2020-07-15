@@ -121,6 +121,7 @@ class AnggotaController extends Controller
         // ]);
         Pinjaman::create([
             'anggota_id' => Session::get('ang_id'),
+            'kategori_id' => $angsur,
             'pinjaman_kode' =>$rand,
             'pinjaman_aju'=> $date,
             'pinjaman_tgl'=> $date,
@@ -130,7 +131,8 @@ class AnggotaController extends Controller
             'pinjaman_angsuran_lama' => $jas->kategori_lama_pinjaman,
             'ket_usaha' => $request->ket_usaha,
             'alamat_usaha' => $request->alamat_usaha,
-            'pinjaman_status' => 0 
+            'pinjaman_status' => 0,
+            'status_bayar' => 0
         ]);
         return redirect('anggota/data-pinjaman/'.$id.'')->with('alert-success','Pinjaman sudah dikirim, Mohon menuggu verifikasi !!');
 

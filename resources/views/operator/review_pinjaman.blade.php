@@ -76,6 +76,19 @@
                                 <label>Total Di bayarkaan</label>
                                 <input type="text" class="form-control" value="Rp.{{ number_format($total_bayar)}}" disabled>
                               </div>
+
+                              
+                              <div class="form-group">
+                                
+                                <label>Keterangan Usaha</label>
+                              <textarea class="form-control" rows="3" disabled>{{$dpj->ket_usaha}}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                              
+                              <label>Alamat Usaha</label>
+                            <textarea class="form-control" rows="3" disabled>{{$dpj->alamat_usaha}}</textarea>
+                          </div>
                         </div>
                         {{-- end data pinjman --}}
                         {{-- data pribadi peminjam --}}
@@ -91,7 +104,11 @@
                                     <label>NIK</label>
                                     <input type="text" class="form-control" value="{{ $pr->anggota_nik}}" disabled>
                                 </div>
-
+                                 
+                                <div class="form-group">
+                                  <label>Nomor Hp/Telp</label>
+                                  <input type="text" class="form-control" value="{{ $pr->anggota_kontak}}" disabled>
+                              </div>
                                 <div class="form-group">
                                     <label>Alamat </label>
                                     <input type="text" class="form-control" value="{{ $pr->anggota_alamat_ktp}}" disabled>
@@ -111,6 +128,7 @@
                                     <label>Gaji/bulan</label>
                                     <input type="text" class="form-control" value="Rp.{{ number_format($pr->anggota_gaji)}}" disabled>
                                 </div>
+
                              @endforeach
 
                              <div class="form-group">

@@ -18,7 +18,11 @@ class Pinjaman extends Model
         'pinjaman_skema_angsuran',
         'pinjaman_bunga',
         'pinjaman_angsuran_lama',
-        'pinjaman_status'
+        'ket_usaha',
+        'alamat_usaha',
+        'kategori_id',
+        'pinjaman_status',
+        'status_bayar'
     ];
 
     

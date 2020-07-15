@@ -99,7 +99,7 @@
 
                   
                 </div>
-                <button type="submit" class="btn btn-primary float-right" id="ajukan"> Ajukan Pinjaman &nbsp;&nbsp;<i class="fas fa-paper-plane"></i></button>
+                <button type="submit" class="btn btn-primary float-right" id="ajukan" style="display:none"> Ajukan Pinjaman &nbsp;&nbsp;<i class="fas fa-paper-plane"></i></button>
 
               </form>
             </div>

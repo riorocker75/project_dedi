@@ -30,6 +30,7 @@ class TblAnggota extends Migration
                 $table->text('anggota_kontak');
                 $table->text('anggota_pekerjaan');
                 $table->text('anggota_gaji');
+                // $table->text('suami_istri')->nullable();
                 $table->text('lvl_pinjaman')->nullable();
                 $table->text('foto')->nullable();
                 $table->date('tgl_gabung')->nullable();

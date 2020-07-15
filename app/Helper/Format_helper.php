@@ -19,3 +19,20 @@ function format_tanggal($tanggal){
     return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 }
 
+
+function status_bayar_pinjaman($status){
+    switch($status){
+        case 0:
+            echo "Tahap Ajukan";
+        break;
+        case 1:
+            echo "Masa Angsuran";
+        break;
+        case 2:
+            echo"lunas";
+        break;
+        default:
+        echo "none ";
+        break;
+    }
+}

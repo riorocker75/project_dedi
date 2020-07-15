@@ -89,15 +89,17 @@ class OperatorController extends Controller
     }
 
     function review_pinjaman_act(Request $request, $id){
-
+        $date=date('Y-m-d');
         $request->validate([
             'ket' => 'required|min:10'
         ]);
         switch ($request->input('action')) {
             case 'terima':
                 Pinjaman::where('id',$id)->update([
+                    'pinjaman_tgl' => $date,
                     'pinjaman_ket' =>$request->ket,
-                    'pinjaman_status' => 1
+                    'pinjaman_status' => 1,
+                    'status_bayar' => 1
                 ]);
             return redirect('/operator/data-pinjaman')->with('alert-success','Pinjaman berhasil disetujui');
 
