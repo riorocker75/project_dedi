@@ -77,7 +77,12 @@
                                 @endif
                               </div> 
 
+                              @if ($dx->status_bayar == 1)
+                                  
                               <button type="submit" class="btn btn-primary float-right"> Bayar <i class="fa fa-paper-plane"></i></button>
+                              @elseif($dx->status_bayar == 2)
+                              
+                              @endif
                     @endforeach 
                   </div>
                 </div>
@@ -122,7 +127,8 @@
                               <div class="form-group">
                                 @php
                                      $end = strtotime(date($dx->pinjaman_tgl));
-                                     $start = strtotime("+50 week", $end);
+                                     $week=$dx->pinjaman_angsuran_lama;
+                                     $start = strtotime("+$week week", $end);
                                 @endphp 
                                 <label for="">Jatuh Tempo Pada</label>
                               <input type="text" class="form-control" value="{{format_tanggal(date("Y-m-d", $start))}}" disabled>
