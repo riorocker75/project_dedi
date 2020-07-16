@@ -9,7 +9,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{ url('/dashboar/operator')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('/dashboar/admin')}}">Home</a></li>
                 <li class="breadcrumb-item active">Detail Pembayaran Pinjaman</li>
               </ol>
             </div>
@@ -17,7 +17,7 @@
         </div>
       </div>
      <!-- Main content -->
-     <form action="{{url('/operator/pembayaran/pinjaman/bayar/')}}" method="post">
+     <form action="{{url('/admin/pembayaran/pinjaman/bayar/')}}" method="post">
      <section class="content">
         <div class="container-fluid">
          

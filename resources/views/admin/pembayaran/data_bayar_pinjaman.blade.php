@@ -9,7 +9,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{ url('/dashboar/operator')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('/dashboard/admin')}}">Home</a></li>
                 <li class="breadcrumb-item active">Data Pembayaran Pinjaman</li>
               </ol>
             </div>
@@ -60,7 +60,7 @@
                             <td>{{status_bayar_pinjaman($dt->status_bayar)}}</td>
                             
                            <td>
-                                <a href="{{url('/operator/pembayaran/pinjaman/detail/'.$dt->pinjaman_kode.'')}}" style="padding:0 7px"> <i class="fa fa-eye"></i></a>
+                                <a href="{{url('/admin/pembayaran/pinjaman/detail/'.$dt->pinjaman_kode.'')}}" style="padding:0 7px"> <i class="fa fa-eye"></i></a>
                             </td>
                         </tr>
                         @endforeach

@@ -112,6 +112,11 @@ Route::get('/admin/transaksi/simpanan-umroh','Admin\TransaksiCtrl@transaksi_umro
 // simpanan pendidikan
 Route::get('/admin/transaksi/simpanan-pendidikan','Admin\TransaksiCtrl@transaksi_pendidikan');
 
+// bagian pembayaran
+Route::get('/admin/pembayaran/pinjaman','Admin\PembayaranCtrl@bayar_pinjaman');
+Route::get('/admin/pembayaran/pinjaman/detail/{id}','Admin\PembayaranCtrl@detail_bayar_pinjaman');
+Route::post('/admin/pembayaran/pinjaman/bayar','Admin\PembayaranCtrl@bayar_pinjaman_act');
+
 
 // laporan
 //-- laporan shu
@@ -159,10 +164,6 @@ Route::get('/operator/tambah/mohon/simpanan-umroh', 'Operator\AnggotaSimpanan@aj
 Route::get('/operator/tambah/mohon/simpanan-pendidikan', 'Operator\AnggotaSimpanan@aju_sim_pendidikan');
 
 
-// bagian pembayaran
-Route::get('/operator/pembayaran/pinjaman','Operator\PembayaranCtrl@bayar_pinjaman');
-Route::get('/operator/pembayaran/pinjaman/detail/{id}','Operator\PembayaranCtrl@detail_bayar_pinjaman');
-Route::post('/operator/pembayaran/pinjaman/bayar','Operator\PembayaranCtrl@bayar_pinjaman_act');
 
 
 

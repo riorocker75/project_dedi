@@ -72,33 +72,7 @@
                                     
             </ul>
           </li>
-          {{-- pembayaran --}}
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-print"></i>
-              <p>
-               Pembayaran
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview" style="margin-left:20px;font-size:14px">
-              <li class="nav-item">
-              <a href="{{url('/operator/pembayaran/pinjaman')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pembayaran Pembiayaan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('/operator/pembayaran/simpanan')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pembayaran Simpanan</p>
-                </a>
-              </li>
-                             
-            </ul>
-          </li>
-
-          {{-- end pembayaran --}}
+         
           {{-- aktifkan lagi laporan kalau udah fix --}}
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
