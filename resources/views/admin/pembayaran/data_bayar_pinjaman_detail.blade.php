@@ -141,7 +141,7 @@
                               @php
                               $source_sisa =App\Model\PinjamanTransaksi::where('pinjaman_kode',$dx->pinjaman_kode)->get();
                               // cek dulu ada apa nggak nya data di tabel itu baru -> kau bisa manggil dia last record row
-                              $sg= App\Model\PinjamanTransaksi::where('pinjaman_kode',$dx->pinjaman_kode)->orderBy('tgl_transaksi', 'DESC')->first(); 
+                              $sg= App\Model\PinjamanTransaksi::where('pinjaman_kode',$dx->pinjaman_kode)->orderBy('id', 'DESC')->first(); 
                             @endphp
                           
                             @if (count($source_sisa) > 0)

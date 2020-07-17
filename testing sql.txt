@@ -1,0 +1,10 @@
+query untuk last record dengan kode yang sama
+
+versi nulled sql
+SELECT pinjaman_kode, MAX(id) AS id FROM tbl_pinjaman_transaksi GROUP BY pinjaman_kode DESC 
+SELECT pinjaman_kode,tgl_transaksi,nominal_bayar, MAX(id) AS id FROM tbl_pinjaman_transaksi GROUP BY pinjaman_kode DESC 
+versi eloquent
+$messages = Message::select(DB::raw('t.*'))
+            ->from(DB::raw('(SELECT * FROM messages ORDER BY created_at DESC) t'))
+            ->groupBy('t.from')
+            ->get();

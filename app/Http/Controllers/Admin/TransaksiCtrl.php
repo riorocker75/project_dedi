@@ -13,8 +13,20 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 use App\Model\Admin;
+use App\Model\Pinjaman;
+use App\Model\Cat_Pinjaman;
+use App\Model\Cat_Simpanan;
+use App\Model\Tabungan;
+use App\Model\Simpanan;
+
 use App\Model\Anggota;
-use App\Model\Operator;
+
+use App\Model\PinjamanTransaksi;
+
+use App\Model\Simpanan\TransaksiSimpananLain;
+use App\Model\SimpananTransaksi;
+
+
 
 class TransaksiCtrl extends Controller
 {
@@ -54,7 +66,23 @@ class TransaksiCtrl extends Controller
     }
 
     function transaksi_pinjaman(){
-        return view('admin.transaksi.data_transaksi_pinjaman');
+
+        // $data_2=DB::table('tbl_pinjaman_transaksi')
+        // ->select(
+        // 'tbl_pinjaman_transaksi.*',
+        // DB::raw('pinjaman_kode, MAX(id) AS id') )
+        // ->groupBy('pinjaman_kode')
+        // ->orderby('pinjaman_kode', 'desc')
+        // ->get();
+
+        $data=DB::table('tbl_pinjaman_transaksi')
+        ->select(DB::raw('pinjaman_kode, MAX(id) as id'))
+        ->groupBy('pinjaman_kode')
+        ->orderby('pinjaman_kode', 'desc')
+        ->get();
+        return view('admin.transaksi.data_transaksi_pinjaman',[
+            'data' =>$data
+        ]);
     }
 
 

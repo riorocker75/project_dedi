@@ -37,67 +37,42 @@
                         <thead>
                           <tr>
                             <th>Kode Pembiayaan</th>
-                            <th>Jumlah Pembiayaan</th>
-                            <th>Skema Angsuran</th>  
+                            <th>Tanggal Transaksi</th>
+                            <th>Nominal Yang Dibayar</th>  
                             <th>Total Angsuran</th>                   
-                            <th>Lama Angsuran</th>                   
-                            <th>Status </th>                   
+                            <th>Sisa Angsuran</th>                   
+                            <th>Keterangan </th>                   
                             <th>Opsi</th>                   
                           </tr>
                         </thead>
                         <tbody> 
                             
+                        @foreach ($data as $dt)
+                            @php
+                                $cad=App\Model\PinjamanTransaksi::where('id',$dt->id)->first();
+                                $tbl_pinjaman=App\Model\Pinjaman::where('pinjaman_kode',$dt->pinjaman_kode)->first();
+                                $total_angsur = $tbl_pinjaman->pinjaman_skema_angsuran * $tbl_pinjaman->pinjaman_angsuran_lama;
+                            @endphp
                             {{-- data 1 --}}
                             <tr>
-                                <td>PNJ-8895
+                                <td>{{$dt->pinjaman_kode}}
                                     <br>
-                                    <small class="tgl-text">14-07-2020</small>
+                                <small class="tgl-text"></small>
                                 </td>
-                                <td>Rp. 5.000.0000</td>
-                                <td>Rp. 124.000/minggu</td>
-                                <td>Rp. 6.200.000</td>
-                                <td>50 minggu</td>
-                                <td><label class="badge badge-primary">Masa pembayaran</label></td>
+                                <td>{{format_tanggal(date('Y-m-d',strtotime($cad->tgl_transaksi)))}}</td>
+                                <td>Rp.{{number_format($cad->nominal_bayar)}}
+                                <br><small>Kembalian: Rp.{{number_format($cad->kembalian_bayar)}}</small>
+                                </td>
+                                <td>Rp. {{number_format($total_angsur)}}</td>
+                                <td>Rp. {{number_format($cad->sisa_bayar)}}</td>
+                                <td>{{$cad->ket_bayar}}</td>
                                 <td>
-                                <a href="" style="padding:0 7px"> <i class="fa fa-eye"></i></a>
-                                <a href="" target="__blank"> <i class="fas fa-money-bill"></i></a>
+                                <a href="{{url('/admin/pembayaran/pinjaman/detail/'.$dt->pinjaman_kode)}}" style="padding:0 7px"> <i class="fa fa-eye"></i></a>
                                 </td>
                             </tr>
+                            @endforeach
 
-                            {{-- data 2 --}}
-                            <tr>
-                                <td>PNJ-6652
-                                    <br>
-                                     <small class="tgl-text">14-07-2020</small>
-                                </td>
-                                <td>Rp. 3.000.0000</td>
-                                <td>Rp. 74.400/minggu</td>
-                                <td>Rp. 3.720.000</td>
-
-                                <td>50 minggu</td>
-                                <td><label class="badge badge-primary">Masa pembayaran</label></td>
-                                <td>
-                                <a href="" style="padding:0 7px"> <i class="fa fa-eye"></i></a>
-                                <a href="" target="__blank"> <i class="fas fa-money-bill"></i></a>
-                                </td>
-                            </tr>
-
-                             {{-- data 3 --}}
-                             <tr>
-                                <td>PNJ-6652
-                                    <br>
-                                    <small class="tgl-text">14-07-2020</small>
-                                </td>
-                                <td>Rp. 10.000.0000</td>
-                                <td>Rp. 242.000/minggu</td>
-                                <td>Rp. 12.100.000</td>
-                                <td>50 minggu</td>
-                                <td><label class="badge badge-primary">Masa pembayaran</label></td>
-                                <td>
-                                <a href="" style="padding:0 7px"> <i class="fa fa-eye"></i></a>
-                                <a href="" target="__blank"> <i class="fas fa-money-bill"></i></a>
-                                </td>
-                            </tr>
+                           
     
                         </tbody>   
                     </table> 
