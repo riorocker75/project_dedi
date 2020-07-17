@@ -121,3 +121,20 @@
   font-size: 14px;
   margin:7px 0;
 }
+
+.bingkai{
+  border:1px solid #c1c2c3;
+  padding:20px 10px;
+  border-radius:4px;
+  position: relative;
+  margin-bottom: 25px;
+}
+.judul-bingkai{
+  position: absolute;
+  top: -15px;
+  left:2px;
+  background: #fff;
+  padding: 0 7px;
+  font-size: 18px;
+  text-transform: uppercase;
+}

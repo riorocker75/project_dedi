@@ -22,10 +22,10 @@
             </div>
           </div>
           @if($errors->has('nama'))
-			<div class="text-danger">
-			    {{ $errors->first('nama')}}
-			</div>
-		 @endif
+        <small class="text-muted text-danger">
+            {{ $errors->first('nama')}}
+        </small>
+		     @endif
         </div>
 		
          <div class="input-group mb-3">
@@ -37,10 +37,10 @@
           </div>
            
         </div>
-         @if($errors->has('nik'))
-                <div class="text-danger">
+             @if($errors->has('nik'))
+                <small class="text-muted text-danger">
                     {{ $errors->first('nik')}}
-                </div>
+                </small>
             @endif
          <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Alamat KTP" name="alamat" required="required">
@@ -50,9 +50,9 @@
             </div>
           </div>
            @if($errors->has('alamat'))
-                <div class="text-danger">
+                <small class="text-muted text-danger">
                     {{ $errors->first('alamat')}}
-                </div>
+                </small>
             @endif
         </div>
 
@@ -68,9 +68,9 @@
             </div>
           </div>
            @if($errors->has('kelamin'))
-                <div class="text-danger">
+                <small class="text-muted text-danger">
                     {{ $errors->first('kelamin')}}
-                </div>
+                </small>
             @endif
         </div>
 
@@ -82,9 +82,9 @@
             </div>
           </div>
            @if($errors->has('kontak'))
-                <div class="text-danger">
+                <small class="text-muted text-danger">
                     {{ $errors->first('kontak')}}
-                </div>
+                </small>
             @endif
         </div>
 
@@ -104,9 +104,9 @@
           </div>
         </div>
          @if($errors->has('kerja'))
-              <div class="text-danger">
+              <small class="text-danger">
                   {{ $errors->first('kerja')}}
-              </div>
+              </small>
           @endif
         </div>
 
@@ -118,9 +118,9 @@
             </div>
           </div>
            @if($errors->has('gaji'))
-                <div class="text-danger">
+                <small class="text-danger">
                     {{ $errors->first('gaji')}}
-                </div>
+                </small>
             @endif
         </div>
 
@@ -133,11 +133,11 @@
             </div>
           </div>
         </div>
-		@if($errors->has('username'))
-		    <div class="text-danger">
-		        {{ $errors->first('username')}}
-		    </div>
-		@endif
+        @if($errors->has('username'))
+            <small class="text-danger">
+                {{ $errors->first('username')}}
+            </small>
+        @endif
         <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Password" name="password" required="required">
           <div class="input-group-append">
@@ -146,9 +146,9 @@
             </div>
           </div>
            @if($errors->has('password'))
-                <div class="text-danger">
+                <small class="text-danger">
                     {{ $errors->first('password')}}
-                </div>
+                </small>
             @endif
         </div>
         <div class="row">

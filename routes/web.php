@@ -87,6 +87,16 @@ Route::get('/admin/pekerjaan/delete-act/{id}', 'Admin\PekerjaanCtrl@tambah_delet
 Route::get('/admin/mohon-gabung','Admin\PengajuanCtrl@anggota_gabung');
 Route::get('/admin/detail/anggota-mohon/{id}','Admin\PengajuanCtrl@detail_gabung');
 
+//---tambah anggota
+Route::get('/admin/anggota/tambah','Admin\AnggotaCtrl@tambah_anggota');
+Route::post('/admin/anggota/tambah/act','Admin\AnggotaCtrl@tambah_anggota_act');
+
+// --detail,edit hapus anggota
+Route::get('/admin/detail/anggota/{id}','Admin\AnggotaCtrl@detail_anggota');
+Route::post('/admin/detail/anggota/update/{id}','Admin\AnggotaCtrl@update_anggota');
+Route::get('/admin/detail/anggota/hapus/{id}','Admin\AnggotaCtrl@hapus_anggota');
+
+
 //---pinjaman
 Route::get('/admin/data-pinjaman','Admin\PengajuanCtrl@data_peminjam');
 
