@@ -81,7 +81,7 @@
                               <label>Nama Suami/Istri</label>
                           <input type="text" name="suami_istri" class="form-control">                        
                           <small class="text-danger">*Kosongkan jika belum menikah / bercerai</small>
-                              
+                          <br>
                           @if($errors->has('suami_istri'))
                               <small class="text-danger">
                                   {{ $errors->first('suami_istri')}}
@@ -195,7 +195,8 @@
 
                                     </select> 
                                     <small class="text-danger">*pilih pratinjau jika belum ada survei langsung</small>
-                                     @if($errors->has('status_pinjaman'))
+                                    <br>
+                                    @if($errors->has('status_pinjaman'))
                                           <small class="text-danger">
                                               {{ $errors->first('status_pinjaman')}}
                                           </small>

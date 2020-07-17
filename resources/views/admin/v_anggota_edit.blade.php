@@ -90,7 +90,7 @@
                             <label>Nama Suami/Istri</label>
                         <input type="text" name="suami_istri" class="form-control" value="{{$pr->suami_istri}}">                        
                         <small class="text-danger">*Kosongkan jika belum menikah / bercerai</small>
-                            
+                        <br>    
                         @if($errors->has('suami_istri'))
                             <small class="text-danger">
                                 {{ $errors->first('suami_istri')}}
@@ -179,9 +179,9 @@
 
                               <div class="form-group">
                                 <label style="font-weight: 400!important">Password</label>
-                                <input type="password" class="form-control" placeholder="Password" name="password" required="required">
+                                <input type="password" class="form-control" placeholder="Password" name="password">
                                 <small class="text-danger">*Kosongkan jika tidak ingin merubah password</small>
-                               
+                               <br>
                                  @if($errors->has('password'))
                                       <small class="text-danger">
                                           {{ $errors->first('password')}}
@@ -194,7 +194,7 @@
                             <div class="judul-bingkai">Kelayakan Pembiayaan</div>
                             <div class="form-group">
                                 <label style="font-weight: 400!important">Status Pembiayaan</label>
-                                <select class="form-control" name="status_pinjaman" required="required">
+                                <select class="form-control" name="status_pinjaman" >
                                 <option value="{{$pr->status_pinjaman}}" selected hidden>{{layak_pinjam($pr->status_pinjaman)}}</option>
                                   <option value="">--Pilih Kelayakan--</option>
                                   <option value="0">Pratinjau</option>
@@ -203,7 +203,8 @@
 
                                 </select> 
                                 <small class="text-danger">*pilih pratinjau jika belum ada survei langsung</small>
-                                 @if($errors->has('status_pinjaman'))
+                                <br>
+                                @if($errors->has('status_pinjaman'))
                                       <small class="text-danger">
                                           {{ $errors->first('status_pinjaman')}}
                                       </small>

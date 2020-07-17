@@ -117,26 +117,22 @@ class AnggotaCtrl extends Controller
 	function update_anggota(Request $request,$id){
 		$nik = $request->nik;
         $nama = $request->nama;
-        $kelamin = $request->kelamin;
-        $alamat_ktp = $request->alamat;
+        $alamat_ktp = $request->alamat_ktp;
         $kontak = $request->kontak;
-        $tgl_lahir = $request->tgl_lahir;
+        $tgl_lahir = $request->tanggal_lahir;
         $username = $request->username;
 		$password = $request->password;
 		
 		$this->validate($request, [
             'nama' => 'required|min:4',
-            'nik' => 'required|min:4|unique:tbl_anggota,anggota_nik',
-            'username' => 'required|min:4|unique:tbl_anggota,anggota_username',
-            'password' => 'min:4',
+            'nik' => 'required|min:4|unique:tbl_anggota,anggota_nik,'.$nik.',anggota_nik',
+            'username' => 'required|min:4|unique:tbl_anggota,anggota_username,'.$username.',anggota_username',
             'kontak' => 'required|min:4',
-            'kelamin' => 'required',
-            'alamat' => 'required|min:4',
-            'kerja' =>'required',
+            'alamat_ktp' => 'required|min:4',
             'gaji' =>'required'
 		]);
 		
-		Anggota::where()->update([
+		Anggota::where('anggota_id',$id)->update([
 			'anggota_nama' =>$nama,
 			'anggota_nik' => $nik,
 			'anggota_username' =>$username,
@@ -152,6 +148,9 @@ class AnggotaCtrl extends Controller
 		]);
 
 		if($request->password != ""){
+			$this->validate($request, [
+				'password' => 'min:4'
+			]);
 			Anggota::where('anggota_id',$id)->update([
 				'anggota_password' =>bcrypt($password)
 			]);
