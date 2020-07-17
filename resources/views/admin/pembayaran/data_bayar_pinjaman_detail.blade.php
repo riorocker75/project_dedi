@@ -157,6 +157,18 @@
                                 <input type="text" class="form-control" value="Rp.{{number_format($sg->sisa_bayar)}}" disabled>
                               </div>
 
+                              <?php
+                                  $pemilik = App\Model\PinjamanTransaksi::where('pinjaman_kode',$sg->pinjaman_kode)
+                                    ->select(DB::raw('pinjaman_kode,  sum(kembalian_bayar) as total_kembalian'))
+                                    ->groupBy('pinjaman_kode')
+                                    ->get();
+                                foreach ($pemilik as $tk) {}
+                              ?>
+                              <div class="form-group">
+                                <label for="">Total Kembalian</label>
+                                <input type="text" class="form-control" value="Rp.{{number_format($tk->total_kembalian)}}" disabled>
+                              </div>
+
                               @else
 
                               <input type="text" name="angsuran" value="{{$total_angsur}}" hidden>
@@ -170,6 +182,8 @@
                                 <label for="">Sisa Angsuran</label>
                                 <input type="text" class="form-control" value="Belum Ada transaksi" disabled>
                               </div>
+
+                              
                             
                             @endif
                       </div>
@@ -222,7 +236,7 @@
                             <td>{{$dt->ket_bayar}}</td>
                             
                            <td>
-                                {{-- <a href="" style="padding:0 7px"> <i class="fa fa-eye"></i></a> --}}
+                           <a href="{{url('/admin/pembayaran/pinjaman/transaksi/hapus/'.$dt->id)}}" style="padding:0 7px"> <i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach

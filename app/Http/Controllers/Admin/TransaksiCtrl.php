@@ -67,14 +67,6 @@ class TransaksiCtrl extends Controller
 
     function transaksi_pinjaman(){
 
-        // $data_2=DB::table('tbl_pinjaman_transaksi')
-        // ->select(
-        // 'tbl_pinjaman_transaksi.*',
-        // DB::raw('pinjaman_kode, MAX(id) AS id') )
-        // ->groupBy('pinjaman_kode')
-        // ->orderby('pinjaman_kode', 'desc')
-        // ->get();
-
         $data=DB::table('tbl_pinjaman_transaksi')
         ->select(DB::raw('pinjaman_kode, MAX(id) as id'))
         ->groupBy('pinjaman_kode')
@@ -84,6 +76,8 @@ class TransaksiCtrl extends Controller
             'data' =>$data
         ]);
     }
+
+   
 
 
 

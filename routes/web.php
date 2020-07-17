@@ -126,6 +126,8 @@ Route::get('/admin/transaksi/simpanan-pendidikan','Admin\TransaksiCtrl@transaksi
 Route::get('/admin/pembayaran/pinjaman','Admin\PembayaranCtrl@bayar_pinjaman');
 Route::get('/admin/pembayaran/pinjaman/detail/{id}','Admin\PembayaranCtrl@detail_bayar_pinjaman');
 Route::post('/admin/pembayaran/pinjaman/bayar','Admin\PembayaranCtrl@bayar_pinjaman_act');
+Route::get('/admin/pembayaran/pinjaman/transaksi/hapus/{id}','Admin\PembayaranCtrl@hapus_tr_pinjaman');
+
 
 
 // laporan

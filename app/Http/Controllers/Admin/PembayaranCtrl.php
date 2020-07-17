@@ -85,5 +85,12 @@ class PembayaranCtrl extends Controller
 
     }
 
+    function hapus_tr_pinjaman($id){
+        // $kode_pinjam=PinjamanTransaksi::where('id',$id)->first();
+        PinjamanTransaksi::where('id',$id)->delete();
+       return redirect()->back()->with('alert-success','Data telah diperbaharui');
+
+    }
+
 
 }

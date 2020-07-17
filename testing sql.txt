@@ -8,3 +8,13 @@ $messages = Message::select(DB::raw('t.*'))
             ->from(DB::raw('(SELECT * FROM messages ORDER BY created_at DESC) t'))
             ->groupBy('t.from')
             ->get();
+
+untuk total semua dengan id sama
+select pinjaman_kode , sum(kembalian_bayar) from tbl_pinjaman_transaksi where pinjaman_kode ='PNJ-1760' group by pinjaman_kode
+
+real nya seperti ini
+$pemilik = App\Model\PinjamanTransaksi::where('pinjaman_kode',$sg->pinjaman_kode)
+                                    ->select(DB::raw('pinjaman_kode,  sum(kembalian_bayar) as total_kembalian'))
+                                    ->groupBy('pinjaman_kode')
+                                    ->get();
+foreach ($pemilik as $tk) {}
