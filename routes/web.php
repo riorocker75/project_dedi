@@ -59,6 +59,12 @@ Route::post('/admin/pengaturan/simpanan-umum/update', 'Admin\SimpananCtrl@atur_u
 
 //--pengaturan simpanan deposit
 Route::get('/admin/pengaturan/simpanan-deposit', 'Admin\SimpananCtrl@atur_deposit');
+Route::post('/admin/pengaturan/simpanan-deposit/tambah','Admin\SimpananCtrl@atur_deposit_act');
+Route::get('/admin/pengaturan/simpanan-deposit/edit/{id}', 'Admin\SimpananCtrl@atur_deposit_edit');
+Route::post('/admin/pengaturan/simpanan-deposit/update/{id}', 'Admin\SimpananCtrl@atur_deposit_update');
+
+Route::get('/admin/pengaturan/simpanan-deposit/hapus/{id}','Admin\SimpananCtrl@atur_deposit_hapus');
+
 
 //--pengaturan simpanan lain(umroh dan pendidikan)
 Route::get('/admin/pengaturan/simpanan-lain', 'Admin\SimpananCtrl@atur_lain');

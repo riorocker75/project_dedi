@@ -16,7 +16,9 @@ use App\Model\Simpanan;
 use App\Model\Simpanan\OpsiSimpanan;
 use App\Model\Simpanan\OpsiSimpananLain;
 
-use App\Model\SimpananBerjangka;
+use App\Model\Simpanan\SimpananBerjangka;
+use App\Model\Simpanan\OpsiSimpananBerjangka;
+
 
 
 
@@ -77,13 +79,67 @@ class SimpananCtrl extends Controller
 */
 
  function atur_deposit(){
-    	return view('admin.simpanan.opsi_simpanan_deposit');
+    $data= OpsiSimpananBerjangka::orderBy('id','desc')->get();
+
+    	return view('admin.simpanan.opsi_simpanan_deposit',[
+            'data' =>$data
+        ]);
     }
+
     function atur_deposit_act(Request $request){
+        $request->validate([
+            'nominal' => 'required',
+            'periode' =>'required',
+            'bunga' =>'required'
+        ]);
+        $bunga = $request->bunga / 100;
 
+        $nominal_bunga =$request->nominal * $bunga ;
+        $nisbah =round($nominal_bunga / $request->periode); 
+
+        OpsiSimpananBerjangka::create([
+            'nominal_deposit' => $request->nominal,
+            'periode_deposit' =>$request->periode,
+            'bunga_deposit' => $request->bunga,
+            'nisbah_bulan' =>$nisbah
+        ]);
+
+            return redirect('/admin/pengaturan/simpanan-deposit')->with('alert-success','Data telah disimpan');
     }
 
-    function atur_deposit_update(Request $request){
+    function atur_deposit_edit($id){
+        $data= OpsiSimpananBerjangka::orderBy('id','desc')->get();
+        $data_awal= OpsiSimpananBerjangka::where('id',$id)->get();
+    	return view('admin.simpanan.opsi_simpanan_deposit_edit',[
+            'data' =>$data,
+            'data_awal' =>$data_awal
+        ]);
+    }
+
+    function atur_deposit_update(Request $request,$id){
+        $request->validate([
+            'nominal' => 'required',
+            'periode' =>'required',
+            'bunga' =>'required'
+        ]);
+        $bunga = $request->bunga / 100;
+
+        $nominal_bunga =$request->nominal * $bunga ;
+        $nisbah =round($nominal_bunga / $request->periode); 
+
+        OpsiSimpananBerjangka::where('id',$id)->update([
+            'nominal_deposit' => $request->nominal,
+            'periode_deposit' =>$request->periode,
+            'bunga_deposit' => $request->bunga,
+            'nisbah_bulan' =>$nisbah
+        ]);
+
+            return redirect()->back()->with('alert-success','Data telah disimpan');
+    }
+
+    function atur_deposit_hapus($id){
+        OpsiSimpananBerjangka::where('id',$id)->delete();
+        return redirect('/admin/pengaturan/simpanan-deposit')->with('alert-danger','Data telah dihapus');
 
     }
 

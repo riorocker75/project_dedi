@@ -32,13 +32,16 @@
                 {{-- <a data-toggle="modal" data-target="#tambahdeposit"><i class="fa fa-plus"></i> Tambah Data</a> --}}
               </div>
             </div>
+            @foreach ($data_awal as $da)
             <div class="card-body">
-            <form action="{{url('/admin/pengaturan/simpanan-deposit/tambah')}}" method="post">
+            <form action="{{url('/admin/pengaturan/simpanan-deposit/update/'.$da->id)}}" method="post">
                 @csrf
+                    
+                
                   <div class="form-group">
                     <label for="">Nominal</label>
                     <input type="number"
-                      class="form-control" name="nominal" id="format_rupiah" required>
+                  class="form-control" name="nominal" id="format_rupiah" value="{{$da->nominal_deposit}}" required>
                       <div class="show_rupiah"></div>
                      
                       @if($errors->has('nominal'))
@@ -51,7 +54,7 @@
                   <div class="form-group">
                     <label for="">Periode (Bulan)</label>
                     <input type="number"
-                      class="form-control" name="periode" required>
+                      class="form-control" name="periode" value="{{$da->periode_deposit}}" required>
                     
                       @if($errors->has('periode'))
                       <small class="text-muted text-danger">
@@ -61,24 +64,21 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="">Bagi Hasil (%)</label>
+                    <label for="">Bunga (%)</label>
                     <input type="number"
-                      class="form-control" name="bunga" required>
+                      class="form-control" name="bunga" value="{{$da->bunga_deposit}}" required>
                     
                       @if($errors->has('bunga'))
-                      <small class="text-muted text-danger">
+                      <small class="text-muted text-danger" >
                           {{ $errors->first('bunga')}}
                           </small>
                       @endif
                   </div>
-                  <button type="submit" class="btn btn-primary float-right"><i class="fas fa-save"></i> Simpan</button>
-
-                  
-            </form>
-
-
-
-            </div>
+                    <button type="submit" class="btn btn-primary float-right"><i class="fas fa-save    "></i> Simpan Perubahan</button>
+                </form>
+                
+              </div>
+              @endforeach   
           </div>
         </section>
 
@@ -111,7 +111,7 @@
                         
                         <td>{{$dt->periode_deposit}} bulan</td>
                         <td>{{$dt->bunga_deposit}} %</td>
-                        <td>Rp. {{number_format($dt->nisbah_bulan)}} /bulan</td>
+                        <td>Rp.{{number_format($dt->nisbah_bulan)}} /bulan</td>
                         <td>
                         <a href="{{url('/admin/pengaturan/simpanan-deposit/edit/'.$dt->id)}}" style="padding:0 7px"> <i class="fa fa-eye"></i></a>
                         <a href="{{url('/admin/pengaturan/simpanan-deposit/hapus/'.$dt->id)}}" style="padding:0 7px"> <i class="fa fa-trash"></i></a>
