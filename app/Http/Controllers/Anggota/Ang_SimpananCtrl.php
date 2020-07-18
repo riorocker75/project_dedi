@@ -16,7 +16,16 @@ use App\Model\Pinjaman;
 use App\Model\Cat_Pinjaman;
 use App\Model\Cat_Simpanan;
 use App\Model\Tabungan;
+
 use App\Model\Simpanan;
+use App\Model\Simpanan\OpsiSimpanan;
+
+use App\Model\SimpananLain;
+use App\Model\Simpanan\OpsiSimpananLain;
+
+use App\Model\Simpanan\SimpananBerjangka;
+use App\Model\Simpanan\OpsiSimpananBerjangka;
+
 
 use App\Model\Anggota;
 use App\Model\Anggota_Gaji;
@@ -40,18 +49,67 @@ class Ang_SimpananCtrl extends Controller
         return view('anggota.simpanan.aju_simpanan');
     }
 
+/*
+============================
+| pengajuan simpanan umum
+============================
+*/
     function aju_simpanan_umum(){
         return view('anggota.simpanan.aju_simpanan_umum');
     }
+
+    function aju_simpanan_umum_act(Request $request){
+        $s_opsi =OpsiSimpanan::where('id',1)->first();
+
+        $no_rek='88'.rand(10000,9999);
+        $date=date('Y-m-d');
+
+        $request->validate([
+            'sukarela' =>   'required'
+        ]);
+
+        $total_simpanan = $request->sukarela - ($s_opsi->simpanan_pokok + $s_opsi->biaya_buku);
+        Simpanan::create([
+            'no_rekening' =>$no_rek,
+            'anggota_id' => Session::get('ang_id'),
+            'total_simpanan' => $total_simpanan,
+            'simpanan_opsi_id' => 1,
+            'jlh_pokok' => $s_opsi->simpanan_pokok,
+            'jlh_wajib' => $s_opsi->simpanan_wajib,
+            'tgl_buka_rek' => $date,
+            'status' => 0
+        ]);
+
+        return redirect('/anggota/aju-simpanan')->with('alert-success','Permohonan Di lanjutkan ke Pengurus');
+
+    }
+
+/*
+============================
+|  pengajuan simpanan Deposit
+============================
+*/    
     function aju_simpanan_deposit(){
         return view('anggota.simpanan.aju_simpanan_berjangka');
     }
+
+/*
+============================
+|  pengajuan simpanan Umroh
+============================
+*/    
     function aju_simpanan_umroh(){
         return view('anggota.simpanan.aju_simpanan_umroh');
     }
+/*
+============================
+|  pengajuan simpanan Pendidikan
+============================
+*/    
     function aju_simpanan_pendidikan(){
         return view('anggota.simpanan.aju_simpanan_pendidikan');
     }
+
 
 
 }

@@ -33,18 +33,32 @@
                   </div>
                 </div>
                 <div class="card-body">
-                <a href="{{url('/anggota/ajukan/simpanan-umum')}}" class="btn btn-default"> Ajukan Simpanan Sukarela <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                   <br> 
-                   <br> 
+                 @php
+                     $ang = App\Model\Anggota::where('anggota_id', Session::get('ang_id'))->first();
+                 @endphp 
+
+                 @if ($ang->status_simpanan == 0)
+                 <a href="{{url('/anggota/ajukan/simpanan-umum')}}" class="btn btn-default"> Ajukan Simpanan Sukarela <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                 <br> 
+                 <br> 
+                 @endif
+                 
+                 @if ($ang->status_deposit == 0)
                 <a href="{{url('/anggota/ajukan/simpanan-deposit')}}" class="btn btn-default"> Ajukan Simpanan Berjangka <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                    <br> 
                    <br>  
-                <a href="{{url('/anggota/ajukan/simpanan-umroh')}}" class="btn btn-default"> Ajukan Simpanan Umroh <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                   <br> 
-                   <br> 
-                   <a href="{{url('/anggota/ajukan/simpanan-pendidikan')}}" class="btn btn-default"> Ajukan Simpanan Pendidikan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                   <br> 
-                   <br>       
+                @endif
+                  @if ($ang->status_umroh == 0)
+                  <a href="{{url('/anggota/ajukan/simpanan-umroh')}}" class="btn btn-default"> Ajukan Simpanan Umroh <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    <br> 
+                    <br> 
+                    @endif
+                @if ($ang->status_pendidikan == 0)
+                  <a href="{{url('/anggota/ajukan/simpanan-pendidikan')}}" class="btn btn-default"> Ajukan Simpanan Pendidikan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                  <br> 
+                  <br> 
+                @endif
+
                 </div>
               </div>
             </section>

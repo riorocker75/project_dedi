@@ -56,6 +56,10 @@ class AnggotaGabung extends Controller
         case 'terima':
             Anggota::where('anggota_id',$id)->update([
                 'status_pinjaman' =>$request->status_pinjam,
+                'status_simpanan' => 0,
+                'status_deposit' => 0,
+                'status_umroh' => 0,
+                'status_pendidikan' => 0,
                 'tgl_gabung' => date('Y-m-d'),
                 'status' => 1
             ]);
@@ -65,6 +69,10 @@ class AnggotaGabung extends Controller
         case 'tolak':
             Anggota::where('anggota_id',$id)->update([
                 'status_pinjaman' =>$request->status_pinjam,
+                'status_simpanan' => 0,
+                'status_deposit' => 0,
+                'status_umroh' => 0,
+                'status_pendidikan' => 0,
                 'status' => 2
             ]);
         return redirect('/operator/mohon-gabung/')->with('alert-warning','Penolakan berhasil');

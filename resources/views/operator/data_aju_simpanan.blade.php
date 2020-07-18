@@ -37,7 +37,9 @@
                     <thead>
                       <tr>
                         <th>Kode Anggota</th>
-                        <th>Nominal Transaksi</th>  
+                        <th>Nama & NIK</th>
+
+                        <th>Nominal Pengajuan</th>  
                         <th>Status</th>                 
                         <th>Opsi</th>                   
                       </tr>
@@ -45,34 +47,33 @@
                     <tbody> 
                         
                         {{-- data 1 --}}
+                        @php
+                            $sim_umum =App\Model\Simpanan::where('status', 0)->get();
+                        @endphp
+
+                        @foreach ($sim_umum as $su)
                         <tr>
-                            <td>AG-827
-                              <br>
-                              <small class="tgl-text">14-07-2020</small>
-                            </td>
-                          
-                            <td>Rp.200.000</td>
-                            <td><label class="badge badge-warning">menuggu konfirmasi</label></td>
-                            <td>
-                            <a href="" style="padding:0 7px"> <i class="fa fa-eye"></i></a>
-                            </td>
+                          @php
+                            $ang_umum = App\Model\Anggota::where('anggota_id',$su->anggota_id)->first();
+                          @endphp
+                          <td>{{$ang_umum->anggota_kode}}
+                            <br>
+                          <small class="tgl-text">Pengajuan: {{format_tanggal(date('Y-m-d', strtotime($su->tgl_buka_rek)))}}</small>
+                          </td>
+                          <td>
+                            {{$ang_umum->anggota_nama}}
+                            <br>
+                            NIK: {{$ang_umum->anggota_nik}}
+                          </td>
+                          <td>Rp.{{number_format($su->total_simpanan)}}</td>
+                          <td><label class="badge badge-warning">menuggu konfirmasi</label></td>
+                          <td>
+                          <a href="{{url('/operator/detail/aju/simpanan-umum/'.$su->no_rekening)}}" style="padding:0 7px"> <i class="fa fa-eye"></i></a>
+                          </td>
                         </tr>
+                        @endforeach
 
-                        {{-- data 2 --}}
-                        <tr>
-                            <td>AG-652
-                              <br>
-                              <small class="tgl-text">14-07-2020</small>
-                            </td>
-                          
-                            <td>Rp.50.000</td>
-                            <td><label class="badge badge-warning">menuggu konfirmasi</label></td>
-
-                            <td>
-                            <a href="" style="padding:0 7px"> <i class="fa fa-eye"></i></a>
-                            </td>
-                        </tr>
-
+                        
                        
 
                     </tbody>   

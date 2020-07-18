@@ -36,6 +36,9 @@ class Anggota_seed extends Seeder
 
             'status_pinjaman' =>1,
             'status_simpanan' =>1,
+            'status_deposit' =>0,
+            'status_umroh' =>0,
+            'status_pendidikan' =>0,
             'status' => 1,
             'foto' => "" 
 
@@ -59,6 +62,9 @@ class Anggota_seed extends Seeder
             'tgl_gabung' =>"2020-06-20",
             'status_pinjaman' =>1,
             'status_simpanan' =>1,
+            'status_deposit' =>0,
+            'status_umroh' =>0,
+            'status_pendidikan' =>0,
             'status' => 1,
             'foto' => "" 
         ]);
@@ -83,6 +89,10 @@ class Anggota_seed extends Seeder
 
             'status_pinjaman' =>0,
             'status_simpanan' =>0,
+            'status_deposit' =>0,
+            'status_umroh' =>0,
+            'status_pendidikan' =>0,
+
             'status' =>0,
             'foto' => "" 
         ]);

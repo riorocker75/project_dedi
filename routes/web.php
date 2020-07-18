@@ -171,15 +171,25 @@ Route::post('/operator/review-act/{id}','Operator\OperatorController@review_pinj
 
 // masalah simpanan
 Route::get('/operator/data-simpanan','Operator\AnggotaSimpanan');
-Route::get('/operator/detail/mohon-simpanan/{id}','Operator\AnggotaSimpanan@detail_pemohon');
-Route::post('/operator/mohon-simpanan/act{id}','Operator\AnggotaSimpanan@mohon_act');
-Route::get('/operator/tambah/mohon-simpanan','Operator\AnggotaSimpanan@tambah_mohon');
 
-// approve pengaju simpanan
-Route::get('/operator/tambah/mohon/simpanan-umum', 'Operator\AnggotaSimpanan@aju_sim_umum');
-Route::get('/operator/tambah/mohon/simpanan-deposit', 'Operator\AnggotaSimpanan@aju_sim_deposit');
-Route::get('/operator/tambah/mohon/simpanan-umroh', 'Operator\AnggotaSimpanan@aju_sim_umroh');
-Route::get('/operator/tambah/mohon/simpanan-pendidikan', 'Operator\AnggotaSimpanan@aju_sim_pendidikan');
+//--simpanan umum aju dari sisi anggota
+Route::get('/operator/detail/aju/simpanan-umum/{id}','Operator\AnggotaSimpanan@aju_sim_umum');
+Route::post('/operator/aju/simpanan-umum/act', 'Operator\AnggotaSimpanan@aju_umum_act');
+
+//--simpanan deposit aju dari sisi anggota
+Route::get('/operator/detail/aju/simpanan-deposit/{id}', 'Operator\AnggotaSimpanan@aju_sim_deposit');
+Route::post('/operator/aju/simpanan-deposit/act', 'Operator\AnggotaSimpanan@aju_deposit_act');
+
+//--simpanan umroh aju dari sisi anggota
+Route::get('/operator/detail/aju/simpanan-umroh/{id}', 'Operator\AnggotaSimpanan@aju_sim_umroh');
+Route::post('/operator/aju/simpanan-umroh/act', 'Operator\AnggotaSimpanan@aju_umroh_act');
+
+//--simpanan pendidikan aju dari sisi anggota
+Route::get('/operator/detail/aju/simpanan-pendidikan/{id}', 'Operator\AnggotaSimpanan@aju_sim_pendidikan');
+Route::post('/operator/aju/simpanan-pendidikan/act', 'Operator\AnggotaSimpanan@aju_pendidikan_act');
+
+
+
 
 
 
@@ -229,7 +239,11 @@ Route::get('/anggota/detail-pinjaman/{id}', 'Anggota\Ang_PinjamanCtrl@simulasi_b
 // bagian ajukan simpanan
 Route::get('/anggota/aju-simpanan','Anggota\Ang_SimpananCtrl');
 
+//--ajukan simpanan umum
 Route::get('/anggota/ajukan/simpanan-umum','Anggota\Ang_SimpananCtrl@aju_simpanan_umum');
+Route::post('/anggota/ajukan/simpanan-umum/act','Anggota\Ang_SimpananCtrl@aju_simpanan_umum_act');
+
+//--ajukan simpanan berjangka
 Route::get('/anggota/ajukan/simpanan-deposit','Anggota\Ang_SimpananCtrl@aju_simpanan_deposit');
 Route::get('/anggota/ajukan/simpanan-umroh','Anggota\Ang_SimpananCtrl@aju_simpanan_umroh');
 Route::get('/anggota/ajukan/simpanan-pendidikan','Anggota\Ang_SimpananCtrl@aju_simpanan_pendidikan');

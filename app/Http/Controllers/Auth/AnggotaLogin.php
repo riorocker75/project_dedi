@@ -114,6 +114,12 @@ class AnggotaLogin extends Controller
        $data->anggota_gaji =$request->gaji;
        $data->anggota_pekerjaan = $request->kerja;
 
+	   $data->status_pinjaman=0;
+	   $data->status_simpanan=0;
+	   $data->status_deposit=0;
+	   $data->status_umroh=0;
+       $data->status_pendidikan=0;
+       
        $data->status = 0;
        $data->save();
 

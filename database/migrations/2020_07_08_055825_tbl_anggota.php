@@ -36,6 +36,12 @@ class TblAnggota extends Migration
                 $table->date('tgl_gabung')->nullable();
                 $table->text('status_pinjaman')->nullable()->comment('0=tahap review,1=layak,2=tidak layak');
                 $table->text('status_simpanan')->nullable()->comment('0=tahap review,1=layak,2=tidak layak');
+                $table->text('status_deposit')->nullable()->comment('0=tahap review,1=layak,2=tidak layak');
+                $table->text('status_umroh')->nullable()->comment('0=tahap review,1=layak,2=tidak layak');
+                $table->text('status_pendidikan')->nullable()->comment('0=tahap review,1=layak,2=tidak layak');
+
+
+
             
                 $table->text('status');
 

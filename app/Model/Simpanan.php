@@ -12,6 +12,8 @@ class Simpanan extends Model
         'anggota_id',
         'no_rekening',
         'simpanan_opsi_id',
+        'jlh_pokok',
+        'jlh_wajib',
         'total_simpanan',
         'tgl_buka_rek',
         'status'

@@ -38,26 +38,42 @@
                         $ops=App\Model\Simpanan\OpsiSimpanan::where('id',1)->first();
                     @endphp  
                     
-                    <form action="" method="post">
+                <form action="{{url('/anggota/ajukan/simpanan-umum/act')}}" method="post">
                         @csrf
                        <div class="form-group">
-                         <label for="">Nama</label>
-                       <input type="text" name="nama" id="" class="form-control" value="{{$dt->anggota_nama}}" disabled>
+                         <label for="">Nama dan NIK</label>
+                       <input type="text" class="form-control" value="{{$dt->anggota_nama}} | {{$dt->anggota_nik}}" disabled>
                        </div> 
 
                        <div class="form-group">
                         <label for="">Simpanan Pokok</label>
-                      <input type="text" id="" class="form-control" value="Rp.{{number_format($ops->simpanan_pokok)}}" disabled>
+                      <input type="text" class="form-control" value="Rp.{{number_format($ops->simpanan_pokok)}}" disabled>
                       </div> 
 
                        <div class="form-group">
                         <label for="">Simpanan Wajib/bulan</label>
-                      <input type="text" id="" class="form-control" value="Rp.{{number_format($ops->simpanan_wajib)}}" disabled>
+                      <input type="text" class="form-control" value="Rp.{{number_format($ops->simpanan_wajib)}}" disabled>
                       </div> 
 
                       <div class="form-group">
-                        <label for="">Jumlah Setoran Awal</label>
-                      <input type="number" name="sukarela" id="" class="form-control" >
+                        <label for="">Nisbah pertahun</label>
+                      <input type="text" class="form-control" value="{{$ops->bunga}} %" disabled>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="">Biaya Buku Tabungan Awal</label>
+                      <input type="text"  class="form-control" value="Rp.{{number_format($ops->biaya_buku)}}" disabled>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="">Jumlah Setoran Awal</label>
+                        <input type="number" name="sukarela" id="format_rupiah" class="form-control" min="50000" required>
+                        <div class="show_rupiah"></div>
+                          @if($errors->has('sukarela'))
+                          <small class="text-muted text-danger">
+                          {{ $errors->first('sukarela')}}
+                          </small>
+                          @endif
                       </div> 
 
                       <button class="btn btn-primary float-right" type="submit">Ajukan Simpanan Sukarela <i class="fa fa-paper-plane"></i></button>
