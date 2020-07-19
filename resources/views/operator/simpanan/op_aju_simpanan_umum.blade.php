@@ -33,17 +33,27 @@
                   </div>
                 </div>
                 <div class="card-body">
+                   
+
+                @foreach ($data as $dt)
+                <form action="{{url('/operator/aju/simpanan-umum/act/'.$dt->no_rekening)}}" method="post">
+                    @csrf
+
                     @php
-                        // $dt = App\Model\Anggota::where('anggota_id',Session::get('ang_id'))->first();
-                        $ops=App\Model\Simpanan\OpsiSimpanan::where('id',1)->first();
-                    @endphp  
-                    
-                    <form action="" method="post">
-                        @csrf
+                    $ops=App\Model\Simpanan\OpsiSimpanan::where('id',1)->first();
+                      $ang=App\Model\Anggota::where('anggota_id',$dt->anggota_id)->first();
+                    @endphp
                         <div class="form-group">
-                            <label for="">Nama dan Nik</label>
-                            <select name="" class="form-control">
-                                   <option value="">Dedi | 985687855</option> 
+                            <label for="">Nama</label>
+                           <input class="form-control" type="text" value="{{$ang->anggota_nama}}" disabled>
+                            </select>
+                          </div> 
+                         
+                          <input type="number" name="ang_id" value="{{$dt->anggota_id}}" hidden>
+
+                          <div class="form-group">
+                            <label for="">NIK</label>
+                           <input class="form-control" type="text" value="{{$ang->anggota_nik}}" disabled>
                             </select>
                           </div> 
 
@@ -59,11 +69,20 @@
 
                       <div class="form-group">
                         <label for="">Jumlah Setoran Awal</label>
-                      <input type="number" name="sukarela" id="" class="form-control" >
+                      <input type="number" name="sukarela" id="format_rupiah" class="form-control" value="{{$dt->total_simpanan}}">
+                        @if($errors->has('sukarela'))
+                        <small class="text-muted text-danger">
+                        {{ $errors->first('sukarela')}}
+                        </small>
+                        @endif
+                      <div class="show_rupiah"></div>
                       </div> 
 
                       <button class="btn btn-primary float-right" type="submit">Setujui Simpanan Sukarela <i class="fa fa-paper-plane"></i></button>
+                      <a href="{{url('/operator/detail/aju/simpanan-umum/hapus/'.$dt->no_rekening)}}" class="btn btn-default"><i class="fa fa-trash" ></i> Hapus</a>
                     </form>
+                    @endforeach
+
                 </div>
               </div>
             </section>

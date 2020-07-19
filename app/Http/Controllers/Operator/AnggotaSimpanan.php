@@ -56,11 +56,33 @@ class AnggotaSimpanan extends Controller
 ==============================
 */    
     function aju_sim_umum($id){
-        return view('operator.simpanan.op_aju_simpanan_umum');
+        $data=Simpanan::where('no_rekening',$id)->get();
+        return view('operator.simpanan.op_aju_simpanan_umum',[
+            'data' =>$data
+        ]);
     }
 
     function aju_umum_act(Request $request,$id){
+     
+            $request->validate([
+                'sukarela' => 'required'
+            ]);
+            $date=date('Y-m-d');
 
+            Anggota::where('anggota_id',$request->ang_id)->update([
+                'status_simpanan' =>1
+            ]);
+            Simpanan::where('no_rekening',$id)->update([
+                 'status' => 1,
+                 'tgl_buka_rek' =>$date,
+                 'total_simpanan' =>$request->sukarela   
+            ]);
+
+            return redirect('/operator/data-simpanan')->with('alert-success','Simpanan Berhasil Di setujui');
+    }
+    function aju_umum_hapus($id){
+        Simpanan::where('no_rekening',$id)->delete();
+        return redirect('/operator/data-simpanan')->with('alert-danger','Data Telah dihapus');
     }
 
 

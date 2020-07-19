@@ -174,11 +174,14 @@ Route::get('/operator/data-simpanan','Operator\AnggotaSimpanan');
 
 //--simpanan umum aju dari sisi anggota
 Route::get('/operator/detail/aju/simpanan-umum/{id}','Operator\AnggotaSimpanan@aju_sim_umum');
-Route::post('/operator/aju/simpanan-umum/act', 'Operator\AnggotaSimpanan@aju_umum_act');
+Route::post('/operator/aju/simpanan-umum/act/{id}', 'Operator\AnggotaSimpanan@aju_umum_act');
+Route::get('/operator/detail/aju/simpanan-umum/hapus/{id}', 'Operator\AnggotaSimpanan@aju_umum_hapus');
+
 
 //--simpanan deposit aju dari sisi anggota
 Route::get('/operator/detail/aju/simpanan-deposit/{id}', 'Operator\AnggotaSimpanan@aju_sim_deposit');
 Route::post('/operator/aju/simpanan-deposit/act', 'Operator\AnggotaSimpanan@aju_deposit_act');
+Route::get('/operator/detail/aju/simpanan-deposit/hapus/{id}', 'Operator\AnggotaSimpanan@aju_deposit_hapus');
 
 //--simpanan umroh aju dari sisi anggota
 Route::get('/operator/detail/aju/simpanan-umroh/{id}', 'Operator\AnggotaSimpanan@aju_sim_umroh');

@@ -29,7 +29,7 @@
                     Simpanan Sukarela
                   </h3>
                   <div class="card-tools">
-                  <a href="{{url('/operator/tambah/mohon/simpanan-umum')}}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Pemohon</a>
+                  {{-- <a href="{{url('/operator/tambah/mohon/simpanan-umum')}}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Pemohon</a> --}}
                   </div>
                 </div>
                 <div class="card-body">

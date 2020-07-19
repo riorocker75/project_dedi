@@ -10,11 +10,13 @@ class SimpananTransaksi extends Model
     public $timestamps = false;
     protected $fillable =[
         'anggota_id',
-        'kode_rekening',
+        'no_rekening',
         'operator_id',
-        'jumlah_transaksi',
         'tgl_transaksi',
-        'jenis_transaksi'
+        'jenis_transaksi',
+        'kode_simpanan',
+        'kode_transaksi',
+        'nominal_transaksi'
       
     ];
 }

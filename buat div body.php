@@ -55,3 +55,5 @@
 <!-- buat rupiah show -->
 <input type="number" class="form-control" name="" id="format_rupiah" >
 <div class="show_rupiah"></div>
+
+->with('alert-warning','Penolakan berhasil');

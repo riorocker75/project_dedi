@@ -138,3 +138,11 @@
   font-size: 18px;
   text-transform: uppercase;
 }
+
+.balok{
+  padding: 15px;
+  border: 2px solid #c1c2c3;
+  background:#fff;
+  border-radius: 4px;
+  margin:20px 0;
+}
