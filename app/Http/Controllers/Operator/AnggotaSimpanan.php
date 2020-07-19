@@ -94,7 +94,12 @@ class AnggotaSimpanan extends Controller
     function aju_sim_deposit($id){
         return view('operator.simpanan.op_aju_simpanan_deposit');
     }
-    function aju_deposit_act(Request $request,$id){}
+    function aju_deposit_act(Request $request,$id){
+        
+        $request->validate([
+            
+        ]);
+    }
 
 /*
 ==================================

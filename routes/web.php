@@ -232,8 +232,12 @@ Route::get('/anggota/ajukan-pinjaman' , 'Anggota\AnggotaController@aju_pinjam');
 Route::post('/anggota/ajukan-pact' , 'Anggota\AnggotaController@aju_pinjam_act');
 Route::get('/anggota/view-pinjaman/{id}', 'Anggota\AnggotaController@view_pinjaman');
 
+// pengecekan di ajax
 Route::post('/anggota/cek-angsur','Anggota\AnggotaController@cek_angsuran');
 Route::post('/anggota/cek-angsur-fix','Anggota\AnggotaController@cek_angsuran_fix');
+Route::post('/anggota/cek-deposit','Anggota\AnggotaController@cek_deposit');
+
+
 
 // detail pinjaman
 Route::get('/anggota/detail-pinjaman/{id}', 'Anggota\Ang_PinjamanCtrl@simulasi_bayar');

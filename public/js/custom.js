@@ -102,5 +102,28 @@ $(document).ready(function () {
  
 });
 
+$(document).ready(function () {
+   
+  $('#deposit').change(function () {
+    var deposit =$('#deposit').children("option:selected").val(); 
+         if(deposit.length > 0){ 
+
+            $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+              type:"post",
+              url:"/anggota/cek-deposit",
+              data:{deposit:deposit},
+              success: function(data){          
+                $('#review_deposit').html(data);
+                
+              }
+            });
+          }
+   
+   });
+});
+
 
 

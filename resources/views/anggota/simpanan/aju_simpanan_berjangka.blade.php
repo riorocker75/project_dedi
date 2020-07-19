@@ -45,35 +45,25 @@
                        </div> 
 
                        {{-- buat ajax cek di simpanan berjangka detailnya  --}}
+                       @php
+                           $deposit=App\Model\Simpanan\OpsiSimpananBerjangka::orderBy('id','asc')->get();
+                       @endphp
                        <div class="form-group">
                         <label for="">Simpanan Berjangka</label>
-                        <select name="nominal" class="form-control">
-                            <option value="">Rp. 5.000.000</option>
-                            <option value="">--pilih nominal deposit--</option>
+                        <select name="nominal" class="form-control" id="deposit" required>
+                          <option value="">--Pilih Nominal Simpanan Berjangka--</option>
+                            @foreach ($deposit as $dp)
+                            <option value="{{$dp->id}}">Rp.{{number_format($dp->nominal_deposit)}}</option>
+                            @endforeach
 
                         </select>
                          </div> 
 
                          {{-- disini dibuat show data aja --}}
-                         <div class="form-group">
-                            <label for="">Periode</label>
-                            <input type="text" id="" class="form-control" value="12 bulan" disabled>
-                           
-                        </div> 
-                        <div class="form-group">
-                            <label for="">Bagi Hasil Per 12bulan</label>
-                            <input type="text" id="" class="form-control" value="10%" disabled>
-                           
-                        </div> 
-
-                        <div class="form-group">
-                            <label for="">Nisbah perbulan</label>
-                            <input type="text" id="" class="form-control" value="Rp.41.667" disabled>
-                           
-                        </div> 
+                        <div id="review_deposit"></div>
                       {{-- end show data ajax --}}
 
-                      <button class="btn btn-primary float-right" type="submit">Ajukan Simpanan Berjangka <i class="fa fa-paper-plane"></i></button>
+                      <button class="btn btn-primary float-right" type="submit" style="display:none" id="tampil_deposit">Ajukan Simpanan Berjangka <i class="fa fa-paper-plane"></i></button>
                     </form>
                 </div>
               </div>

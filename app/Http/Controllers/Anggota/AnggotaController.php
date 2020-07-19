@@ -24,6 +24,9 @@ use App\Model\Anggota_Gaji;
 
 use App\Model\Operator;
 
+use App\Model\Simpanan\OpsiSimpananBerjangka;
+
+
 
 use App\Model\User;
 class AnggotaController extends Controller
@@ -246,7 +249,47 @@ class AnggotaController extends Controller
         }
     }
 
+    function cek_deposit(Request $request){
 
+        $nominal =$request->deposit;
+        $review=OpsiSimpananBerjangka::where('id',$nominal)->first();
+            $nilai_depo=number_format($review->nominal_deposit);
+            $bunga_depo=$review->bunga_deposit;
+            
+            $nisbah_depo=number_format($review->nisbah_bulan);
+            $lama_depo=number_format($review->periode_deposit);
+
+
+        echo "
+                <div class='form-group'>
+                    <label>Nilai Simpanan</label>
+                    <input type='text' class='form-control' value='Rp.$nilai_depo' disabled>
+                </div>
+
+                <div class='form-group'>
+                    <label>Periode</label>
+                    <input type='text' class='form-control' value='$lama_depo bulan' disabled>
+                </div> 
+
+                <div class='form-group'>
+                    <label>Bunga perbulan</label>
+                    <input type='text' class='form-control' value='$bunga_depo %' disabled>
+                </div> 
+                <div class='form-group'>
+                    <label>Bagi Hasil Perbulan</label>
+                    <input type='text' class='form-control' value='Rp.$nisbah_depo' disabled>
+                </div> 
+        ";
+
+        echo "
+                <script>
+                $(document).ready(function () {
+                    $('#tampil_deposit').css('display','block');
+                });
+                </script>
+            ";
+
+    }
 
 
 }
