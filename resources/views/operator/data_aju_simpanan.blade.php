@@ -73,8 +73,6 @@
                         </tr>
                         @endforeach
 
-                        
-                       
 
                     </tbody>   
                 </table>
@@ -93,7 +91,6 @@
                     Simpanan Berjangka
                   </h3>
                   <div class="card-tools">
-                  <a href="{{url('/operator/tambah/mohon/simpanan-deposit')}}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Pemohon</a>
                   </div>
                 </div>
                 <div class="card-body">
@@ -101,7 +98,7 @@
                     <thead>
                       <tr>
                         <th>Kode Anggota</th>
-                        <th>Nominal Transaksi</th>  
+                        <th>Nominal Simpanan</th>  
                         <th>Status</th>                 
                         <th>Opsi</th>                   
                       </tr>
@@ -109,18 +106,29 @@
                     <tbody> 
                         
                         {{-- data 1 --}}
+
+                        @php
+                        $sim_deposit =App\Model\Simpanan\SimpananBerjangka::where('status', 0)->get();
+                         @endphp
+                             
+                         @foreach ($sim_deposit as $sd)
+                         @php
+                         $ang_depo = App\Model\Anggota::where('anggota_id',$sd->anggota_id)->first();
+                         @endphp
                         <tr>
-                            <td>AG-827
+                            <td>{{ $ang_depo->anggota_kode}}
                               <br>
-                              <small class="tgl-text">14-07-2020</small>
+                              <small class="tgl-text">{{format_tanggal(date('Y-m-d',strtotime($sd->tgl_deposit)))}}</small>
                             </td>
-                            <td>Rp.5.0000.000</td>
+                            <td>Rp.{{number_format($sd->nilai_deposit)}}</td>
                             <td><label class="badge badge-warning">menuggu konfirmasi</label></td>
 
                             <td>
-                            <a href="" style="padding:0 7px"> <i class="fa fa-eye"></i></a>
+                            <a href="{{url('/operator/detail/aju/simpanan-deposit/'.$sd->rekening_deposit)}}" style="padding:0 7px"> <i class="fa fa-eye"></i></a>
                             </td>
                         </tr>
+                        @endforeach
+
                     </tbody>   
                 </table>
                 </div>

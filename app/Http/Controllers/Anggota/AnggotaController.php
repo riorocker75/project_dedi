@@ -235,8 +235,6 @@ class AnggotaController extends Controller
                 <label>Total Pengembalian</label>
                 <input type='text' class='form-control' value='$num_tk' disabled>
             </div>
-
-            
             ";
 
             echo "

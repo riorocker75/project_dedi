@@ -34,20 +34,33 @@
                 </div>
                 <div class="card-body">
                   
-                    
-                    <form action="" method="post">
+                    @foreach ($data as $dt)
+                        
+                <form action="{{url('/operator/aju/simpanan-deposit/act')}}" method="post">
                         @csrf
+
+                      @php
+                      $ops=App\Model\Simpanan\OpsiSimpananBerjangka::where('id',$dt->opsi_deposit_id)->first();
+                        $ang=App\Model\Anggota::where('anggota_id',$dt->anggota_id)->first();
+                      @endphp
                        <div class="form-group">
                          <label for="">Nama</label>
-                       <input type="text" name="nama" id="" class="form-control" value="Dedi Nik:985687855" disabled>
+                       <input type="text" class="form-control" value="{{$ang->anggota_nama}}" disabled>
                        </div> 
+
+                       <div class="form-group">
+                        <label for="">NIK</label>
+                      <input type="text" class="form-control" value="{{$ang->anggota_nik}}" disabled>
+                      </div>
 
                        {{-- buat ajax cek di simpanan berjangka detailnya  --}}
                        <div class="form-group">
                         <label for="">Simpanan Berjangka</label>
                         <select name="nominal" class="form-control">
-                            <option value="">Rp. 5.000.000</option>
-                            <option value="">--pilih nominal deposit--</option>
+                          <option value=""></option>
+                          @foreach ($ops as $op)
+                              
+                          @endforeach
 
                         </select>
                          </div> 
@@ -73,6 +86,8 @@
 
                       <button class="btn btn-primary float-right" type="submit">Setujui Simpanan Berjangka <i class="fa fa-paper-plane"></i></button>
                     </form>
+                    @endforeach
+
                 </div>
               </div>
             </section>

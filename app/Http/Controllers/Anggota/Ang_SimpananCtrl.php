@@ -93,6 +93,27 @@ class Ang_SimpananCtrl extends Controller
         return view('anggota.simpanan.aju_simpanan_berjangka');
     }
 
+    function aju_deposit_act(Request $request){
+        $no_rek='86'.rand(1000,9999);
+        $request->validate([
+            'nominal' => 'required'
+        ]);
+        $date=date('Y-m-d');
+        $nilai_depo=OpsiSimpananBerjangka::where('id', $request->nominal)->first();
+        SimpananBerjangka::create([
+           'opsi_deposit_id' =>$request->nominal,
+           'anggota_id' => $request->ang_id,
+           'rekening_deposit' => $no_rek,
+           'nilai_deposit' => $nilai_depo->nominal_deposit,
+           'jangka_deposit' => $nilai_depo->periode_deposit,
+           'tgl_deposit' => $date,
+           'status' =>0
+        ]);
+
+        return redirect('/anggota/aju-simpanan')->with('alert-success','Permohonan Di lanjutkan ke Pengurus');
+
+    }
+
 /*
 ============================
 |  pengajuan simpanan Umroh

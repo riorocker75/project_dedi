@@ -10,10 +10,12 @@ class SimpananBerjangka extends Model
    public $timestamps = false;
         protected $fillable =[
             'opsi_deposit_id',
+            'anggota_id',
             'rekening_deposit',
             'nilai_deposit',
             'jangka_deposit',
-            'tgl_deposit'
+            'tgl_deposit',
+            'status'
 
         ];
 }

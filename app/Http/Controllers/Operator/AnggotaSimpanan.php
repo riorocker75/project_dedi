@@ -92,13 +92,16 @@ class AnggotaSimpanan extends Controller
 ================================
 */ 
     function aju_sim_deposit($id){
-        return view('operator.simpanan.op_aju_simpanan_deposit');
+        $data=SimpananBerjangka::where('rekening_deposit',$id)->get();
+        return view('operator.simpanan.op_aju_simpanan_deposit',[
+            'data' =>$data
+        ]);
     }
     function aju_deposit_act(Request $request,$id){
         
-        $request->validate([
+        // $request->validate([
             
-        ]);
+        // ]);
     }
 
 /*

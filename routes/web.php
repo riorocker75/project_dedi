@@ -252,6 +252,8 @@ Route::post('/anggota/ajukan/simpanan-umum/act','Anggota\Ang_SimpananCtrl@aju_si
 
 //--ajukan simpanan berjangka
 Route::get('/anggota/ajukan/simpanan-deposit','Anggota\Ang_SimpananCtrl@aju_simpanan_deposit');
+Route::post('/anggota/ajukan/simpanan-deposit/act','Anggota\Ang_SimpananCtrl@aju_deposit_act');
+
 Route::get('/anggota/ajukan/simpanan-umroh','Anggota\Ang_SimpananCtrl@aju_simpanan_umroh');
 Route::get('/anggota/ajukan/simpanan-pendidikan','Anggota\Ang_SimpananCtrl@aju_simpanan_pendidikan');
 

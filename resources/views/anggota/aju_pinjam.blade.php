@@ -48,7 +48,7 @@
 
                     <div class="form-group">
                       <label>Gaji perbulan</label>
-                      @php
+                      @php  
                           $anggota= App\Model\Anggota::where('anggota_id',Session::get('ang_id'))->first();
                       @endphp
                     <input type="text" class="form-control" value=Rp.{{number_format($anggota->anggota_gaji)}} disabled>

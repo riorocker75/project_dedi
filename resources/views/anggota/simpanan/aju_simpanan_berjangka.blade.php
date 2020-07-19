@@ -37,11 +37,12 @@
                         $dt = App\Model\Anggota::where('anggota_id',Session::get('ang_id'))->first();
                     @endphp  
                     
-                    <form action="" method="post">
+                <form action="{{url('/anggota/ajukan/simpanan-deposit/act')}}" method="post">
                         @csrf
                        <div class="form-group">
                          <label for="">Nama</label>
-                       <input type="text" name="nama" id="" class="form-control" value="{{$dt->anggota_nama}}" disabled>
+                       <input type="text" name="ang_id" value="{{$dt->anggota_id}}" hidden>
+                       <input type="text" class="form-control" value="{{$dt->anggota_nama}}" disabled>
                        </div> 
 
                        {{-- buat ajax cek di simpanan berjangka detailnya  --}}
@@ -56,6 +57,11 @@
                             <option value="{{$dp->id}}">Rp.{{number_format($dp->nominal_deposit)}}</option>
                             @endforeach
 
+                          @if($errors->has('nominal'))
+                          <small class="text-muted text-danger">
+                          {{ $errors->first('nominal')}}
+                          </small>
+                          @endif
                         </select>
                          </div> 
 
